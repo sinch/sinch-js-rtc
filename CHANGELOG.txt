@@ -1,0 +1,55 @@
+Sinch 1.0.0
+	- TO BE WRITTEN
+
+Sinch Beta 0.9.9
+	- Sample web application and backend demonstrating how to integrate 
+	  authentication with your backend
+	- Manage active connections with sinchClient.startActiveConnection() and 
+	  sinchClient.stopActiveConnection()
+
+	Important: Active connections MUST now be either started manually, or with 
+	option "supportActiveConnection: true" on SinchClient instantiation, if 
+	application will receive calls / IM.
+	
+	- Send & Receive custom headers on call, new method: call.getHeaders()
+	- Consolidate customer headers in Call Detail Reports (CDR)
+	- Bug fixes & development convenience improvements
+		- On demand signal connection; on incoming call or when making call, 
+		  reduce open connection count
+		- Handle quick/rapid hang-ups for web-to-web and web-to-phone calls
+		- Timeouts on calling when recipient is not online
+		- Proxy fallback on data calling
+
+Sinch Beta 0.9.8
+	- Application to application calling (web-to-web only)
+	- Updated sample apps, web-to-web example added
+	- Several bugfixes in Sinch SDK
+	- Call reporting for statistics, PSTN & Data
+	- Refactor build infrastructure for Node JS loader compatibility
+	- Changed call.callEndCause to integers. For human readable end-cause use 
+	  call.getEndCause()
+	- Fixed bug: Client timestamps syncronized with backend
+
+Sinch Beta 0.9.7
+	- Fixed minor PubNub bugg
+
+Sinch Beta 0.9.6
+	- Added warning in Chrome if loaded using file:
+	- Sample app output of starting time checks for undefined time
+	- Throw exception on incompatible browser for calling capability
+
+Sinch Beta 0.9.5
+	- Documentation updates
+
+Sinch Beta 0.9.4
+	- Documentation updates
+	- Removed callEndState.NONE, default to undefined instead
+
+Sinch Beta 0.9.3
+	- Bugfixes
+	- Backend example for non-Sinch user authentication
+
+Sinch Beta 0.9.2
+	- Added PSTN Calling
+	- Added sample PSTN app for making PSTN calls
+	

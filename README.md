@@ -3,10 +3,22 @@ sinch-js-rtc
 
 Sinch JS SDK for real time communication
 
+Bower
+=====
+
+You can install Sinch RTC SDK in your project using Bower;
+
+	bower install sinch-rtc
+
+Import the Sinch SDK in your website using
+
+	<script src="<PATH_TO_BOWER_MODULES>/sinch-rtc/sinch.min.js"></script>
+
+
 Node JS
 =======
 
-Install Sinch RTC SDK using
+Sinch is also available as a node package. Install Sinch RTC SDK using;
 
 	npm install sinch-rtc
 
@@ -26,19 +38,7 @@ Simple code example
 			console.log('Success!');
 		})
 
-Applications developed with node package does not quite yet support Browserify. 
-
-Bower
-=====
-
-For webpages the Sinch bower package is preferred. Install using
-
-	bower install sinch-rtc
-
-Import the Sinch SDK in your website using
-
-	<script src="<PATH_TO_BOWER_MODULES>/sinch-rtc/sinch.min.js"></script>
-
+Applications developed with node package does not quite yet support Browserify without some minor modifications.
 
 
 

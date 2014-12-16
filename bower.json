@@ -5,19 +5,18 @@
   "authors": [
     "magnus.lundstedt <magnus@sinch.com>"
   ],
-  "description": "Sinch JS SDK for real time communication",
+  "description": "Sinch JS SDK for real time communication, voice and IM",
   "main": "web/sinch.min.js",
   "keywords": [
     "Sinch",
     "JS",
     "SDK",
-    "RTC",
     "WebRTC",
     "VoIP",
     "cloud",
     "calling",
-    "im",
-    "browser",
+    "IM",
+    "web",
     "conference"
   ],
   "license": "Proprietary (See LICENSE.txt)",

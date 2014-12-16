@@ -1,7 +1,7 @@
 {
   "name": "sinch-rtc",
   "version": "0.0.5",
-  "description": "Sinch JS SDK for real time communication",
+  "description": "Sinch JS SDK for real time communication, voice and IM",
   "main": "lib/sinch.node.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,20 +14,19 @@
     "Sinch",
     "JS",
     "SDK",
-    "RTC",
     "WebRTC",
     "VoIP",
     "cloud",
     "calling",
-    "im",
-    "browser",
+    "IM",
+    "web",
     "conference"
   ],
   "author": "Magnus Lundstedt",
   "contributors": [
     {
       "name": "Magnus Lundstedt",
-      "email": "magnus@precisit.com"
+      "email": "magnus@sinch.com"
     }
   ],
   "dependencies": {
