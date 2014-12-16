@@ -1,10 +1,51 @@
-sinch-js-rtc
-============
+Sinch Javascript SDK 1.0.0
+==========================
+Welcome to Sinch js SDK.
 
-Sinch JS SDK for real time communication
+Copyright 2014, Rebtel Networks AB
 
-Bower
-=====
+
+Features
+========
+ - Sinch SDK for web
+ - PSTN Calling
+ 	- Make calls using WebRTC
+ - Web calling 
+ 	- Make and receive calls using WebRTC
+ 	- Limited to browsers now, compatibility with native clients coming
+ - Instant messaging
+ 	- One or more recipients
+ 	- Delivery receipts
+ - Partner user management
+ 	- Authentication ticket for session creation
+ 	- Allows full user management for partner
+ 	- Include sample backend and usage in sample app (SinchAUTHsample)
+ 	- NOTE: Review your app setting for "JS Auth" in the Sinch portal
+ - Sinch user management
+ 	- Create user, update password and basic profile
+ 	- Authenticate as user
+
+Note: Browser/browser calling is implemented, Browser/iOS or Browser/Android is 
+still in development. 
+
+Should you encounter any bugs, glitches, lack of functionality or other problems
+using  our SDK, please send us an email to dev@sinch.com. Your help in this 
+regard is greatly appreciated.
+
+
+Quick start
+===========
+
+* Include Sinch JS SDK with:
+	<script src="//cdn.sinch.com/latest/sinch.min.js"></script>
+
+* Read the user-guide for introduction and the reference docs for details. 
+
+* Look at the sample apps for inspiration.
+
+
+Install using Bower
+===================
 
 You can install Sinch RTC SDK in your project using Bower;
 
@@ -15,8 +56,8 @@ Import the Sinch SDK in your website using
 	<script src="<PATH_TO_BOWER_MODULES>/sinch-rtc/sinch.min.js"></script>
 
 
-Node JS
-=======
+Install using Node JS
+=====================
 
 Sinch is also available as a node package. Install Sinch RTC SDK using;
 
@@ -38,7 +79,94 @@ Simple code example
 			console.log('Success!');
 		})
 
-Applications developed with node package does not quite yet support Browserify without some minor modifications.
+Applications developed with node package does not quite yet support Browserify,
+without some minor modifications.
+
+
+Getting Started
+===============
+Familiarise yourself with the user guide (documentation folder or online).
+
+Have a look at the Sample App in the samples/ folder, where you'll find:
+	- SinchIMsample, our Instant Messaging sample app
+	- SinchPSTNsample, our PSTN calling sample app
+	- SinchWEBsample, our Web to Web calling sample app
+	- SinchAUTHsample, our sample for demonstrating integrating authenticate 
+	  users with a custom backend
+	- python-backend-sample, a sample backend for Sinch written in Python 
+	  (see README.md for more information on getting started)
+
+These sample apps demonstrate user management, session handling and more. 
+The interesting stuff can be found in the .js files.
+
+In order to get started follow these steps: 
+
+ 1) Try open SinchIMsample/index.html in a web-browser (Chrome or Firefox). 
+ 	Open the developer console. 
+ 2) In the browser window you should see a web form where you can either create 
+ 	a new user or login as a user. 
+ 3) Try creating a user
+ 4) An error message "Illegal Authorization Header" error is shown. This is 
+ 	because the sample app don't use your app key yet. 
+ 5) Go to www.sinch.com, create an account and a new application (or use an 
+ 	already existing app)
+ 6) Replace MY_APPLICATION_KEY in IMsample.js with your application key. 
+ 7) Try creating a user, now it should work!
+ 8) Open the same page in a separate window and create another user
+ 9) You can now try sending messages between these two users.
+
+Note: Currently there is a connection-limit interfering when too many tabs are 
+open at the same time. Please use multiple browsers and/or Incognito mode when 
+developing.
+
+Have a look at the source code in IMsample.js, enable the onLogMessage callback 
+if you're curious about the activity under the hood. It's a good way to have 
+logging enabled during development for easy error tracking.
+
+You can also activate session loading by enabling the if-statement on line 36, 
+by removing "false" from the if-statement. The PSTN and AUTH sample application 
+has this activated by default, please see the PSTNsample.js file for reference.
+
+As for the PSTN sample app, you may have to load the application from a web 
+server (can be local), depending on the security settings for WebRTC in your 
+browser. Also, when trying PSTN calls please ensure you replace 
+"MY_APPLICATION_KEY" with your actual key. 
+
+
+Documentation
+=============
+The user-guide is available in the docs/ folder. 
+Simply open index.html and read about:
+	- Instructions for first-time developers
+	- Using Sinch in your app for sending and receiving messages
+	- Using Sinch in your app for making PSTN calls
+	- Using Sinch in your app for making data calls
+	- Learn about sinch authentication 
+	- Session Management 
+	- Other information about Sinch, such as creating your app, note on export 
+	  regulations and more.
+
+Reference documentation is available in docs/ folder. Read about: 
+	 - SinchClient (starting point)
+	 - MessageClient
+	 - CallClient
+
+
+Known issues
+============
+- There is an issue running too many instances at the same time. No more than 
+  4-5 instances can be run at the same time in the same browser. 
+  (if problem experienced, restart browser and only run one instance and try 
+  again with fewer instances)
+- After three failed login attempts on one user accounts, that account is 
+  locked for a while with no ability to unlock.
+- Restore messages missed since last login is currently disabled. 
+- When browser close, any ongoing PSTN calls are not terminated properly but 
+  relies on B-side doing a time-out. (~ 1 minute)
+- Browserify is not yet supported for Node JS distribution. 
+
+
+
 
 
 
