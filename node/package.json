@@ -1,0 +1,45 @@
+{
+  "name": "sinch-rtc",
+  "version": "0.0.5",
+  "description": "Sinch JS SDK for real time communication",
+  "main": "lib/sinch.node.min.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sinch/sinch-js-rtc.git"
+  },
+  "keywords": [
+    "Sinch",
+    "JS",
+    "SDK",
+    "RTC",
+    "WebRTC",
+    "VoIP",
+    "cloud",
+    "calling",
+    "im",
+    "browser",
+    "conference"
+  ],
+  "author": "Magnus Lundstedt",
+  "contributors": [
+    {
+      "name": "Magnus Lundstedt",
+      "email": "magnus@precisit.com"
+    }
+  ],
+  "dependencies": {
+    "atob": "^1.1.2",
+    "localStorage": "^1.0.3",
+    "pubnub": "3.7.0",
+    "q": "^1.0.1",
+    "xmlhttprequest": "^1.6.0"
+  },
+  "license": "Proprietary (see LICENSE.txt)",
+  "bugs": {
+    "url": "https://github.com/sinch/sinch-js-rtc/issues"
+  },
+  "homepage": "https://github.com/sinch/sinch-js-rtc"
+}
