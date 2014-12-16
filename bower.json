@@ -28,6 +28,6 @@
     "bower_components",
     "test",
     "tests",
-    "!web/sinch.min.js"
+    "!sinch.min.js"
   ]
 }

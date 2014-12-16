@@ -33,6 +33,13 @@ Bower
 
 For webpages the Sinch bower package is preferred. Install using
 
+	bower install sinch-rtc
+
+Import the Sinch SDK in your website using
+
+	<script src="<PATH_TO_BOWER_MODULES>/sinch-rtc/sinch.min.js"></script>
+
+
 
 
 
