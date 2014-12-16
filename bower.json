@@ -1,6 +1,6 @@
 {
   "name": "sinch-rtc",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "homepage": "https://github.com/sinch/sinch-js-rtc",
   "authors": [
     "magnus.lundstedt <magnus@sinch.com>"
