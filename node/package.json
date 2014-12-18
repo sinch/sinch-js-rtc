@@ -1,6 +1,6 @@
 {
   "name": "sinch-rtc",
-  "version": "0.0.5",
+  "version": "1.0.0",
   "description": "Sinch JS SDK for real time communication, voice and IM",
   "main": "lib/sinch.node.min.js",
   "scripts": {
@@ -36,7 +36,7 @@
     "q": "^1.0.1",
     "xmlhttprequest": "^1.6.0"
   },
-  "license": "Proprietary (see LICENSE.txt)",
+  "license": "Proprietary",
   "bugs": {
     "url": "https://github.com/sinch/sinch-js-rtc/issues"
   },

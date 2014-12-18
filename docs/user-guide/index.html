@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Sinch JavaScript User Guide</title>
+	<meta name="copyright" content="Copyright (c) 2014 Sinch Networks AB. All rights reserved."/>
+	<link type="text/css" rel="stylesheet" href="css/Sinch.css"/>
+</head>
+<body>
+
+<h1 id="introduction">Introduction</h1>
+
+<p>The Sinch SDK is a product that makes adding voice calling and/or instant messaging to web apps easy. It handles the complexity of signaling and audio management while providing you the freedom to create a stunning user interface. The current release supports instant messaging, web to phone calling and web to web calling. Web to app calling is coming soon (iOS and Android).</p>
+
+<p>This document provides an overview for developers integrating with the Sinch SDK for the first time. It outlines the prerequisites and guides you through the process of sending and receiving instant messages. </p>
+
+<p>Please see the <a href="http://www.sinch.com/docs/javascript/reference/">Reference Documentation</a> for a comprehensive description of all the classes.</p>
+
+<p><strong>Please note</strong> Should you encounter any bugs, glitches, lack of functionality or other problems using our SDK, please send us an email to <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#100;&#x65;&#x76;&#64;&#x73;&#105;&#x6e;&#x63;&#104;&#46;&#99;&#111;&#109;">&#x64;&#101;&#x76;&#x40;&#115;&#105;&#110;&#x63;&#x68;&#x2e;&#x63;&#111;&#109;</a>.</p>
+
+<p>Your help in this regard is greatly appreciated.</p>
+
+<h1 id="firsttimesetup">First time setup</h1>
+
+<p>This is a step-by-step guide about setting up the Sinch SDK for the first time.</p>
+
+<h2 id="registeranapplication">Register an Application</h2>
+
+<ol>
+<li>Register a Sinch Developer account at <a href="http://www.sinch.com/signup">http://www.sinch.com/signup</a>.</li>
+<li>Setup a new Application using the Dashboard where you can then obtain an <em>Application Key</em> and an <em>Application Secret</em>.</li>
+</ol>
+
+<h2 id="download">Download</h2>
+
+<p>The Sinch SDK can be downloaded at <a href="http://www.sinch.com/downloads/">www.sinch.com/downloads/</a>. It contains: the Sinch JS SDK, this user guide, reference documentation, and sample apps. </p>
+
+<h2 id="runningsampleapps">Running sample apps</h2>
+
+<p>Make sure you configure your application key in the sample apps by replacing the placeholder text &#8220;MY_APPLICATION_KEY&#8221; with your key. Samples can be run in the browser as files by double clicking the index.html file. Make sure you open the developer console in your browser to catch possible error messages. </p>
+
+<p><em>Note: Calling only works in Chrome or Firefox browser at this moment. Chrome additionally requires the webpage to be loaded using http or https and is not compatible with local storage (i.e., file://).</em></p>
+
+<h2 id="development">Development</h2>
+
+<p>There are many ways to include Sinch in your project, enabling you to select a suitable method depending on which way your project is set up. </p>
+
+<h3 id="hostedwithyourwebapp">Hosted with your webapp</h3>
+
+<p>You can host the library co-located with your website and include Sinch using</p>
+
+<pre><code>&lt;script src=&quot;sinch.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<h3 id="loadfromsinchcdn">Load from Sinch CDN</h3>
+
+<p>If you prefer to always load the latest version from our CDN, use</p>
+
+<pre><code>&lt;script src=&quot;//cdn.sinch.com/latest/sinch.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<p>To control which version you load from our CDN, use</p>
+
+<pre><code>&lt;script src=&quot;//cdn.sinch.com/0.0.1/sinch.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<h3 id="sinchisavailableasanpmpackage">Sinch is available as a npm package</h3>
+
+<p>If you are using <a href="http://www.nodejs.org">NodeJS</a>, add a dependency to sinch by running: </p>
+
+<pre><code>npm install sinch-rtc --save
+</code></pre>
+
+<p><em>Note: The &#8211;save flag is optional for saving the dependency in package.json</em></p>
+
+<p>Import Sinch SDK in your project using</p>
+
+<pre><code>var SinchClient = require('sinch-rtc');
+</code></pre>
+
+<h3 id="sinchisavailableasabowermodule">Sinch is available as a Bower module</h3>
+
+<p>If you are using <a href="http://www.bower.org">Bower</a>, add a dependency to sinch by running: </p>
+
+<pre><code>bower install sinch-rtc --save
+</code></pre>
+
+<p>Import the Sinch SDK in your website using</p>
+
+<pre><code>&lt;script src=&quot;PATH_TO_BOWER_MODULES/sinch-rtc/sinch.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<p><em>Note: The &#8211;save flag is optional for saving the dependency in bower.json</em></p>
+
+<h1 id="sinchclient">Sinch client</h1>
+
+<p>The <code>SinchClient</code> class is the SDK entry point. It is used to configure the user&#8217;s and device&#8217;s capabilities, as well as providing access to feature classes such as the MessageClient and the CallClient. </p>
+
+<h2 id="instantiatingthesinchclient">Instantiating the SinchClient</h2>
+
+<p>In order to use Sinch you first need to create a &#8220;sinchClient&#8221; object using the application key and other options of your choice.</p>
+
+<pre><code>var sinchClient = new SinchClient({
+    applicationKey: '&lt;application_key&gt;',
+    capabilities: {messaging: true},
+});
+</code></pre>
+
+<p>The <em>&lt;application_key&gt;</em> is obtained from the Sinch Developer Dashboard. In this example, only the messaging capability is activated. </p>
+
+<h2 id="specifyingcapabilities">Specifying capabilities</h2>
+
+<p>The sinchClient can be configured to enable / disable certain functionality. Please see the <a href="http://www.sinch.com/docs/javascript/reference/">Reference Documentation</a> for details.</p>
+
+<p>The following example shows how to setup the client with both voice calling and instant messaging enabled.</p>
+
+<pre><code>var sinchClient = new SinchClient({
+    applicationKey: '&lt;application_key&gt;',
+    capabilities: {messaging: true, calling: true},
+    supportActiveConnection: true,
+});
+</code></pre>
+
+<p>Creating the client using <code>supportActiveConnection: true</code> will enable online capabilities for receiving incoming calls and messages. If application is started in this way, connection can be activated at any time using <code>sinchClient.startActiveConnection()</code>. Starting and stopping the connection can be done repeatedly. When your application expects incoming messages or calls, you should keep the connection open. In a future release, the Sinch JS SDK will be able to fall back to browser notifications if no active connection is available.</p>
+
+<p><em>Note:</em> If application is only making outgoing PSTN calls but not receive incoming calls or messages, don&#8217;t call <code>sinchClient.startActiveConnection()</code>. Outgoing calls can be made without the active connection since it will automatically start the signaling channel as needed.</p>
+
+<h2 id="startingthesinchclient">Starting the Sinch client</h2>
+
+<p>A <code>SinchClient</code> is started with an object describing the identity of the user. </p>
+
+<pre><code>sinchClient.start({username: '&lt;user id&gt;', password: '&lt;password&gt;'})
+</code></pre>
+
+<p>When starting Sinch, supplying a user identity with password is one way of starting the client; use this when you want Sinch to manage your users for you.</p>
+
+<p>If you prefer to manage your users yourself, and/or select a third party provider, a <code>SinchClient</code> instance can also be started using a valid authentication ticket. Please see the chapter on authentication for an overview of Sinch user identity management and options for managing your own users. There is also an sample app, <em>SinchAUTHsample</em>, which demonstrates this concept. </p>
+
+<h2 id="asynchronoussinchcalls">Asynchronous Sinch Calls</h2>
+
+<p>The Sinch SDK contains many asynchronous methods. Several network requests are made in the background when making certain method calls and, while this happens, your code will continue to execute.</p>
+
+<p>When using asynchronous methods in Sinch, there are two ways of acting on the result. All asynchronous methods accept two callbacks as additional parameters, first the success callback, then the fail callback. </p>
+
+<p>Additionally, all asynchronous methods in Sinch also return a promise, which will either be resolved or rejected. If it&#8217;s resolved the next method in the chain, which is specified using <code>.then()</code>, will be called. If there is an failure, the method specified in <code>.fail()</code> will be called.</p>
+
+<h3 id="sinchwithcallbacks">Sinch with callbacks</h3>
+
+<pre><code>var handleSuccess = function() = {...};
+var handleFail = function() = {...};
+
+sinchClient.start(loginObj, handleSuccess, handleFail);
+</code></pre>
+
+<h3 id="sinchwithpromises">Sinch with promises</h3>
+
+<pre><code>var handleSuccess = function() = {...};
+var handleFail = function() = {...};
+
+sinchClient.start(loginObj)
+    .then(handleSuccess)
+    .fail(handleFail);
+</code></pre>
+
+<p>The benefit of using promises is that it&#8217;s easy to make a <em>chain of method calls</em> and the code will be clearer, but either method works fine.</p>
+
+<p><em>Note: If both callbacks and promises are used, the execution order are for callbacks to be executed first followed by the methods in the promise-chain, specified using <code>.then()</code></em></p>
+
+<h1 id="calling">Calling</h1>
+
+<p>The Sinch SDK supports two types of calls: <em>web-to-web</em> calls and <em>web-to-phone</em> calls. At the moment, calling is only supported in Chrome and Firefox, and we hope to add support in more browsers later on. <code>CallClient</code> is the entry point for the calling functionality of the Sinch SDK.</p>
+
+<p>Calls are placed through the <code>CallClient</code> and general events are received through <code>eventListener</code> callback on CallClient. The call client is owned by the SinchClient and accessed using <code>sinchClient.getCallClient()</code>. When a call is placed, a new <code>call</code> object is generated. It&#8217;s possible to add eventListener` callbacks on the created call-object, to listen for events related to this call, such as when the call state changes.</p>
+
+<p>Calling is not enabled by default. Enable calling by instantiating <code>SinchClient</code> in the following way:</p>
+
+<pre><code>var sinchClient = new SinchClient({applicationKey: '...', capabilities: {calling: true}});
+</code></pre>
+
+<h2 id="setupaweb-to-webcall">Set up a <em>web-to-web</em> call</h2>
+
+<p>Use the CallClient to start the call (the <code>callUser</code> method). Pass the user identifier of the callee (the user receiving the call) to the call method, so that Sinch services can connect the call to the callee.</p>
+
+<pre><code>var sinchClient = new SinchClient({applicationKey: '...', capabilities: {calling: true}});
+Call call = sinchClient.callUser('&lt;remote user id&gt;');
+call.addEventListener(...); 
+</code></pre>
+
+<p>A call object is returned, containing details about the participants in the call, call details such as start time, call state, possible errors, and so on.</p>
+
+<p>Assuming any of callee’s apps are available, the method <code>onCallProgressing</code> is called on the <code>CallListener</code>. It notifies the application that the outgoing call is progressing. If a progress tone should be played, this is where it should be started.</p>
+
+<p>When the other party answers, the <code>onCallEstablished</code> method is called. Now, the users can start talking. If a progress tone was previously played, it should be stopped now. This is also where the incoming audio stream can be connected to a HTML audio element: </p>
+
+<pre><code>var sinchClient = new SinchClient({applicationKey: '...', capabilities: {calling: true}});
+
+var callListeners = {
+    onCallEstablished: function(call) {
+        $('audio').attr('src', call.incomingStreamURL); //If audio element has attribute &quot;autoplay&quot;
+    },
+}
+
+var call = callClient.callUser('&lt;remote user id&gt;');
+call.addEventListener(callListeners);
+</code></pre>
+
+<p><em>Note: If the audio is not connected properly to the audio element, as shown above, there will be no sound.</em></p>
+
+<h2 id="setupanweb-to-phonecall">Set up an <em>web-to-phone</em> call</h2>
+
+<p>An <em>web-to-phone</em> call is a call that is made to a phone on the regular telephone network. Setting up an <em>web-to-phone</em> call is not much different from setting up a <em>web-to-web</em> call. Instead of invoking the <code>callUser</code> method, invoke the <code>callPhoneNumber</code> method on the <code>CallClient</code> object. Sufficient funds must be available on the Sinch account and a valid phone number specified for the call to connect successfully. The phone number should be specified according to the E.164 number formatting (<a href="http://en.wikipedia.org/wiki/E.164">http://en.wikipedia.org/wiki/E.164</a>) recommendation and should be prefixed with a &#8216;+&#8217;. E.g. to call the US phone number 415 555 0101, the phone number should be specified as &#8220;+14155550101&#8221;. The &#8216;+&#8217; is the required prefix and the US country code &#8216;1&#8217; prepended to the local subscriber number.</p>
+
+<pre><code>var sinchClient = new SinchClient({applicationKey: '...', capabilities: {calling: true}});
+
+var callListeners = {
+    onCallEstablished: function(call) {
+        $('audio').attr('src', call.incomingStreamURL); //If audio element has attribute &quot;autoplay&quot;
+    },
+}
+
+var call = callClient.callPhoneNumber('+46000000000');
+call.addEventListener(callListeners);
+</code></pre>
+
+<p>Placing an <em>web-to-phone</em> call requires a developer account with credits. Topping up credits can be done on the Account page. Credits are used each time an <em>web-to-phone</em> call is placed and the balance history is updated after each call.</p>
+
+<p><em>Web-to-phone</em> calls can be tested by calling the following test number: <em>+46000000000</em>. When placing a call to this number, you will hear a voice prompt stating that the call has been connected, and shortly after that the call will automatically be ended. </p>
+
+<h2 id="playringbacktone">Play ringback tone</h2>
+
+<p>For a good user experience, users expect a ringback tone while waiting for receiving end to pick up the phone. For this purpose, the following eventListener for a call may be a good template. </p>
+
+<pre><code>var callListeners = {
+    onCallProgressing: function(call) {
+        $('audio#ringback').prop(&quot;currentTime&quot;,0); //Ensure ringback start from beginning
+        $('audio#ringback').trigger(&quot;play&quot;); //Play ringback when call is progressing
+    },
+    onCallEstablished: function(call) {
+        $('audio#ringback').trigger(&quot;pause&quot;); //End ringback
+
+        $('audio#incoming').attr('src', call.incomingStreamURL); //Connect incoming stream to audio element
+    },
+    onCallEnded: function(call) {
+        $('audio#ringback').trigger(&quot;pause&quot;); //End the ringback
+        $('audio#incoming').attr('src', ''); //Ensure no incoming stream is playing
+
+        //Optional: Enable user interface to make another call
+    }
+}
+</code></pre>
+
+<h2 id="handleincomingcalls">Handle incoming calls</h2>
+
+<p>In order to receive calls, <code>SinchClient</code> must be instantiated with configuration option <code>supportActiveConnection</code> set to true and invoking <code>startActiveConnection</code> after your <code>SinchClient</code> has successfully started. </p>
+
+<pre><code>var sinchClient = new SinchClient({
+    applicationKey: '&lt;application_key&gt;',
+    capabilities: {calling: true},
+    supportActiveConnection: true,
+});
+</code></pre>
+
+<p>To answer calls, the application must be notified when the user receives an incoming call.</p>
+
+<p>Add a <code>eventListener</code> to the <code>CallClient</code> to act on the incoming calls. The <code>eventListener</code> is notified using onIncomingCall as calls come in to the application.</p>
+
+<pre><code>CallClient callClient = sinchClient.getCallClient();
+
+callClient.addEventListener({
+    onIncomingCall: function(incomingCall) {...}
+});
+</code></pre>
+
+<p>When the incoming call method is executed, the call can either be connected automatically without any user action, or it can wait for the user to press the answer or the hangup button. If the call is set up to wait for a user response, we recommended that a ringtone is played to notify the user that there is an incoming call.</p>
+
+<pre><code>callClient.addEventListener({
+    onIncomingCall: function(incomingCall) {
+        //Play some groovy tunes &amp; show UI
+        ...
+        //Add event listeners to the new call object representing the incoming call
+        incomingCall.addEventListener(callListeners);
+    }
+});
+</code></pre>
+
+<p>To get events related to the call, add a call listener. The call object contains details about participants, start time, potential error codes, and error messages.</p>
+
+<h3 id="answerincomingcall">Answer incoming call</h3>
+
+<p>To answer the call, use the <code>answer</code> method on the call to accept it. If a ringtone was previously played, it should be stopped now.</p>
+
+<p>User presses the answer button:</p>
+
+<pre><code>// User answers the call
+call.answer();
+// Stop playing ringing tone
+...
+</code></pre>
+
+<p>Now, the clients on both ends establish the connection. When the call is established and the voice streams are running in both directions, the <code>onCallEstablished</code> listener method is called. In this listener method you should connect the incoming audio to an HTML audio element to hear the other side.</p>
+
+<h3 id="declineincomingcall">Decline incoming call</h3>
+
+<p>If the call should not be answered, use the <code>hangup</code> method on the call to decline. The caller is notified that the incoming call was denied. If a ringtone was previously played, it should be stopped now.</p>
+
+<p>User presses the hangup button:</p>
+
+<pre><code>// User does not want to answer
+call.hangup();
+// Stop playing ringing tone
+...
+</code></pre>
+
+<h2 id="disconnectingacall">Disconnecting a Call</h2>
+
+<p>When the user wants to disconnect an ongoing call, use the <code>hangup</code> method. Either user taking part in a call can disconnect it.</p>
+
+<p>Hanging up a call:</p>
+
+<pre><code>call.hangup();
+</code></pre>
+
+<p>When either party disconnects a call, the application is notified using the call listener method <code>onCallEnded</code>. This allows the user interface to be updated, an alert tone to be played, or similar actions to occur.</p>
+
+<p>A call can be disconnected before it has been completely established.</p>
+
+<p>Hanging up a connecting call:</p>
+
+<pre><code>// Starting a call
+var call = callClient.callPhoneNumber(&quot;&lt;remote participant&gt;&quot;);
+
+// User changed his/her mind, let’s hangup
+call.hangup();
+</code></pre>
+
+<h1 id="instantmessaging">Instant Messaging</h1>
+
+<p>The <code>MessageClient</code> is the entry point to Instant Messaging functionality in the Sinch SDK.</p>
+
+<p>Messages are sent and incoming messages are received through the <code>MessageClient</code>. An instance of <code>MessageClient</code> is owned by an instance of <code>SinchClient</code> and retrieved using <code>sinchClient.getMessageClient()</code>. Instant messaging is not enabled by default. In order to enable instant messaging, pass <code>messaging: true</code> in the list of capabilities when instantiating <code>SinchClient</code>. </p>
+
+<p>Here is an example for how to set up the sinchClient, messageClient and add listeners for incoming messages and delivered messages. </p>
+
+<pre><code>var sinchClient = new SinchClient({
+    applicationKey: '&lt;application_key&gt;',
+    capabilities: {messaging: true},
+});
+
+var messageClient = sinchClient.getMessageClient();
+
+var myListenerObj = {
+    onMessageDelivered: function(messageDeliveryInfo) {
+        // Handle message delivery notification
+    },
+    onIncomingMessage: function(message) {
+        // Handle incoming message
+    }
+};
+
+messageClient.addEventListener(myListenerObj);
+</code></pre>
+
+<p><em>Note: The getMessageClient() requires a sinchClient with the messaging capability set to true</em></p>
+
+<h2 id="sendamessage">Send a message</h2>
+
+<p>Sending a message with the Sinch SDK is easy. First, get hold of a <code>MessageClient</code> instance for a particular <code>SinchClient</code> instance. This can be done by calling the method <code>getMessageClient()</code>. Then use this instance to create a new <code>Message</code> object. This object can then be sent using <code>send()</code> in your <code>MessageClient</code> instance.</p>
+
+<pre><code>// Get the messageClient
+var messageClient = sinchClient.getMessageClient(); 
+
+// Create a new Message
+var message = messageClient.newMessage('Alice', 'Hello World!');
+
+// Send it
+messageClient.send(message);
+</code></pre>
+
+<p>This example will send <em>&#8216;Hello World&#8217;</em> to the user with username <em>&#8216;Alice&#8217;</em>.</p>
+
+<h3 id="messagesentsuccessorfailure">Message sent success or failure</h3>
+
+<p>The send method returns a promise which can be used to chain a method when message was sent, this is specified using <code>.then()</code>. You can also supply two callbacks, one to be invoked on success and one for error. </p>
+
+<pre><code>// Create a new Message
+var message = messageClient.newMessage('Alice', 'Hello World!');
+
+// Success and fail handlers
+var handleSuccess = function() {...};
+var handleFail = function() {...};
+
+// Alt 1: Send it with success and fail handler
+messageClient.send(message, handleSuccess, handleFail)
+
+// Alt 2: Send it and append handlers using the promise returned
+messageClient.send(message)
+    .then(handleSuccess)
+    .then(some_other_success) 
+    .fail(handleFail);
+</code></pre>
+
+<p><em>Note: If both callbacks and promises are used, the execution order is for callbacks to be executed first, followed by the methods in the promise-chain, specified using <code>.then()</code></em></p>
+
+<!--
+###Alternative user identity
+
+When sending to other identities than username, supply an object where the key is the identification type and the value is the user identity. For example. 
+
+    // Create a new Message
+    var message = messageClient.newMessage({email: 'alice@example.com'}, 'Hello World')
+
+Valid identities for users are; 
+
+-   `username` any alphanumeric string
+-   `email` avalid e-mail adress
+-   `number` a phone number
+
+_Note: At the moment, sending to other identities than username is not implemented._
+-->
+
+<h2 id="deliveryreceipt">Delivery receipt</h2>
+
+<p>When a client receives a message, it sends an acknowledgement indicating which message was received. You can listen to these delivery receipts and take suitable action, for example, displaying which users have read a particular message. </p>
+
+<p>All delivery receipts are sent to all <code>onMessageDelivered</code> listeners in the array of listeners managed by messageClient. In order to add your own listener, use the <code>addEventListener()</code> method in your messageClient. </p>
+
+<pre><code>// Retrieve messageClient for a particular sinchClient
+var messageClient = sinchClient.getMessageClient();
+
+// Define custom event listener
+var myEventListener = {
+    onMessageDelivered: function(messageDeliveryInfo) {
+        // Perform action on message
+        console.log(messageDeliveryInfo);
+    },
+    ...
+}
+
+// Add event listener
+messageClient.addEventListener(myEventListener);
+</code></pre>
+
+<p><em>Note: If a recipient is online on one or multiple devices, the delivery report listener will only be called once on the first delivery receipt.</em></p>
+
+<p>In order to remove a specific event listener, use the method <code>removeEventListener()</code></p>
+
+<pre><code>// Define a custom event listener object
+var myEventListener = {...};
+
+// Add listener object
+messageClient.addEventlistener(myEventListener);
+
+// Remove listener object
+messageClient.removeEventListener(myEventListener); 
+</code></pre>
+
+<p><em>Note: Several event listeners can be added, and they will be executed in the order which they were added.</em></p>
+
+<h2 id="receiveamessage">Receive a message</h2>
+
+<p>In order to receive messages, <code>SinchClient</code> must be instantiated either with configuration option <code>supportActiveConnection</code> set to true or by invoking <code>startActiveConnection</code> after your <code>SinchClient</code> object has successfully started. </p>
+
+<pre><code>var sinchClient = new SinchClient({
+    applicationKey: '&lt;application_key&gt;',
+    capabilities: {messaging: true},
+    supportActiveConnection: true,
+});
+</code></pre>
+
+<p>All incoming messages are sent to all <code>onIncomingMessage</code> listeners in the array of listeners managed by an instance of <code>MessageClient</code>. In order to add one or more of your own listeners, use the <code>addEventListener()</code> method on a particular <code>MessageClient</code> instance. </p>
+
+<pre><code>// Retrieve messageClient for a particular sinchClient
+var messageClient = sinchClient.getMessageClient();
+
+// Define custom event listener
+var myEventListener = {
+    onIncomingMessage: function(message) {
+        // Perform action on message
+        console.log(message);
+    },
+    ...
+}
+
+// Add event listener to an array
+messageClient.addEventListener(myEventListener);
+</code></pre>
+
+<p>In order to remove an event listener, use the method <code>removeEventListener()</code></p>
+
+<pre><code>// Define a custom event listener object
+var myEventListener = {...};
+
+// Add this listener object
+messageClient.addEventlistener(myEventListener);
+
+// Remove this listener object
+messageClient.removeEventListener(myEventListener); 
+</code></pre>
+
+<p><em>Note: Several event listeners can be added, they will be executed in the order which they where added.</em></p>
+
+<h2 id="sendamessagetomultiplerecipients">Send a message to multiple recipients</h2>
+
+<p>When creating a new message, it&#8217;s possible to define <em>multiple recipients</em> by giving an array of recipients instead of a username string or identity object. </p>
+
+<pre><code>// Retrieve messageClient for particular sinchClient
+var messageClient = sinchClient.getMessageClient();
+
+// Create a new message for multiple recipients
+var message = messageClient.newMessage(['Alice', 'Bob'], 'Hello Alice and Bob');
+
+// Send message
+messageClient.send(message); 
+</code></pre>
+
+<p>Both user <em>&#8216;Alice&#8217;</em> and <em>&#8216;Bob&#8217;</em> will receive the message. The success callback will only be called once, but there will be multiple delivery receipt listener callbacks, one for each recipient. </p>
+
+<p>In order to send to multiple recipients with alternative identities, such as e-mail or phone number, supply an array of objects instead of an array with usernames. </p>
+
+<pre><code>// Retrieve messageClient for particular sinchClient
+var messageClient = sinchClient.getMessageClient();
+
+// Create a new message for multiple recipients, using number as their identity
+var message = messageClient.newMessage([{number: 123456}, {number: 654321}], 'Hello Alice and Bob');
+
+// Send message
+messageClient.send(message); 
+</code></pre>
+
+<p>This will send the same <em>&#8220;Hello World&#8221;</em> message to the users identified by the numbers <em>123456</em> and <em>654321</em> respectivley. </p>
+
+<h2 id="receivingrecipientstatusupdatesformulti-recipientmessages">Receiving recipient status updates for multi-recipient messages</h2>
+
+<p>The recipient&#8217;s state transition to delivered for the message is communicated back using the same listener as in the single recipient case. The listener&#8217;s callbacks are triggered for every recipient and only, at most, once per recipient. </p>
+
+<h1 id="pushnotifications">Push Notifications</h1>
+
+<p><em>Push notifications are not yet implemented in the Sinch Javascript SDK.</em></p>
+
+<h1 id="authentication">Authentication</h1>
+
+<h2 id="authenticationbyyourbackend">Authentication by your backend</h2>
+
+<p>It is possible to integrate Sinch with your existing user management solution. With this method, you get full control of your user database and can authenticate users in whichever way you see best fit; it may even be a third party solution. </p>
+
+<p>This solution requires you to generate an authentication ticket using your application key and application secret on your Application Server. See the <a href="http://www.sinch.com/docs/javascript/reference/">Reference Documentation</a> for more information about generating this ticket. </p>
+
+<p>The authentication ticket is then sent to Sinch, using the <code>.start()</code> method in the <code>SinchClient</code> instance. The ticket is exchanged into a Sinch session, and the rest of the process is identical to when Sinch manages your users. </p>
+
+<p><em>Note: Included with the Sinch JS SDK are samples for getting you started with the integration of your authentication scheme with Sinch.</em></p>
+
+<figure>
+<img src="images/authentication_papi_partner.png" alt="Figure 2. Authentication Supported by Partner Backend" />
+<figcaption>Figure 2. Authentication Supported by Partner Backend</figcaption></figure>
+
+
+
+<p>This method, where you authenticate users with your backend, may look like this: </p>
+
+<pre><code>var sinchClient = new SinchClient({
+        applicationKey: 'MY_APPLICATION_KEY',
+        capabilities: {messaging: true},
+    });
+
+// This jQuery call is just an example how you might authenticate users and pass the ticket to Sinch.
+$.post('https://example.com/auth',
+    {username: 'alice', password: 'somethingSecure'},
+    function(authTicket) {
+        sinchClient.start(authTicket)
+            .then(function() {
+                // Handle successful start, like showing the UI
+            })
+            .fail(function(error) {
+                // Handle Sinch error
+            });
+    }, 
+    function(error) {
+        // Handle application server error
+    });
+</code></pre>
+
+<p>This code will first instantiate the sinchClient with your application key. In this example, jQuery is used to perform an ajax request to your application server for authenticating the user <em>Alice</em>. jQuery will parse the json object and pass it to <code>sinchClient.start()</code>. </p>
+
+<p>When <code>sinchClient.start()</code> has successfully started the client, the success callback is executed, which may display the UI, or enable some buttons, or other actions you now want to take. </p>
+
+<h2 id="authenticationbysinch">Authentication by Sinch</h2>
+
+<p>The Sinch JavaScript SDK allows for an easy authentication process requiring no backend, in order to get started quickly. Note however that we do not recommend to use this authentication model when launching your app live since you have no control over user creation. When going live, Sinch JS authentication can be disabled in the “App setting” section within the Dashboard. </p>
+
+<p>Sinch JS authentication involves authenticating end-users by passing a user identity and password to <code>sinchClient.start()</code> when starting Sinch. In this scenario only the application key is needed; the application secret is not used and the authentication of individual users will be managed by us based on supplied user identity and password.</p>
+
+<figure>
+<img src="images/authentication_papi_sinch.png" alt="Figure 1. Authentication Supported by Sinch" />
+<figcaption>Figure 1. Authentication Supported by Sinch</figcaption></figure>
+
+
+
+<p>Authentication using this method is very straight forward, as you only have to make one method call. The Sinch SDK will take care of the rest under the hood. Implementing Sinch user authentication in your app may look something like this: </p>
+
+<pre><code>var sinchClient = new SinchClient({
+        applicationKey: 'MY_APPLICATION_KEY',
+        capabilities: {messaging: true},
+    })
+
+sinchClient.start({username: 'alice', password: 'somethingSecure'})
+    .then(function() {
+        // Perform actions to do when authenticated, such as displaying user interface
+    })
+</code></pre>
+
+<p>This code will instantiate SinchClient, and will start the client using the username <em>&#8216;Alice&#8217;</em>. </p>
+
+<h2 id="userregistration">User registration</h2>
+
+<p><em>Note: This is applicable only if you opted for Sinch JS Authentication.</em></p>
+
+<p>In order to register new users there&#8217;s an SDK method called <code>sinchClient.newUser()</code>. This method can be used to create a new user and will return an authentication ticket which you can use to start a new sinchClient for the newly created users. This enables a great user experience, since the user does not have to create the account first and then login, and it&#8217;s all a smooth process. </p>
+
+<p><em>Note: Username must be at least 4 characters in length.</em></p>
+
+<p>The code for creating a new user and starting a sinchClient for this user may look like this: </p>
+
+<pre><code>var sinchClient = new SinchClient({
+    applicationKey: 'MY_APPLICATION_KEY',
+    capabilities: {messaging: true},
+})
+
+var handleSuccess = function() {...};
+var handleFail = function() {...};
+
+var signUpObject = {username: 'Alice', email: &quot;alice@example.com&quot;, password: 'somethingSecure'};
+
+sinchClient.newUser(signUpObject)
+    .then(sinchClient.start.bind(sinchClient))
+    .then(handleSuccess)
+    .fail(handleFail);
+</code></pre>
+
+<p>Here we will try to create a new user using our sinchClient, the <code>signUpObject</code> must contain at least one identity, such as username, and the desired password. It may fail, in which case the method specified in <code>.fail()</code> will be called. A typical error is when a user is already existing with the same identity. </p>
+
+<p><em>Note: Other valid identities include email or number.</em></p>
+
+<p>After the new user is created, this code will proceed with executing the next method in the chain, which is starting the sinch client. The input parameter will be the output of newUser, which is an object with the authentication ticket. Finally, when the sinchClient is started, the <code>handleSuccess</code> method is called, which may do things like storing the session and displaying the user interface. </p>
+
+<h1 id="sessionmanagement">Session Management</h1>
+
+<p>Between each page view, page reload or visit to the website, the current session is lost. Often there is an interest in re-using the same session and not forcing the end-user to re-authenticate. This can be solved by passing a session object into <code>sinchClient.start()</code>, and if the session is valid it will resume and you don&#8217;t have to prompt the user for any sign in. If it fails, you should fall back to whatever authentication method you&#8217;d like to use. </p>
+
+<p>In order to be able to restore a session, it&#8217;s first required to save it on successful login.</p>
+
+<h2 id="savingasession">Saving a session</h2>
+
+<p>If you&#8217;d like to save the session after authentication, the code may look something like this: </p>
+
+<pre><code>var sinchClient = new SinchClient({
+        applicationKey: 'MY_APPLICATION_KEY',
+        capabilities: {messaging: true},
+    })
+
+sinchClient.start({username: 'alice', password: 'somethingSecure'})
+    then(function() {
+        localStorage['sinchSession-' + sinchClient.applicationKey] = JSON.stringify(sinchClient.getSession());
+    })
+</code></pre>
+
+<p>This code will start a sinchClient, authenticate using Sinch authentication and on success store the session in <code>localStorage</code>. </p>
+
+<p><em>Note: In the future, Sinch may handle this for you</em>.</p>
+
+<h2 id="resumingasession">Resuming a session</h2>
+
+<p>Next time the same visitor come back to the website, it&#8217;s nice if we can resume the same session. If we assume we have a saved session object, similar to the example above, we can resume it by passing the sessionObject to <code>sinchClient.start()</code>.</p>
+
+<figure>
+<img src="images/authentication_papi_resume.png" alt="Figure 3. Resume authenticated session" />
+<figcaption>Figure 3. Resume authenticated session</figcaption></figure>
+
+
+
+<p>In this case the code may look something like this: </p>
+
+<pre><code>//Parse the saved session object
+var sessionObj = JSON.parse(localStorage['sinchSession-' + sinchClient.applicationKey] || '{}');
+
+//If there is a valid session object
+if(sessionObj.userId) {
+    sinchClient.start(sessionObj)
+        .then(handleStartSuccess)
+        .fail(showLoginUI); //On failure, the session was not valid =&gt; user must re-login
+}
+else {
+    showLoginUI(); //There is no session =&gt; user must login
+}
+</code></pre>
+
+<p>The session object can be stored in any secure way you see best fit, for example in the browser <code>localStorage</code> as shown above. The session object can be retrieved from sinchClient using the <code>sinchClient.getSession()</code> method after a successful call to <code>sinchClient.start()</code>. </p>
+
+<p>See the Sample IM app for an example on working with sessions. </p>
+
+<h1 id="miscellaneous">Miscellaneous</h1>
+
+<h2 id="restrictionsonuserids">Restrictions on User IDs</h2>
+
+<p>User IDs can only contain characters in the <em>printable ASCII character set</em>. That is:</p>
+
+<pre><code>!&quot;#$%&amp;'()*+,-./0123456789:;&lt;=&gt;?@ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_`abcdefghijklmnopqrstuvwxyz{|}~
+</code></pre>
+
+<p>User IDs <strong>must not</strong> be longer than <strong>40</strong> characters.</p>
+
+<h2 id="encryptionexportregulations">Encryption export regulations</h2>
+
+<p>Please check the Summary of U.S. Export Controls Applicable to Commercial Encryption Products and ensure that the application is registered for the Encryption Regulations, if applicable. It can be found under this <a href="http://www.sinch.com/export">link</a>.</p>
+
+<h2 id="statistics">Statistics</h2>
+
+<p>The Sinch SDK client uploads statistics to the Sinch servers at the end of a call, a call failure, or similar event. The statistics are used for monitoring of network status, call quality, and other aspects regarding the general quality of the service.</p>
+
+<p>Some of the information is not anonymous and may be associated with the User ID call participants.</p>
+
+<p>The statistics upload is done by the client in the background.</p>
+
+</body>
+</html>

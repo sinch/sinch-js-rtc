@@ -4,7 +4,7 @@ IMPORTANT NOTICE -- READ BEFORE USE
 
 This SDK and all the associated software, documents and other content in
 this package file (the "Software") is provided by the Swedish company
-RebTel Networks AB (reg. no 556680-3622) under the Sinch Terms of Service
+Sinch AB (reg. no 556969-5397) under the Sinch Terms of Service
 located at http://www.sinch.com/terms-of-service (the "Terms of Service").
 
 You are not allowed to in any way use or handle or access the Software
@@ -14,8 +14,8 @@ you acknowledge that you have read and understand the Terms of Service
 and accept to be bound by them.
 
 The Software contains valuable, confidential and proprietary information of
-RebTel Networks AB. Unauthorized reproduction, transmission, distribution
-or use of the Software is a violation of RebTel Networks AB's rights and
+Sinch AB. Unauthorized reproduction, transmission, distribution
+or use of the Software is a violation of Sinch AB's rights and
 applicable laws. The Software may make use of some third-party and
 open source code and/or software, in this regard reference is made to the
 document Third Party Licenses http://www.sinch.com/legal/third-party-licenses/.
@@ -25,7 +25,7 @@ document Third Party Licenses http://www.sinch.com/legal/third-party-licenses/.
 
 This document contains a list of the attributions and licenses for third-party
 and open source software, codes or similar used by the Swedish company
-RebTel Networks AB (reg. no 556680-3622) in the Sinch SDK and other software,
+Sinch AB (reg. no 556969-5397) in the Sinch SDK and other software,
 codes etc. relating thereto ("Third Party Licenses").
 
 NOTE - The list is updated as per May 12, 2014 and is included in the SDK

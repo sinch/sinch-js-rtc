@@ -1,1 +1,1 @@
-VERSION = ["1.0.0-rc1-2-gdaecfa9-dirty","1.0.0-rc1","2","daecfa9","-dirty"]; exports.version = VERSION;
+VERSION = ["1.0.0-1-gc1d7946","1.0.0","1","c1d7946",null]; exports.version = VERSION;

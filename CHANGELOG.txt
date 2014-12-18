@@ -1,5 +1,19 @@
 Sinch 1.0.0
-	- TO BE WRITTEN
+	- API Change: Call timestamps are now javascript Date-objects
+	- API Change: "supportActiveConnection" configuration option now only enable 
+	  online capability, remember to manage your active connection using 
+	  startActiveConnection() and stopActiveConnection()
+	- API Change: "startActiveConnection" configuration option now enables 
+	  online capability and starts the active connection. 
+	- Deprecated: SinchClient.stop(), replaced with terminate()
+	- Performance: reduced instance count by reuse of instance across sessions
+	- IM statistics are gathered and available in partner dashboard
+	- Instant messaging capability, enabling developers to specifically
+	  allow or disallow certain sessions from receiving instance messages.
+	- Bug fix: Call headers now available in onIncomingCall()
+	- Bug fix: Early media will now playback properly if PSTN call fails. 
+	- Sinch added to npm repository for Node JS applications
+	- Sinch added to Bower repository 
 
 Sinch Beta 0.9.9
 	- Sample web application and backend demonstrating how to integrate 

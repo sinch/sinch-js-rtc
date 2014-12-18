@@ -1,0 +1,3244 @@
+{
+    "project": {
+        "name": "sinch",
+        "description": "Sinch JS SDK",
+        "version": "0.9.9",
+        "url": "http://gitlab.rebtelnet.local/magnus.lundstedt/sinch-js"
+    },
+    "files": {
+        "src/MXP/MXP.js": {
+            "name": "src/MXP/MXP.js",
+            "modules": {
+                "MXP": 1
+            },
+            "classes": {
+                "MXP": 1,
+                "MXPError": 1,
+                "MXPLog": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/MXP/MXPCalling.js": {
+            "name": "src/MXP/MXPCalling.js",
+            "modules": {},
+            "classes": {},
+            "fors": {
+                "MXP": 1
+            },
+            "namespaces": {}
+        },
+        "src/MXP/MXPMessaging.js": {
+            "name": "src/MXP/MXPMessaging.js",
+            "modules": {},
+            "classes": {},
+            "fors": {
+                "MXP": 1
+            },
+            "namespaces": {}
+        },
+        "src/MXP/MessageObj.js": {
+            "name": "src/MXP/MessageObj.js",
+            "modules": {},
+            "classes": {
+                "MXPMessageObj": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/MXP/crypt.js": {
+            "name": "src/MXP/crypt.js",
+            "modules": {},
+            "classes": {
+                "MXPencrypt": 1,
+                "MXPdecrypt": 1,
+                "MXPCryptError": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/SDK/Call.js": {
+            "name": "src/SDK/Call.js",
+            "modules": {
+                "SinchInternal": 1
+            },
+            "classes": {
+                "Call": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/SDK/CallClient.js": {
+            "name": "src/SDK/CallClient.js",
+            "modules": {},
+            "classes": {
+                "CallClient": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/SDK/CallDefs.js": {
+            "name": "src/SDK/CallDefs.js",
+            "modules": {},
+            "classes": {
+                "CallState": 1,
+                "CallEndCause": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/SDK/Message.js": {
+            "name": "src/SDK/Message.js",
+            "modules": {},
+            "classes": {
+                "Message": 1,
+                "MessageDeliveryInfo": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/SDK/MessageClient.js": {
+            "name": "src/SDK/MessageClient.js",
+            "modules": {},
+            "classes": {
+                "MessageClient": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/SDK/SinchError.js": {
+            "name": "src/SDK/SinchError.js",
+            "modules": {},
+            "classes": {
+                "SinchError": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/SDK/User.js": {
+            "name": "src/SDK/User.js",
+            "modules": {},
+            "classes": {
+                "User": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/error_defs.js": {
+            "name": "src/error_defs.js",
+            "modules": {
+                "Sinch": 1
+            },
+            "classes": {
+                "ErrorDomain": 1,
+                "ErrorCode": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/main.js": {
+            "name": "src/main.js",
+            "modules": {},
+            "classes": {
+                "SinchClient": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
+        "src/support.js": {
+            "name": "src/support.js",
+            "modules": {},
+            "classes": {
+                "Support": 1,
+                "Notification": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        }
+    },
+    "modules": {
+        "MXP": {
+            "name": "MXP",
+            "submodules": {},
+            "classes": {
+                "MXP": 1,
+                "MXPError": 1,
+                "MXPLog": 1,
+                "MXPMessageObj": 1,
+                "MXPencrypt": 1,
+                "MXPdecrypt": 1,
+                "MXPCryptError": 1
+            },
+            "fors": {
+                "MXP": 1
+            },
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/MXP/crypt.js",
+            "line": 74,
+            "description": "MXP module for the MXP protocol"
+        },
+        "SinchInternal": {
+            "name": "SinchInternal",
+            "submodules": {},
+            "classes": {
+                "Call": 1,
+                "CallClient": 1,
+                "CallState": 1,
+                "CallEndCause": 1,
+                "Message": 1,
+                "MessageDeliveryInfo": 1,
+                "MessageClient": 1,
+                "SinchError": 1,
+                "User": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/SDK/User.js",
+            "line": 7
+        },
+        "Sinch": {
+            "name": "Sinch",
+            "submodules": {},
+            "classes": {
+                "ErrorDomain": 1,
+                "ErrorCode": 1,
+                "SinchClient": 1,
+                "Support": 1,
+                "Notification": 1
+            },
+            "fors": {},
+            "namespaces": {},
+            "tag": "module",
+            "file": "src/support.js",
+            "line": 144
+        }
+    },
+    "classes": {
+        "MXP": {
+            "name": "MXP",
+            "shortname": "MXP",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "MXP",
+            "namespace": "",
+            "file": "src/MXP/MXP.js",
+            "line": 8,
+            "description": "A class MXP Protocol (Message eXchange Protocol)",
+            "is_constructor": 1,
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "sinch",
+                    "description": "Create new MXP object for a particular user",
+                    "type": "SinchClient"
+                }
+            ]
+        },
+        "MXPError": {
+            "name": "MXPError",
+            "shortname": "MXPError",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "MXP",
+            "namespace": "",
+            "file": "src/MXP/MXP.js",
+            "line": 722,
+            "description": "Class for MXP Errors",
+            "access": "protected",
+            "tagname": "",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "domain",
+                    "description": "Error domain",
+                    "type": "ErrorDomain"
+                },
+                {
+                    "name": "code",
+                    "description": "Error code",
+                    "type": "ErrorCode"
+                },
+                {
+                    "name": "message",
+                    "description": "The error message",
+                    "type": "String"
+                },
+                {
+                    "name": "object",
+                    "description": "Optional object with additional details",
+                    "type": "Object",
+                    "optional": true
+                }
+            ]
+        },
+        "MXPLog": {
+            "name": "MXPLog",
+            "shortname": "MXPLog",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "MXP",
+            "namespace": "",
+            "file": "src/MXP/MXP.js",
+            "line": 774,
+            "description": "Create a new log message and track description / object as one log item",
+            "access": "protected",
+            "tagname": "",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "message",
+                    "description": "Description of Log event",
+                    "type": "String"
+                },
+                {
+                    "name": "object",
+                    "description": "The associated object relevant for the log item",
+                    "type": "Object"
+                }
+            ]
+        },
+        "MXPMessageObj": {
+            "name": "MXPMessageObj",
+            "shortname": "MXPMessageObj",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "MXP",
+            "namespace": "",
+            "file": "src/MXP/MessageObj.js",
+            "line": 2,
+            "description": "Class for holding MXP messages when sending and recieving MXP messages (not IM, but general messages)",
+            "is_constructor": 1,
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "msgObj",
+                    "description": "Object to base the new MXPMessageObj from",
+                    "type": "MXPMessageObj|Object"
+                },
+                {
+                    "name": "opt",
+                    "description": "Optional object to get custom parameters from",
+                    "type": "Call"
+                }
+            ]
+        },
+        "MXPencrypt": {
+            "name": "MXPencrypt",
+            "shortname": "MXPencrypt",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "MXP",
+            "namespace": "",
+            "file": "src/MXP/crypt.js",
+            "line": 3,
+            "description": "Object for encrypting MXP messages",
+            "access": "protected",
+            "tagname": "",
+            "static": 1
+        },
+        "MXPdecrypt": {
+            "name": "MXPdecrypt",
+            "shortname": "MXPdecrypt",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "MXP",
+            "namespace": "",
+            "file": "src/MXP/crypt.js",
+            "line": 34,
+            "description": "Object for decrypting MXP messages",
+            "access": "protected",
+            "tagname": "",
+            "static": 1
+        },
+        "MXPCryptError": {
+            "name": "MXPCryptError",
+            "shortname": "MXPCryptError",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "MXP",
+            "namespace": "",
+            "file": "src/MXP/crypt.js",
+            "line": 74,
+            "description": "A class for MXP Crypt Errors",
+            "static": 1
+        },
+        "Call": {
+            "name": "Call",
+            "shortname": "Call",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "SinchInternal",
+            "namespace": "",
+            "file": "src/SDK/Call.js",
+            "line": 11,
+            "description": "A class for managing individual calls. \n\n<i><b>Note:</b> Do not instantiate Call, rather use relevant methods for placing or receiving calls in CallClient. See the examples below.</i>",
+            "is_constructor": 1,
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "sinch",
+                    "description": "Create Call for sinch instrance",
+                    "type": "Sinch"
+                }
+            ]
+        },
+        "CallClient": {
+            "name": "CallClient",
+            "shortname": "CallClient",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "SinchInternal",
+            "namespace": "",
+            "file": "src/SDK/CallClient.js",
+            "line": 4,
+            "description": "The CallClient provides the entry point to the calling functionality of the Sinch SDK. A CallClient can be acquired via the SinchClient.\n\n<i><b>Note:</b> Do not instantiate CallClient, rather use the getCallClient() method in SinchClient. See the example below.</i>",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "sinch",
+                    "description": "The parent object",
+                    "type": "SinchClient"
+                }
+            ],
+            "example": [
+                "\n\t//Get messageClient from sinchClient\n\tvar sinchClient = new SinchClient(...);\n\tvar callClient = sinchClient.getCallClient();\n\t\n\t//Add event listener\n\tcallClient.addEventListener(...);"
+            ]
+        },
+        "CallState": {
+            "name": "CallState",
+            "shortname": "CallState",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "SinchInternal",
+            "namespace": "",
+            "file": "src/SDK/CallDefs.js",
+            "line": 2,
+            "description": "Static class for Call States",
+            "access": "protected",
+            "tagname": "",
+            "static": 1
+        },
+        "CallEndCause": {
+            "name": "CallEndCause",
+            "shortname": "CallEndCause",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "SinchInternal",
+            "namespace": "",
+            "file": "src/SDK/CallDefs.js",
+            "line": 44,
+            "description": "Static class for Call End Causes",
+            "access": "protected",
+            "tagname": "",
+            "static": 1
+        },
+        "Message": {
+            "name": "Message",
+            "shortname": "Message",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "SinchInternal",
+            "namespace": "",
+            "file": "src/SDK/Message.js",
+            "line": 5,
+            "description": "A class for Instant Messages",
+            "is_constructor": 1,
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "msgObj",
+                    "description": "Create new Message based on a MXPMessageObj (incoming) or a regular Object (outgoing).",
+                    "type": "MXPMessageObj|Object"
+                },
+                {
+                    "name": "fromOther",
+                    "description": "Indicate if message is from me.",
+                    "type": "Boolean"
+                }
+            ]
+        },
+        "MessageDeliveryInfo": {
+            "name": "MessageDeliveryInfo",
+            "shortname": "MessageDeliveryInfo",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "SinchInternal",
+            "namespace": "",
+            "file": "src/SDK/Message.js",
+            "line": 115,
+            "description": "A class to contain delivery information for a message",
+            "beta": 1,
+            "is_constructor": 1,
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "recipientId",
+                    "description": "The recipient to whom the message was delivered",
+                    "type": "String"
+                },
+                {
+                    "name": "messageId",
+                    "description": "The ID of the delivered message",
+                    "type": "String"
+                }
+            ]
+        },
+        "MessageClient": {
+            "name": "MessageClient",
+            "shortname": "MessageClient",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "SinchInternal",
+            "namespace": "",
+            "file": "src/SDK/MessageClient.js",
+            "line": 1,
+            "description": "The MessageClient provides the entry point to the messaging functionality of the Sinch SDK. A MessageClient can be acquired via the SinchClient.\n\n<i><b>Note:</b> Do not instantiate MessageClient, rather use the getMessageClient() method in SinchClient. See the example below.</i>",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "sinch",
+                    "description": "The parent object",
+                    "type": "SinchClient"
+                }
+            ],
+            "example": [
+                "\n\t//Get messageClient from sinchClient\n\tvar sinchClient = new SinchClient(...);\n\tvar messageClient = sinchClient.getMessageClient();\n\t\n\t//Add event listener\n\tmessageClient.addEventListener(...);\n\n\t//Create a new message\n\tvar message = messageClient.newMessage(...);\n\tmessageClient.send(message);"
+            ]
+        },
+        "SinchError": {
+            "name": "SinchError",
+            "shortname": "SinchError",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "SinchInternal",
+            "namespace": "",
+            "file": "src/SDK/SinchError.js",
+            "line": 1,
+            "description": "Class for Sinch Errors",
+            "access": "protected",
+            "tagname": "",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "domain",
+                    "description": "Error domain",
+                    "type": "ErrorDomain"
+                },
+                {
+                    "name": "code",
+                    "description": "Error code",
+                    "type": "ErrorCode"
+                },
+                {
+                    "name": "message",
+                    "description": "The error message",
+                    "type": "String"
+                },
+                {
+                    "name": "object",
+                    "description": "Optional object with additional details",
+                    "type": "Object",
+                    "optional": true
+                }
+            ]
+        },
+        "User": {
+            "name": "User",
+            "shortname": "User",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "SinchInternal",
+            "namespace": "",
+            "file": "src/SDK/User.js",
+            "line": 7,
+            "description": "Internal class for manging Sinch Users",
+            "access": "protected",
+            "tagname": "",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "sinch",
+                    "description": "A reference to a SinchClient object this object belongs to.",
+                    "type": "SinchClient"
+                }
+            ]
+        },
+        "ErrorDomain": {
+            "name": "ErrorDomain",
+            "shortname": "ErrorDomain",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Sinch",
+            "namespace": "",
+            "file": "src/error_defs.js",
+            "line": 5,
+            "description": "Static class for Error Domains",
+            "access": "protected",
+            "tagname": "",
+            "static": 1
+        },
+        "ErrorCode": {
+            "name": "ErrorCode",
+            "shortname": "ErrorCode",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Sinch",
+            "namespace": "",
+            "file": "src/error_defs.js",
+            "line": 22,
+            "description": "Static class for Error Codes",
+            "access": "protected",
+            "tagname": "",
+            "static": 1
+        },
+        "SinchClient": {
+            "name": "SinchClient",
+            "shortname": "SinchClient",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Sinch",
+            "namespace": "",
+            "file": "src/main.js",
+            "line": 12,
+            "description": "<b>The SinchClient is the Sinch SDK entry point.</b>\n\nIt provides access to the feature classes in the Sinch SDK: MessageClient, and other in future. It is also used to configure user's and device's capabilities.\n\nThe user IDs that are used to identify users application specific. If the app already has a scheme for user IDs (email addresses, phone numbers, customer numbers, etc.), the same ID could be used when configuring the SinchClient.",
+            "is_constructor": 1,
+            "beta": 1,
+            "params": [
+                {
+                    "name": "configObj",
+                    "description": "Configuration options for Sinch",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "key",
+                            "description": "Application key to use",
+                            "type": "String"
+                        },
+                        {
+                            "name": "capabilities",
+                            "description": "List of capabilities",
+                            "type": "Object",
+                            "props": [
+                                {
+                                    "name": "messaging",
+                                    "description": "Enable IM by setting this to true",
+                                    "type": "Boolean",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "calling",
+                                    "description": "Enable data calling by setting this to true",
+                                    "type": "Boolean",
+                                    "optional": true
+                                }
+                            ]
+                        },
+                        {
+                            "name": "expiresIn",
+                            "description": "Configure custom TTL of instance (session). Default is 86400 (24 hours).",
+                            "type": "Int"
+                        },
+                        {
+                            "name": "supportActiveConnection",
+                            "description": "Support the online capability, receiving notifications over an active connection in addition to push (where available)",
+                            "type": "Boolean",
+                            "optional": true
+                        },
+                        {
+                            "name": "startActiveConnection",
+                            "description": "Automatically support online capability & start connection to listen for IM and data calls",
+                            "type": "Boolean",
+                            "optional": true
+                        },
+                        {
+                            "name": "onLogMessage",
+                            "description": "Callback to handle detailed log messages",
+                            "type": "Function",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "example": [
+                "\n\t//Create new sinchClient instance and start the client using credentials\n\tvar sinchClient = new SinchClient({key: 'someAppKey', capabilities: {messaging: true}};\n\tsinchClient.start({username: 'some_user', password: 'user_password'};\n\t\n\t//Use sinchClient to retrieve messageClient\n\tvar messageClient = sinchClient.getMessageClient();\n\n\t//Create and send a new message\n\tvar message = messageClient.newMessage('recipient', 'message');\n\tmessageClient.send(message);"
+            ]
+        },
+        "Support": {
+            "name": "Support",
+            "shortname": "Support",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Sinch",
+            "namespace": "",
+            "file": "src/support.js",
+            "line": 7,
+            "description": "Support methods"
+        },
+        "Notification": {
+            "name": "Notification",
+            "shortname": "Notification",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "Sinch",
+            "namespace": "",
+            "file": "src/support.js",
+            "line": 144,
+            "description": "Class for notification messages",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "step",
+                    "description": "Current step",
+                    "type": "Number"
+                },
+                {
+                    "name": "totalSteps",
+                    "description": "Total steps in a chain",
+                    "type": "Number"
+                },
+                {
+                    "name": "message",
+                    "description": "The notification message",
+                    "type": "String"
+                },
+                {
+                    "name": "object",
+                    "description": "Optional object with additional details",
+                    "type": "Object",
+                    "optional": true
+                }
+            ]
+        }
+    },
+    "classitems": [
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 57,
+            "description": "Initializes MXP by setting up necessary PubNub subscriptions",
+            "itemtype": "method",
+            "name": "init",
+            "chainable": 1,
+            "async": 1,
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "promise which resolves when all channels have been subscribed"
+            },
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 70,
+            "description": "Unsubscribe from MXP channels",
+            "itemtype": "method",
+            "name": "close",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "promise which resolves when all channels have been unsubscribed"
+            },
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 87,
+            "description": "Internal function to destroy MXP",
+            "itemtype": "method",
+            "name": "destroy",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "undefined"
+            },
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 99,
+            "description": "Internal function to subscribe to channels for a pupnub object",
+            "itemtype": "method",
+            "name": "subscribe",
+            "chainable": 1,
+            "async": 1,
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "channel",
+                    "description": "A channel, or list of channels.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "promise which resolves null when complete"
+            },
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 138,
+            "description": "Internal function to unsubscribe to channels for a pupnub object",
+            "itemtype": "method",
+            "name": "subscribe",
+            "chainable": 1,
+            "async": 1,
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "channel",
+                    "description": "A channel, or list of channels.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "promise which resolves null when complete"
+            },
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 159,
+            "description": "Check for subscription on Signal",
+            "itemtype": "method",
+            "name": "signalStatus",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "boolean, true for subscribed"
+            },
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 170,
+            "description": "Incoming PubNub messages, any channel / origin. Initiatiates the MXP inbound message processing chain.",
+            "itemtype": "event",
+            "name": "_onmessagePubNub",
+            "async": 1,
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "message",
+                    "description": "The raw message recieved by PubNub",
+                    "type": "String"
+                }
+            ],
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 195,
+            "description": "Handle disconnects from PubNub, log the event",
+            "itemtype": "event",
+            "name": "_ondisconnectPubNub",
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "message",
+                    "description": "Reason for discionnect",
+                    "type": "String"
+                }
+            ],
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 215,
+            "description": "Collect MXP Frames for a particular incoming message / set of messages.",
+            "itemtype": "method",
+            "name": "collectFrames",
+            "chainable": 1,
+            "async": 1,
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "promise which resolves a new message consisting of all frames"
+            },
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 258,
+            "description": "Identify decryption key for a complete MXP message (headers + defragmented content + footers). Analyzes if message was encrypted using a transport key, signal key or instance key.",
+            "itemtype": "method",
+            "name": "identifyKey",
+            "chainable": 1,
+            "async": 1,
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "assembledMessage",
+                    "description": "A complete MXP message.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "promise which resolves into a new  with all correct initial data.",
+                "type": "MXPMessageObj"
+            },
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 312,
+            "description": "Handle decrypted message and pass to the right set of handlers as specified by other parts of the MXP protocol. (i.e., MXPCalling or MXPMessaging)",
+            "itemtype": "method",
+            "name": "handleMessage",
+            "chainable": 1,
+            "async": 1,
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "msgObj",
+                    "description": "The message to handle",
+                    "type": "MXPMessageObj"
+                }
+            ],
+            "return": {
+                "description": "undefined"
+            },
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 345,
+            "description": "Handle error messages by logging + writing to console if there's an error stack",
+            "itemtype": "method",
+            "name": "handleError",
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "error",
+                    "description": "The error message or object",
+                    "type": "Error"
+                }
+            ],
+            "return": {
+                "description": "undefined"
+            },
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 360,
+            "description": "Method to retrieve transport by transportId or recipientId's, can be used in a chan with MXPMessageObj as input/output",
+            "itemtype": "method",
+            "name": "getTransport",
+            "chainable": 1,
+            "async": 1,
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "msgObj",
+                    "description": "The object containing the recipientId's in some way, or the transport Id.",
+                    "type": "MXPMessageObj|Object"
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Object|MXPMessageObj"
+            },
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 510,
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 512,
+            "description": "Send MXP Message as defined by the incoming msgObj {MXPMessageObj}",
+            "itemtype": "method",
+            "name": "sendMXP",
+            "chainable": 1,
+            "async": 1,
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "msgObj",
+                    "description": "The MXP Message to transmitt",
+                    "type": "MXPMessageObj"
+                }
+            ],
+            "return": {
+                "description": "promise which resolves into the updated message object"
+            },
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 548,
+            "description": "Method to construct MXP Message by padding an incoming MXP Message with necessary parameters",
+            "itemtype": "method",
+            "name": "constructMXP",
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "msgObj",
+                    "description": "The MXP Message to pad",
+                    "type": "MXPMessageObj"
+                }
+            ],
+            "return": {
+                "description": "updated msgObj",
+                "type": "MXPMessageObj"
+            },
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 568,
+            "description": "Method to identify encryption key. The options are; instance key, session key or transport key.",
+            "itemtype": "method",
+            "name": "identifyEnKey",
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "msgObj",
+                    "description": "The object to identify suitable encryption key for.",
+                    "type": "MXPMessageObj"
+                }
+            ],
+            "return": {
+                "description": "msgObj"
+            },
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 594,
+            "description": "Split a full MXP message into many frames. Resulting frames stored in the {MXPMessageObj}",
+            "itemtype": "method",
+            "name": "splitFrames",
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "msgObj",
+                    "description": "The message to split into frames",
+                    "type": "MXPMessageObj"
+                }
+            ],
+            "return": {
+                "description": "msgObj with frames",
+                "type": "MXPMessageObj"
+            },
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 640,
+            "description": "Identify transmit channels for a particular MXPMessageObj",
+            "itemtype": "method",
+            "name": "getTxChannels",
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "msgObj",
+                    "description": "The message to retrieve Tx channels from",
+                    "type": "MXPMessageObj"
+                }
+            ],
+            "return": {
+                "description": "msgObj"
+            },
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 662,
+            "description": "Transmit MXP Frames stored in a {MXPMessageObj}",
+            "itemtype": "method",
+            "name": "transmitFrames",
+            "chainable": 1,
+            "async": 1,
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "msgObj",
+                    "description": "the full MXP object containing all info we need",
+                    "type": "MXPMessageObj"
+                }
+            ],
+            "return": {
+                "description": "promise which resolves into msgObj"
+            },
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 720,
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 743,
+            "description": "Error domain",
+            "itemtype": "property",
+            "name": "domain",
+            "type": "{Number}",
+            "class": "MXPError",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 749,
+            "description": "Error code",
+            "itemtype": "property",
+            "name": "code",
+            "type": "{Number}",
+            "class": "MXPError",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 755,
+            "description": "Object relevant to the cause of the error, typically a response on a REST request",
+            "itemtype": "property",
+            "name": "response",
+            "type": "{Object}",
+            "class": "MXPError",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 761,
+            "description": "Text message (human readable)",
+            "itemtype": "property",
+            "name": "message",
+            "type": "{String}",
+            "class": "MXPError",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 767,
+            "description": "Error stack",
+            "itemtype": "property",
+            "name": "stack",
+            "type": "{String}",
+            "class": "MXPError",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXPCalling.js",
+            "line": 4,
+            "description": "Describe the version number of messaging",
+            "itemtype": "config",
+            "name": "MXPCallingVersion",
+            "type": "Number",
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXPCalling.js",
+            "line": 194,
+            "description": "Handlers for processing MXP messages related to Calling\nDocumentation TBD",
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXPMessaging.js",
+            "line": 3,
+            "description": "Describe the version number of messaging",
+            "itemtype": "config",
+            "name": "MXPMessagingVersion",
+            "type": "Number",
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXPMessaging.js",
+            "line": 11,
+            "description": "Send a message over MXP",
+            "itemtype": "method",
+            "name": "sendMessage",
+            "access": "protected",
+            "tagname": "",
+            "chainable": 1,
+            "async": 1,
+            "params": [
+                {
+                    "name": "message",
+                    "description": "Message to send",
+                    "type": "Message"
+                }
+            ],
+            "return": {
+                "description": "promise which resolves into the message object"
+            },
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXPMessaging.js",
+            "line": 50,
+            "description": "Send a new IM ack over MXP",
+            "itemtype": "method",
+            "name": "sendMsgAck",
+            "access": "protected",
+            "tagname": "",
+            "async": 1,
+            "params": [
+                {
+                    "name": "msgObj",
+                    "description": "The recieved message to acknowledge delivery of",
+                    "type": "MXPMessageObj"
+                }
+            ],
+            "return": {
+                "description": "undefined"
+            },
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXPMessaging.js",
+            "line": 97,
+            "description": "Handlers for processing MXP messages related to IM\nDocumentation TBD",
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MessageObj.js",
+            "line": 48,
+            "description": "Decrypted (plain text) MXP Message, this is the content of what is sent / received",
+            "itemtype": "property",
+            "name": "decrypted",
+            "type": "{Object}",
+            "access": "protected",
+            "tagname": "",
+            "class": "MXPMessageObj",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MessageObj.js",
+            "line": 55,
+            "description": "Encrypted MXP Message, this is the full message sent/received (before/after split/merge)",
+            "itemtype": "property",
+            "name": "encrypted",
+            "type": "{Object}",
+            "access": "protected",
+            "tagname": "",
+            "class": "MXPMessageObj",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MessageObj.js",
+            "line": 62,
+            "description": "The transport object containing information about all recipients and encryption key",
+            "itemtype": "property",
+            "name": "transportObj",
+            "type": "{Object}",
+            "access": "protected",
+            "tagname": "",
+            "class": "MXPMessageObj",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MessageObj.js",
+            "line": 69,
+            "description": "The key type used during sending / recieving. Can be Transport (T), Signal (S) or Instance (I)",
+            "itemtype": "property",
+            "name": "keyType",
+            "type": "{Char}",
+            "access": "protected",
+            "tagname": "",
+            "class": "MXPMessageObj",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MessageObj.js",
+            "line": 76,
+            "description": "The key type used during sending / recieving. Can be Transport (T), Signal (S) or Instance (I)",
+            "itemtype": "property",
+            "name": "keyType",
+            "type": "{Char}",
+            "access": "protected",
+            "tagname": "",
+            "class": "MXPMessageObj",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/crypt.js",
+            "line": 88,
+            "description": "Error domain",
+            "itemtype": "property",
+            "name": "domain",
+            "type": "{Number}",
+            "class": "MXPCryptError",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/crypt.js",
+            "line": 94,
+            "description": "Error code",
+            "itemtype": "property",
+            "name": "code",
+            "type": "{Number}",
+            "class": "MXPCryptError",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/crypt.js",
+            "line": 100,
+            "description": "Object relevant to the cause of the error, typically a response on a REST request",
+            "itemtype": "property",
+            "name": "response",
+            "type": "{Object}",
+            "class": "MXPCryptError",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/crypt.js",
+            "line": 106,
+            "description": "Text message (human readable)",
+            "itemtype": "property",
+            "name": "message",
+            "type": "{String}",
+            "class": "MXPCryptError",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/crypt.js",
+            "line": 112,
+            "description": "Error stack",
+            "itemtype": "property",
+            "name": "stack",
+            "type": "{String}",
+            "class": "MXPCryptError",
+            "module": "MXP"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 100,
+            "description": "Add event listeners to the call, multiple listeners can be added with this method. \nListeners are processed in the order they're added. \nListeners can be removed, using the removeEventListener method.",
+            "itemtype": "method",
+            "name": "addEventListener",
+            "params": [
+                {
+                    "name": "eventListener",
+                    "description": "An object containing a set of listeners for various actions",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "onCallProgressing",
+                            "description": "Callback for calls progressing, this is where to start playing any ringtones.",
+                            "type": "Function",
+                            "optional": true
+                        },
+                        {
+                            "name": "onCallEstablished",
+                            "description": "Callback for established calls, this is where to start playing the media streams and stop playing any ringtones.",
+                            "type": "Function",
+                            "optional": true
+                        },
+                        {
+                            "name": "onCallEnded",
+                            "description": "Callback for calls which are ended, media stream as well as ringtones should stop here.",
+                            "type": "Function",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "undefined"
+            },
+            "example": [
+                "\n\tvar callListener = {\n\t\tonProgressing: function(call): { console.log('Call is progressing'); },\n\t\tonEstablished: function(call): { \n\t\t\tconsole.log('Call is established, hook up audio.');\n\t\t\t$('audio').attr('src', call.incomingStreamURL); //Ensure audio element has \"autoplay\" attribute set\n\t\t},\n\t\tonCallEnded: function(call): { console.log('Call is ended, cause:', call.getEndCause()); }\n\t}\n\n\tcall.addEventListener(callListener);"
+            ],
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 127,
+            "description": "Remove event lister objects from the call. Pass the same object as was used when adding the listener.",
+            "itemtype": "method",
+            "name": "removeEventListener",
+            "params": [
+                {
+                    "name": "eventListener",
+                    "description": "An object containing a set of listeners for various actions, that has previously been added to this callClient",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "undefined"
+            },
+            "example": [
+                "\n\tcall.addEventListener(myListener);\n\tcall.removeEventListener(myListener);"
+            ],
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 141,
+            "description": "Set media streams, this is used internally by the call object. Internal function!",
+            "itemtype": "method",
+            "name": "setStream",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "undefined"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 244,
+            "description": "Trigger actions based on MXP ACK message. Only used internally.",
+            "itemtype": "method",
+            "name": "mxpAck",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "undefined"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 276,
+            "description": "Trigger actions based on MXP Ack with SDP Offer. Only used internally.",
+            "itemtype": "method",
+            "name": "mxpAckWithSdp",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "undefined"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 296,
+            "description": "Trigger actions based on MXP Sdp Offer. Only used internally.",
+            "itemtype": "method",
+            "name": "mxpSdpOffer",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "undefined"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 356,
+            "description": "Trigger actions based on ICE CANDIDATE. Only used internally.",
+            "itemtype": "method",
+            "name": "mxpInjectIce",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "undefined"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 386,
+            "itemtype": "method",
+            "name": "injectIce",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "undefined"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 432,
+            "description": "Trigger actions based on MXP Sdp Answer. Only used internally.",
+            "itemtype": "method",
+            "name": "mxpSdpAnswer",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "undefined"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 476,
+            "description": "Trigger actions based on MXP JOIN message. Only used internally.",
+            "itemtype": "method",
+            "name": "mxpJoin",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "undefined"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 514,
+            "description": "Trigger actions based on MXP JOIN message. Only used internally.",
+            "itemtype": "method",
+            "name": "mxpJoined",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "undefined"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 546,
+            "description": "Trigger actions based on MXP HANGUP message. Only used internally.",
+            "itemtype": "method",
+            "name": "mxpHangup",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "undefined"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 588,
+            "description": "Trigger actions based on MXP DENY message. Only used internally.",
+            "itemtype": "method",
+            "name": "mxpDeny",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "undefined"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 636,
+            "description": "Trigger actions based on MXP CANCEL message. Only used internally.",
+            "itemtype": "method",
+            "name": "mxpCancel",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "undefined"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 673,
+            "description": "Trigger actions based on MXP FAIL message. Only used internally.",
+            "itemtype": "method",
+            "name": "mxpFail",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "undefined"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 764,
+            "description": "Start a PSTN call, only called by CallClient, do not use this directly! Only used internally.",
+            "itemtype": "method",
+            "name": "PSTNCall",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "undefined"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 842,
+            "description": "Start a User call, only called by CallClient, do not use this directly! Only used internally.",
+            "itemtype": "method",
+            "name": "UserCall",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "undefined"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 909,
+            "description": "Recieve a call, do not use this directly! Only used internally.",
+            "itemtype": "method",
+            "name": "ackIncomingCall",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "undefined"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 961,
+            "description": "Method to pick up an incoming call which is currently ringing.",
+            "itemtype": "method",
+            "name": "answer",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "undefined"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 988,
+            "description": "End the call, regardless of what state it is in. If the call is an incoming call that has not yet been answered, the call will be reported as denied to the caller.",
+            "itemtype": "method",
+            "name": "hangup",
+            "return": {
+                "description": "undefined"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 1033,
+            "description": "Returns the call identifier.",
+            "itemtype": "method",
+            "name": "getCallId",
+            "return": {
+                "description": "Call identifier",
+                "type": "String"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 1053,
+            "description": "Returns metadata about the call.",
+            "itemtype": "method",
+            "name": "getDetails",
+            "return": {
+                "description": "Object containing metadata about the call.",
+                "type": "Object"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 1065,
+            "description": "Returns the call direction of the call. Not implemented.",
+            "itemtype": "method",
+            "name": "getDirection",
+            "return": {
+                "description": "bool True for outgoing, false for incoming."
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 1075,
+            "description": "Returns the identifier of the remote participant in the call. Not implemented.",
+            "itemtype": "method",
+            "name": "getRemoteUserId",
+            "return": {
+                "description": "Identifier of the remote participant in the call.",
+                "type": "String"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 1090,
+            "description": "Returns the Call State the call is currently in.",
+            "itemtype": "method",
+            "name": "getState",
+            "return": {
+                "description": "CallState",
+                "type": "String"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 1100,
+            "description": "Returns the Call End Cause for the call",
+            "itemtype": "method",
+            "name": "getEndCause",
+            "return": {
+                "description": "CallEndCause",
+                "type": "String"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 1110,
+            "description": "Returns the Call Headers for this call",
+            "itemtype": "method",
+            "name": "getHeaders",
+            "return": {
+                "description": "Call headers passed with the call",
+                "type": "Object"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Call.js",
+            "line": 1120,
+            "description": "Sends one or more DTMF tones for tone dialing.",
+            "itemtype": "method",
+            "name": "sendDTMF",
+            "access": "protected",
+            "tagname": "",
+            "beta": 1,
+            "params": [
+                {
+                    "name": "keys",
+                    "description": "May be a series of DTMF keys. Each key must be in [0-9, #, *, A-D].",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "undefined"
+            },
+            "class": "Call",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/CallClient.js",
+            "line": 62,
+            "description": "Add event listeners to the callClient, multiple listeners can be added with this method. Listeners are processed in the order they're added. \nListeners can be removed, using the CallClient method.",
+            "itemtype": "method",
+            "name": "addEventListener",
+            "params": [
+                {
+                    "name": "eventListener",
+                    "description": "An object containing a set of listeners for various actions",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "onIncomingCall",
+                            "description": "Callback for incoming calls",
+                            "type": "Function",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "undefined"
+            },
+            "example": [
+                "\n\tvar myListener = {\n\t\tonIncomingCall: function(callClient, call) { console.info(call); },\n\t};\n\tvar callClient = sinchClient.getCallClient();\n\tcallClient.addEventListener(myListener);"
+            ],
+            "class": "CallClient",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/CallClient.js",
+            "line": 81,
+            "description": "Remove event lister objects from the callClient. Pass the same object as was used when adding the listeners.",
+            "itemtype": "method",
+            "name": "removeEventListener",
+            "params": [
+                {
+                    "name": "eventListener",
+                    "description": "An object containing a set of listeners for various actions, that has previously been added to this callClient",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "undefined"
+            },
+            "example": [
+                "\n\tcallClient.addEventListener(myListener);\n\tcallClient.removeEventListener(myListener);"
+            ],
+            "class": "CallClient",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/CallClient.js",
+            "line": 105,
+            "description": "Initialize media streams, this is used to create the stream from the microphone. \nThe stream will be cached; in order to avoid a question when making / receiving a call, run initStream() once when it's a good time in the application flow.\n\n<i><b>Note: </b> This can be used to initialize the stream before it's needed, for example, during application loading.</i>",
+            "itemtype": "method",
+            "name": "initStream",
+            "return": {
+                "description": "promise which resolves into a media stream"
+            },
+            "example": [
+                "\n\tcallClient.initStream.then(function() {\n\t\t//user has accepted sharing the microphone, now show the user interface\n\t});"
+            ],
+            "class": "CallClient",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/CallClient.js",
+            "line": 142,
+            "description": "Handle incoming call.",
+            "itemtype": "method",
+            "name": "handleIncomingCall",
+            "async": 1,
+            "beta": 1,
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "msgObj",
+                    "description": "Incoming invite describing the call",
+                    "type": "MXPMessageObj"
+                }
+            ],
+            "return": {
+                "description": "undefined"
+            },
+            "example": [
+                "\n\t"
+            ],
+            "class": "CallClient",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/CallClient.js",
+            "line": 186,
+            "description": "Calls the user with the given userId.\n\n<i><b>Note: </b> Remember to play the audio in an audio element. When adding the incoming audio source, remember to play back the stream, or use the attribute \"autoplay\" on the audio element. </i>",
+            "itemtype": "method",
+            "name": "callUser",
+            "async": 1,
+            "beta": 1,
+            "params": [
+                {
+                    "name": "userId",
+                    "description": "The specific id of the user to call. May not be null or empty.",
+                    "type": "String"
+                },
+                {
+                    "name": "headers",
+                    "description": "Header object, contains a map key-value. Only string values are supported in native clients.",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "customStream",
+                    "description": "Custom audio stream to transmit. If none is specified, the stream from the mic will be used.",
+                    "type": "MediaStream",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Call instance for adding event handlers and/or interacting with this call.",
+                "type": "Call"
+            },
+            "example": [
+                " \n\tvar callClient = sinchClient.getCallClient();\n\tvar call = callClient.callUser('magnus');\n\n\tvar callListener = {\n\t\tonProgressing: function(call): { }, //Call is progressing\n\t\tonEstablished: function(call): { //Call is established\n\t\t\t$('audio').attr('src', call.incomingStreamURL); //Add audio stream to audio element.\n\t\t\t//NOTE: Remember to ensure audio element play back audio or has the \"autoplay\" attribute (see sample app)\n\t\t},\n\t\tonCallEnded: function(call): { } //Call is ended\n\t}\n\n\tcall.addEventListener(callListener);"
+            ],
+            "class": "CallClient",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/CallClient.js",
+            "line": 235,
+            "description": "Calls a phone number and terminate the call to the PSTN-network (Publicly Switched Telephone Network).\n\n<i><b>Note: </b> Remember to play the audio in an audio element. When adding the incoming audio source, remember to play back the stream, or use the attribute \"autoplay\" on the audio element. </i>",
+            "itemtype": "method",
+            "name": "callPhoneNumber",
+            "async": 1,
+            "beta": 1,
+            "params": [
+                {
+                    "name": "phoneNumber",
+                    "description": "The phone number to call. The phone number should be given according to E.164 number formatting (http://en.wikipedia.org/wiki/E.164) and should be prefixed with a '+'. E.g. to call the US phone number 415 555 0101, it should be specified as \"+14155550101\", where the '+' is the required prefix and the US country code '1' added before the local subscriber number.",
+                    "type": "String"
+                },
+                {
+                    "name": "headers",
+                    "description": "Header object (map key-value)",
+                    "type": "Object",
+                    "optional": true
+                },
+                {
+                    "name": "customStream",
+                    "description": "Custom audio stream to transmit. If none is specified, the stream from the mic will be used.",
+                    "type": "MediaStream",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Call instance for adding event handlers and/or interacting with this call.",
+                "type": "Call"
+            },
+            "example": [
+                "\n\tvar callClient = sinchClient.getCallClient();\n\tvar call = callClient.callPhoneNumber('+46000000000');\n\n\tvar callListener = {\n\t\tonProgressing: function(call): { }, //Call is progressing\n\t\tonEstablished: function(call): { //Call is established\n\t\t\t$('audio').attr('src', call.incomingStreamURL); //Add audio stream to audio element.\n\t\t\t//NOTE: Remember to ensure audio element play back audio or has the \"autoplay\" attribute (see sample app)\n\t\t},\n\t\tonCallEnded: function(call): { } //Call is ended\n\t}\n\n\tcall.addEventListener(callListener);"
+            ],
+            "class": "CallClient",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/CallDefs.js",
+            "line": 16,
+            "description": "Call is initiating.",
+            "itemtype": "property",
+            "name": "INITIATING",
+            "type": "{Object}",
+            "class": "CallState",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/CallDefs.js",
+            "line": 22,
+            "description": "Call is progressing, during this state, you might want to play a ringtone.\nThe event 'onCallProgressing' will be called on transition to this CallState.",
+            "itemtype": "property",
+            "name": "PROGRESSING",
+            "type": "{Object}",
+            "class": "CallState",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/CallDefs.js",
+            "line": 29,
+            "description": "Call is established, during this phase the ringtone should not play and instead the stream referenced in `incomingStream`, in the call object, should be played in an audio element.\nThe event 'onCallEstablished' will be called on transition to this CallState.",
+            "itemtype": "property",
+            "name": "ESTABLISHED",
+            "type": "{Object}",
+            "class": "CallState",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/CallDefs.js",
+            "line": 36,
+            "description": "Call is ended. The end cause can be found using callEndCause() method in the call object.\nThe event 'onCallEnded' will be called on transition to this CallState.",
+            "itemtype": "property",
+            "name": "ENDED",
+            "type": "{Object}",
+            "class": "CallState",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/CallDefs.js",
+            "line": 63,
+            "description": "This is the case if the user (the own client) cancels the call before it was answered.",
+            "itemtype": "property",
+            "name": "CANCELED",
+            "type": "{Object}",
+            "class": "CallEndCause",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/CallDefs.js",
+            "line": 69,
+            "description": "The call was either busy or denied.",
+            "itemtype": "property",
+            "name": "DENIED",
+            "type": "{Object}",
+            "class": "CallEndCause",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/CallDefs.js",
+            "line": 75,
+            "description": "There was some failure in the internal sinch infrastructure.",
+            "itemtype": "property",
+            "name": "FAILURE",
+            "type": "{Object}",
+            "class": "CallEndCause",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/CallDefs.js",
+            "line": 81,
+            "description": "There was a successful call, which either side hung up on.",
+            "itemtype": "property",
+            "name": "HUNG_UP",
+            "type": "{Object}",
+            "class": "CallEndCause",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/CallDefs.js",
+            "line": 87,
+            "description": "The call was ringing for a long time without anyone answering. (~45 seconds)",
+            "itemtype": "property",
+            "name": "NO_ANSWER",
+            "type": "{Object}",
+            "class": "CallEndCause",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/CallDefs.js",
+            "line": 93,
+            "description": "The call has not yet ended.",
+            "itemtype": "property",
+            "name": "NONE",
+            "type": "{Object}",
+            "class": "CallEndCause",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Message.js",
+            "line": 47,
+            "description": "Id of message",
+            "itemtype": "property",
+            "name": "messageId",
+            "type": "{Number}",
+            "class": "Message",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Message.js",
+            "line": 53,
+            "description": "Array of usernames for recipients. Array with one item if there's only one recipient.",
+            "itemtype": "property",
+            "name": "recipientIds",
+            "type": "{Array}",
+            "class": "Message",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Message.js",
+            "line": 59,
+            "description": "Text body of message",
+            "itemtype": "property",
+            "name": "textBody",
+            "type": "{String}",
+            "class": "Message",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Message.js",
+            "line": 65,
+            "description": "Username for sender of this message",
+            "itemtype": "property",
+            "name": "senderId",
+            "type": "{String}",
+            "class": "Message",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Message.js",
+            "line": 71,
+            "description": "Custom headers for message",
+            "itemtype": "property",
+            "name": "headers",
+            "type": "{Object}",
+            "class": "Message",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Message.js",
+            "line": 77,
+            "description": "Local javascript time when message was created",
+            "itemtype": "property",
+            "name": "timestamp",
+            "type": "{Number}",
+            "class": "Message",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Message.js",
+            "line": 83,
+            "description": "Array of recipients which have acknowledged delivery of their message.",
+            "itemtype": "property",
+            "name": "delivered",
+            "type": "{Object}",
+            "class": "Message",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Message.js",
+            "line": 89,
+            "description": "True if outgoing (from myself) or false for incoming (from other user)",
+            "itemtype": "property",
+            "name": "direction",
+            "type": "{boolean}",
+            "class": "Message",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Message.js",
+            "line": 96,
+            "description": "A method to clone this {Message} object into a new {MXPMessageObj}",
+            "itemtype": "method",
+            "name": "getMXPMessageObj",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "A new MXPMessageObj Object",
+                "type": "MXPMessageObj"
+            },
+            "class": "Message",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Message.js",
+            "line": 130,
+            "description": "Id of message that was delivered",
+            "itemtype": "property",
+            "name": "messageId",
+            "type": "{Number}",
+            "class": "MessageDeliveryInfo",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Message.js",
+            "line": 137,
+            "description": "Id of recipient who acknowledged delivery",
+            "itemtype": "property",
+            "name": "recipientId",
+            "type": "{Number}",
+            "class": "MessageDeliveryInfo",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/Message.js",
+            "line": 143,
+            "description": "Local javascript time when delivery of message was known.",
+            "itemtype": "property",
+            "name": "timestamp",
+            "type": "{Number}",
+            "class": "MessageDeliveryInfo",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/MessageClient.js",
+            "line": 57,
+            "description": "Internal method to handle incoming message and take appropriate actions wrt. handlers / errors. Capable of recieving both loop-back messages from self and external messages.",
+            "itemtype": "method",
+            "name": "handleMessage",
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "msgObj",
+                    "description": "Arriving object to be processed.",
+                    "type": "MXPMessageObj"
+                }
+            ],
+            "return": {
+                "description": "Boolean defining if ack should be sent"
+            },
+            "class": "MessageClient",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/MessageClient.js",
+            "line": 115,
+            "description": "External method to add event listeners to the messageClient, multiple listeners can be added with this method. Listeners are processed in the order they're added. \nListeners can be removed, using the MessageClient method.",
+            "itemtype": "method",
+            "name": "addEventListener",
+            "params": [
+                {
+                    "name": "eventListener",
+                    "description": "An object containing a set of listeners for various actions",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "onIncomingMessage",
+                            "description": "Callback for incoming message",
+                            "type": "Function",
+                            "optional": true
+                        },
+                        {
+                            "name": "onMessageDelivered",
+                            "description": "Callback for delivered message",
+                            "type": "Function",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "undefined"
+            },
+            "example": [
+                "\n\tvar myListener = {\n\t\tonIncomingMessage: function(message) { console.info(message); },\n\t\tonMessageDelivered: function(message) { console.info(message); },\n\t};\n\tvar messageClient = sinchClient.getMessageClient();\n\tmessageClient.addEventListener(myListener);"
+            ],
+            "class": "MessageClient",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/MessageClient.js",
+            "line": 136,
+            "description": "External method to remove event lister objects from the messageClient. Pass the same object as was used when adding the listeners.",
+            "itemtype": "method",
+            "name": "removeEventListener",
+            "params": [
+                {
+                    "name": "eventListener",
+                    "description": "An object containing a set of listeners for various actions, that has previously been added to this messageClient",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "undefined"
+            },
+            "example": [
+                "\n\tmessageClient.addEventListener(myListeners);\n\tmessageClient.removeEventListener(myListeners);"
+            ],
+            "class": "MessageClient",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/MessageClient.js",
+            "line": 150,
+            "description": "Send an instant message. Can either be chained or supplied with success/fail callbacks. A promise will always be returned, supplied callback functions will be called before chained functions.\n\n_<b>Note:</b> If a user does not exist or a user is lacking the capability to receive your message, the error returned will inform you of what failed. Code 2000 for missing person, code 2001 for missing capability. The user(s) in question can be found in the error.response array._",
+            "itemtype": "method",
+            "name": "send",
+            "chainable": 1,
+            "async": 1,
+            "beta": 1,
+            "params": [
+                {
+                    "name": "message",
+                    "description": "The message object to send",
+                    "type": "Message"
+                },
+                {
+                    "name": "success",
+                    "description": "Callback for successfuly sent message (n.b. not necessarily delivered yet)",
+                    "type": "Function",
+                    "optional": true,
+                    "optdefault": "console.info"
+                },
+                {
+                    "name": "fail",
+                    "description": "Callback for send error",
+                    "type": "Function",
+                    "optional": true,
+                    "optdefault": "console.error"
+                }
+            ],
+            "return": {
+                "description": "promise which resolves with the message"
+            },
+            "example": [
+                "\n\tvar messageClient = sinchClient.getMessageClient();\n\tvar message = messageClient.newMessage('foo', 'Hello World');\n\tmessageClient.send(message)\n\t\t.then(function(message) {\n\t\t\t//Successfully sent message (not delivered)\n\t\t})\n\t\t.fail(function(error) {\n\t\t\t//Process error, can be that the user / one of the users don't exist.\n\t\t})"
+            ],
+            "class": "MessageClient",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/MessageClient.js",
+            "line": 221,
+            "description": "Internal method to take actions on reception of ack, for example, calling onDelivery handlers.",
+            "itemtype": "method",
+            "name": "ackMsg",
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "recipientId",
+                    "description": "The id of the party sending the acknowledgement",
+                    "type": "String"
+                },
+                {
+                    "name": "messageId",
+                    "description": "the id of the message which was acknowledged",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "undefined"
+            },
+            "class": "MessageClient",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/MessageClient.js",
+            "line": 248,
+            "description": "Removes a previous added eventListener object.\n\n<i><b>Note:</b> Do not send the same Message object more than once.</i>",
+            "itemtype": "method",
+            "name": "newMessage",
+            "params": [
+                {
+                    "name": "recipientIds",
+                    "description": "Array or string containing one or more recipientId's to send a message to.",
+                    "type": "String|Array"
+                },
+                {
+                    "name": "textBody",
+                    "description": "The message body to send",
+                    "type": "String"
+                },
+                {
+                    "name": "publicHeaders",
+                    "description": "Opaque object sent with the message which can be inspected on the receiver side via Message.headers",
+                    "type": "Object",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "Newly created message object.",
+                "type": "Message"
+            },
+            "example": [
+                "\n\tvar messageClient = sinchClient.getMessageClient();\n\tvar message = messageClient.newMessage('recipient_username', 'Some awesome message');\n\tmessageClient.send(message);"
+            ],
+            "class": "MessageClient",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/SinchError.js",
+            "line": 23,
+            "description": "Error domain",
+            "itemtype": "property",
+            "name": "domain",
+            "type": "{Number}",
+            "class": "SinchError",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/SinchError.js",
+            "line": 29,
+            "description": "Error code",
+            "itemtype": "property",
+            "name": "code",
+            "type": "{Number}",
+            "class": "SinchError",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/SinchError.js",
+            "line": 35,
+            "description": "Object relevant to the cause of the error, typically a response on a REST request",
+            "itemtype": "property",
+            "name": "response",
+            "type": "{Object}",
+            "class": "SinchError",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/SinchError.js",
+            "line": 41,
+            "description": "Text message (human readable)",
+            "itemtype": "property",
+            "name": "message",
+            "type": "{String}",
+            "class": "SinchError",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/SinchError.js",
+            "line": 47,
+            "description": "Error stack",
+            "itemtype": "property",
+            "name": "stack",
+            "type": "{String}",
+            "class": "SinchError",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/User.js",
+            "line": 19,
+            "description": "User object with some fundamental information and the user profile. Contents may vary.",
+            "itemtype": "property",
+            "name": "userObj",
+            "access": "protected",
+            "tagname": "",
+            "type": "{Object}",
+            "class": "User",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/User.js",
+            "line": 26,
+            "description": "SinchClient instance this user belongs to",
+            "itemtype": "property",
+            "name": "sinch",
+            "access": "protected",
+            "tagname": "",
+            "type": "{SinchClient}",
+            "class": "User",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/User.js",
+            "line": 34,
+            "description": "Internal method to update user profile",
+            "itemtype": "method",
+            "name": "updateUser",
+            "chainable": 1,
+            "async": 1,
+            "access": "protected",
+            "tagname": "param {Object} userObj Objecte describing the user, can contain only the fields to be updated. To remove a field, supply an empty string. \nparam {Object} [userObj.first] User first name\nparam {Object} [userObj.lsat] User last name",
+            "return": {
+                "description": "promise which resolves to the new user object on success"
+            },
+            "example": [
+                "\n\tsinchClient.user.updateUser({name: {first: 'First name', last: 'Some last name'}})\n\t\t.then(function(newUserObj) {\n\t\t\t//Do things with the new user object\t\n\t\t});"
+            ],
+            "class": "User",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/User.js",
+            "line": 66,
+            "description": "Internal method to create a new user, retrieves authentication ticket.",
+            "itemtype": "method",
+            "name": "create",
+            "chainable": 1,
+            "async": 1,
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "signupObj",
+                    "description": "Object with details on the user. One or more of email/username/number must be specifieed.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "email",
+                            "description": "E-mail identity",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "username",
+                            "description": "username identity",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "number",
+                            "description": "number identity",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "promise which resolves to an object containing the user and authorization ticket"
+            },
+            "class": "User",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/User.js",
+            "line": 121,
+            "description": "Internal method to authenticate and store user data in the user object",
+            "itemtype": "method",
+            "name": "authenticate",
+            "chainable": 1,
+            "async": 1,
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "loginObj",
+                    "description": "Object containing a userObject with auth ticket, or a loginObj specifying password and one of username, number or email.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "email",
+                            "description": "Authenticate using email",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "number",
+                            "description": "Authenticate using number",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "username",
+                            "description": "Authenticate using username",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "password",
+                            "description": "The password to authenticate using",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "expiresIn",
+                            "description": "The desired TTL of a session, in seconds. Default is 24 hours.",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "promise which resolves null on success"
+            },
+            "class": "User",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/User.js",
+            "line": 250,
+            "description": "Internal method to retrieve instance (key & secret for signed requests), key and secret stored in {SinchClient} object. \n(Previously sessions where used, hence the name. TODO: Rename function to something with instances)",
+            "itemtype": "method",
+            "name": "initSessKeySecret",
+            "chainable": 1,
+            "async": 1,
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "promise which resolves null on success"
+            },
+            "class": "User",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/User.js",
+            "line": 310,
+            "description": "Internal method to resume a session.",
+            "itemtype": "method",
+            "name": "resumeSession",
+            "chainable": 1,
+            "async": 1,
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "promise which resolves null on success"
+            },
+            "class": "User",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/User.js",
+            "line": 346,
+            "description": "Internal method to retrieve MXP user configuration from PAPI. Configuration is store it in \"this\"",
+            "itemtype": "method",
+            "name": "getMXPConf",
+            "chainable": 1,
+            "async": 1,
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "promise which resolves null on success"
+            },
+            "class": "User",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/main.js",
+            "line": 142,
+            "description": "Configure Sinch application key and session id / secret.",
+            "itemtype": "method",
+            "name": "config",
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "credentialsObj",
+                    "description": "Object with application credentials.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "appKey",
+                            "description": "Application key.",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "sessionId",
+                            "description": "Session ID for authenticated user.",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "secret",
+                            "description": "Session secret for authenticated user.",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "authServer",
+                            "description": "Callback URL for authentication ticket, if not using default identity provider from Sinch.",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "undefined"
+            },
+            "example": [
+                "\n\t\tvar sinchClient = Sinch"
+            ],
+            "class": "SinchClient",
+            "module": "Sinch"
+        },
+        {
+            "file": "src/main.js",
+            "line": 170,
+            "description": "Sinch log function, calls developer supplied log handler and optionally report progress on a defer",
+            "itemtype": "method",
+            "name": "log",
+            "beta": 1,
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "message",
+                    "description": "The message to log, can be object or string",
+                    "type": "String|Object"
+                },
+                {
+                    "name": "promise",
+                    "description": "The promise to notify",
+                    "type": "Q.promise"
+                }
+            ],
+            "return": {
+                "description": "undefined"
+            },
+            "class": "SinchClient",
+            "module": "Sinch"
+        },
+        {
+            "file": "src/main.js",
+            "line": 187,
+            "description": "Sinch log MXP function, calls developer supplied MXP log handler, for tracing MXP messages.",
+            "itemtype": "method",
+            "name": "log",
+            "beta": 1,
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "message",
+                    "description": "The message to log, can be object or string",
+                    "type": "String|Object"
+                }
+            ],
+            "return": {
+                "description": "undefined"
+            },
+            "class": "SinchClient",
+            "module": "Sinch"
+        },
+        {
+            "file": "src/main.js",
+            "line": 200,
+            "description": "Configure Sinch application URL.",
+            "itemtype": "method",
+            "name": "setUrl",
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "urlObj",
+                    "description": "Object with backend PAPI URL's.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "user",
+                            "description": "Backend for managing users",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "base",
+                            "description": "Backend for basic PAPI actions",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "portal",
+                            "description": "Backend for portal specific",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "reporting",
+                            "description": "Backend for reports",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "calling",
+                            "description": "Backend for data calling",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "messaging",
+                            "description": "Backend for messages",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "undefined"
+            },
+            "class": "SinchClient",
+            "module": "Sinch"
+        },
+        {
+            "file": "src/main.js",
+            "line": 225,
+            "description": "Terminate session, invalidates sinchClient and this object is considered stale; instance can't be reused.",
+            "itemtype": "method",
+            "name": "terminate",
+            "return": {
+                "description": "undefined"
+            },
+            "class": "SinchClient",
+            "module": "Sinch"
+        },
+        {
+            "file": "src/main.js",
+            "line": 253,
+            "description": "Add authorization header using \"session\"-method and return modified header object for signed session requests (fallback to non-signed application key).\nCan be sent using jQuery. If using AngularJS, intercept and sign requests before they are sent.",
+            "itemtype": "method",
+            "name": "signSession",
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "configObj",
+                    "description": "Object describing the request.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "method",
+                            "description": "Request method (GET, POST, PUT, DELETE).",
+                            "type": "String"
+                        },
+                        {
+                            "name": "url",
+                            "description": "Request URL. \nExample: `users/email/magnus@sinch.com/authentication)`",
+                            "type": "String"
+                        },
+                        {
+                            "name": "data",
+                            "description": "Raw data object to be sent (if any)",
+                            "type": "Object",
+                            "optional": true
+                        },
+                        {
+                            "name": "headers",
+                            "description": "Object containing header fields (only 'Accept' is required)",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "undefined;"
+            },
+            "example": [
+                "\n\tSinch.signSession({\n\t\tmethod: 'POST',\n\t\turl: 'http://example.com/resource',\n\t\tdata: {...},\n\t\theaders: {Accept: 'application/json'}\n\t});"
+            ],
+            "class": "SinchClient",
+            "module": "Sinch"
+        },
+        {
+            "file": "src/main.js",
+            "line": 314,
+            "description": "Add authorization header using \"ticket\"-method and return modified header object.\nCan be sent using jQuery. If using AngularJS, intercept and sign requests before they are sent.",
+            "itemtype": "method",
+            "name": "signTicket",
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "configObj",
+                    "description": "Object describing the request.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "data",
+                            "description": "Raw data object to be sent (if any)",
+                            "type": "Object",
+                            "optional": true
+                        },
+                        {
+                            "name": "headers",
+                            "description": "Object containing header fields (only 'Accept' is required)",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "headers",
+                "type": "Object"
+            },
+            "example": [
+                "\n\tSinch.signTicket({\n\t\tmethod: 'POST',\n\t\turl: 'http://example.com/resource',\n\t\tdata: {...},\n\t\theaders: {Accept: 'application/json'}\n\t});"
+            ],
+            "class": "SinchClient",
+            "module": "Sinch"
+        },
+        {
+            "file": "src/main.js",
+            "line": 343,
+            "description": "Add authorization header for non signed request, using only the application key for public / open functions.",
+            "itemtype": "method",
+            "name": "signApp",
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "configObj",
+                    "description": "Object describing the request.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "headers",
+                            "description": "Object containing header fields (only 'Accept' is required)",
+                            "type": "Object"
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "undefined"
+            },
+            "example": [
+                "\n\tSinch.signApp({\n\t\tmethod: 'POST',\n\t\turl: 'http://example.com/resource',\n\t\tdata: {...},\n\t\theaders: {Accept: 'application/json'}\n\t});"
+            ],
+            "class": "SinchClient",
+            "module": "Sinch"
+        },
+        {
+            "file": "src/main.js",
+            "line": 372,
+            "description": "Retrieve session id and secret",
+            "itemtype": "method",
+            "name": "getSession",
+            "return": {
+                "description": "Object containing sessionId and sessionSecret.",
+                "type": "SessionObj"
+            },
+            "example": [
+                "\n\tvar sessionObj = sinchClient.getSession();\n\tsessionStorage['sinchSession'] = sessionObj;"
+            ],
+            "class": "SinchClient",
+            "module": "Sinch"
+        },
+        {
+            "file": "src/main.js",
+            "line": 386,
+            "description": "Create a new user. Can either be chained or supplied with success/fail callbacks. A promise will always be returned, supplied callback functions will be called before chained functions.",
+            "itemtype": "method",
+            "name": "newUser",
+            "chainable": 1,
+            "async": 1,
+            "beta": 1,
+            "params": [
+                {
+                    "name": "signupObj",
+                    "description": "Object describing the new user, must contain one or more of username, email or number identity",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "username",
+                            "description": "Desired username as identity",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "email",
+                            "description": "Desired email as identity",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "number",
+                            "description": "Desired number as identity",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "password",
+                            "description": "Requested password",
+                            "type": "String"
+                        }
+                    ]
+                },
+                {
+                    "name": "success",
+                    "description": "Callback on Success",
+                    "type": "Function",
+                    "optional": true,
+                    "optdefault": "console.info"
+                },
+                {
+                    "name": "fail",
+                    "description": "Callback on Error",
+                    "type": "Fail",
+                    "optional": true,
+                    "optdefault": "console.error"
+                }
+            ],
+            "return": {
+                "description": "promise which resolves with an authentication ticket on success, which can be supplied to the start method."
+            },
+            "example": [
+                "\n\tsinchClient.newUser({username: 'magnus', email: 'magnus@example.com', password: 'strongstuff'})\n\t\t.then(function(ticket) {\n\t\t\t//Things to do on success\n\t\t\tsinchClient.start(ticket); //Start sinch using ticket from creating user\n\t\t})\n\t\t.fail(function(error) {\n\t\t\t//Manage error (One/more identities may be taken, or password not strong enough, or other)\n\t\t})"
+            ],
+            "class": "SinchClient",
+            "module": "Sinch"
+        },
+        {
+            "file": "src/main.js",
+            "line": 434,
+            "description": "Initialize the SDK using a loginObject or supplied ticket. Can either be chained or supplied with success/fail callbacks. A promise will always be returned, supplied callback functions will be called before chained functions.",
+            "itemtype": "method",
+            "name": "start",
+            "chainable": 1,
+            "async": 1,
+            "beta": 1,
+            "params": [
+                {
+                    "name": "loginObj",
+                    "description": "Object containing details for authentication or authenticated object from creating new user or third party authentication.",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "email",
+                            "description": "Authenticate using email (password is mandatory when supplying this)",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "number",
+                            "description": "Authenticate using number (password is mandatory when supplying this)",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "username",
+                            "description": "Authenticate using username (password is mandatory when supplying this)",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "password",
+                            "description": "Authenticate with password",
+                            "type": "String",
+                            "optional": true
+                        },
+                        {
+                            "name": "userTicket",
+                            "description": "Authentication ticket signed with your app secret. User identity or password is not required if this is supplied together with the user profile.",
+                            "type": "String",
+                            "optional": true
+                        }
+                    ]
+                },
+                {
+                    "name": "success",
+                    "description": "Callback on Success",
+                    "type": "Function",
+                    "optional": true,
+                    "optdefault": "console.info"
+                },
+                {
+                    "name": "fail",
+                    "description": "Callback on Error",
+                    "type": "Fail",
+                    "optional": true,
+                    "optdefault": "console.error"
+                }
+            ],
+            "return": {
+                "description": "promise which resolves to null on success"
+            },
+            "example": [
+                "\n\tsinchClient.start({username: 'magnus', password: 'strongstuff'})\n\t\t.then(function() {\n\t\t\t//Do things on success, like show UI, etc\n\t\t})\n\t\t.fail(function() {\n\t\t\t//Handle error, such as incorrect username/password\n\t\t});"
+            ],
+            "class": "SinchClient",
+            "module": "Sinch"
+        },
+        {
+            "file": "src/main.js",
+            "line": 553,
+            "description": "Retrieve a MessageClient for a particular sinchClient. Requires a sinchClient with messaging capability set true.",
+            "itemtype": "method",
+            "name": "getMessageClient",
+            "return": {
+                "description": "",
+                "type": "MessageClient"
+            },
+            "example": [
+                "\n\tvar messageClient = sinchClient.getMessageClient();"
+            ],
+            "class": "SinchClient",
+            "module": "Sinch"
+        },
+        {
+            "file": "src/main.js",
+            "line": 573,
+            "description": "Retrieve a CallClient for a particular sinchClient. Requires a sinchClient with calling capability set true.",
+            "itemtype": "method",
+            "name": "getCallClient",
+            "return": {
+                "description": "",
+                "type": "CallClient"
+            },
+            "example": [
+                "\n\tvar callClient = sinchClient.getCallClient();"
+            ],
+            "class": "SinchClient",
+            "module": "Sinch"
+        },
+        {
+            "file": "src/main.js",
+            "line": 593,
+            "description": "Start connection for messages and data call signalling.",
+            "itemtype": "method",
+            "name": "startActiveConnection",
+            "return": {
+                "description": "promise which resolves when connection is active."
+            },
+            "example": [
+                "\n\tsinchClient.startActiveConnection();"
+            ],
+            "class": "SinchClient",
+            "module": "Sinch"
+        },
+        {
+            "file": "src/main.js",
+            "line": 616,
+            "description": "Stop connection for messages and data call signalling.",
+            "itemtype": "method",
+            "name": "stopActiveConnection",
+            "return": {
+                "description": "undefined"
+            },
+            "example": [
+                "\n\tsinchClient.stopActiveConnection();"
+            ],
+            "class": "SinchClient",
+            "module": "Sinch"
+        },
+        {
+            "file": "src/main.js",
+            "line": 636,
+            "description": "Retrieve the current version of the Sinch JS SDK",
+            "itemtype": "method",
+            "name": "getVersion",
+            "return": {
+                "description": "version string"
+            },
+            "example": [
+                "\n\tvar version = sinchClient.getVersion();"
+            ],
+            "class": "SinchClient",
+            "module": "Sinch"
+        },
+        {
+            "file": "src/support.js",
+            "line": 13,
+            "description": "Make AJAX request using XMLHttpRequest",
+            "itemtype": "method",
+            "name": "sinchAjax",
+            "access": "protected",
+            "tagname": "",
+            "class": "Support",
+            "module": "Sinch"
+        },
+        {
+            "file": "src/support.js",
+            "line": 62,
+            "description": "Prototype PAPI request method, used in Sinch class to generate all PAPI methods as defined in PAPI/*_defs",
+            "itemtype": "method",
+            "name": "requestPrototype",
+            "access": "protected",
+            "tagname": "",
+            "class": "Support",
+            "module": "Sinch"
+        },
+        {
+            "file": "src/support.js",
+            "line": 131,
+            "description": "Generate and retrieve a random UUID",
+            "itemtype": "method",
+            "name": "getUuid",
+            "access": "protected",
+            "tagname": "",
+            "class": "Support",
+            "module": "Sinch"
+        }
+    ],
+    "warnings": [
+        {
+            "message": "replacing incorrect tag: params with param",
+            "line": " src/MXP/MXP.js:99"
+        },
+        {
+            "message": "replacing incorrect tag: params with param",
+            "line": " src/MXP/MXP.js:138"
+        },
+        {
+            "message": "replacing incorrect tag: params with param",
+            "line": " src/MXP/MXP.js:258"
+        },
+        {
+            "message": "replacing incorrect tag: params with param",
+            "line": " src/SDK/MessageClient.js:57"
+        },
+        {
+            "message": "replacing incorrect tag: params with param",
+            "line": " src/SDK/MessageClient.js:248"
+        },
+        {
+            "message": "replacing incorrect tag: params with param",
+            "line": " src/SDK/MessageClient.js:248"
+        },
+        {
+            "message": "replacing incorrect tag: params with param",
+            "line": " src/SDK/MessageClient.js:248"
+        },
+        {
+            "message": "Missing item type",
+            "line": " src/MXP/MXP.js:510"
+        },
+        {
+            "message": "Missing item type",
+            "line": " src/MXP/MXP.js:720"
+        },
+        {
+            "message": "Missing item type\nHandlers for processing MXP messages related to Calling\nDocumentation TBD",
+            "line": " src/MXP/MXPCalling.js:194"
+        },
+        {
+            "message": "Missing item type\nHandlers for processing MXP messages related to IM\nDocumentation TBD",
+            "line": " src/MXP/MXPMessaging.js:97"
+        }
+    ]
+}

@@ -1,0 +1,76 @@
+<html>
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<title>Sinch IM Sample app</title>
+	<link rel="stylesheet" href="style/style.css"/>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="../../sinch.min.js"></script>
+</head>
+
+<body>
+	<div class="container">
+		<img class="logo" src="style/logo-297x142@2x.png" width="149">
+
+		<div class="clearfix"></div>
+
+		<div class="frame small">
+			<div id="auth">
+				<h3>User</h3>
+				<form id="userForm">
+					<input id="username" placeholder="username (min 4 chars)"><br>
+					<input id="password" type="password" placeholder="password"><br>
+					<button id="loginUser">Login</button>
+					<button id="createUser">Create</button>
+				</form>
+				<div id="userInfo">
+					username: <span id="username"></span><br><br>
+					<button id="logOut">Logout</button>
+				</div>
+			</div>
+		</div>
+
+		<div class="frame">
+			<h3>Chat</h3>
+			<div id="chat">
+				<form id="newMessage">
+					<input id="recipients" placeholder="Recipients (separate with space)"><br>
+					<input id="message" placeholder="message"><br>
+					<button id="sendMsg">Send</button>
+				</form>
+				<div id="chatArea">
+				</div>
+			</div>
+			<div class="clearfix"></div>
+			
+			<div class="error">
+			</div>
+		</div>
+		
+		<div class="clearfix"></div>
+
+		<div class="frame big">
+			<h3>Takeaways</h3>
+			<ul>
+				<li>Authenticate users and act on success / failures</li>
+				<li>How to create user and login automatically</li>
+				<li>After page load, look for an earlier session and try to start it</li>
+				<li>Listen for an incoming message and executing a listener</li>
+				<li>Sending a message to multiple recipients (space as a separator)</li>
+				<li>Recieved messages are shown on the left, sent messages are shown on the right</li>
+				<li>Management of delivery notifications: a list of recipients under the message that was sent</li>
+			</ul>
+		</div>
+
+		<div class="clearfix"></div>
+	</div>
+</body>
+
+<script src="IMsample.js"></script>
+
+</html>
+
+
+
+

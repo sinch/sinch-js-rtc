@@ -1,0 +1,164 @@
+
+
+body {
+	font-family: 'Arial', 'Helvetica', 'Sans Serif';
+}
+
+h3 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	color: #62029d;
+	margin-top: 0px;
+	margin-bottom: 5px;
+	text-transform: uppercase;
+	font-size: 22px;
+}
+
+div.container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 700px;
+	padding: 0px;
+}
+
+img.logo {
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+div.clearfix {
+	clear: both;
+}
+
+div.frame {
+	background-color: #fdf8ff;
+	padding: 15px;
+	margin: 5px 5px;
+	float: left;
+	width: 480px;
+}
+
+div.frame.small {
+	width: 140px;
+}
+
+div.frame.big {
+	width: 660px;
+	font-size: 14px;
+}
+
+input {
+	width: 100%;
+}
+
+button {
+	float: right;
+	margin: 2px;
+}
+
+div.frame div#auth {
+}
+
+div.frame div#chat {
+	display: none;
+}
+
+div.clearfix {
+	clear: both;
+}
+
+div#deliveredTo {
+	float: right;
+	font-size: 8px;
+}
+
+div#chatArea {
+	margin-top: 30px;
+}
+
+
+div.me {
+	float: right;
+	padding: 2px 0px;
+}
+
+div.me #from {
+	display: none;
+}
+
+div.me #textBody {
+	background-color: #62029d;
+	color: #fdf8ff;
+	border-radius: 3px;
+	float: right;
+	min-width: 100px;
+	padding: 2px 6px;
+	clear: both;
+}
+
+div.me div.recipients {
+	font-size: 10px;
+	clear: both;
+}
+
+
+div.other {
+	float: left;
+	padding: 2px 0px;
+}
+
+div.other #from {
+	font-size: 10px;
+}
+
+div.other div.recipients {
+	display: none;
+}
+
+div.other #textBody {
+	background-color: #d9bfe9;
+	border-radius: 3px;
+	min-width: 100px;
+	padding: 2px 6px;
+}
+
+div.error {
+	background-color: pink;
+	border-radius: 3px;
+	display: none;
+	margin-top: 5px;
+	padding: 5px;
+}
+
+form#userForm {
+	display: none;
+}
+
+input {
+	border: 1px solid #d9bfe9;
+}
+
+button {
+	color: #fff;
+	background-color: #62029d;
+	font-size: 14px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	border-radius: 0;
+	text-transform: uppercase;
+	vertical-align: bottom;
+	border: none;
+	outline: 0 none;
+}
+
+div#userInfo {
+	font-size: 14px;
+	display: none;
+}
+
+span#username {
+	float: right;
+}
+
+
+
