@@ -1,6 +1,6 @@
 Sinch Javascript SDK 1.0.0
 ==========================
-Welcome to Sinch js SDK.
+Welcome to Sinch JS SDK, http://www.sinch.com
 
 Copyright 2014, Sinch AB (reg. no 556969-5397)
 
