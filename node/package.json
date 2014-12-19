@@ -1,6 +1,6 @@
 {
   "name": "sinch-rtc",
-  "version": "0.9.10",
+  "version": "0.9.11",
   "description": "Sinch JS SDK for real time communication, voice and IM",
   "main": "lib/sinch.node.min.js",
   "scripts": {
@@ -31,6 +31,7 @@
   ],
   "dependencies": {
     "atob": "^1.1.2",
+    "btoa": "^1.1.2",
     "localStorage": "^1.0.3",
     "pubnub": "3.7.0",
     "q": "^1.0.1",
