@@ -103,6 +103,9 @@ var startChat = function(loginObj) {
 
 var quit = function() {
     console.log('\nClosing application')
-    sinchClient && sinchClient.terminate();
+    try {
+        sinchClient && sinchClient.terminate();
+    }
+    catch(e) {}
     process.kill();
 }
