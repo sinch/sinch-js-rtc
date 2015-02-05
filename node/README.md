@@ -1,4 +1,4 @@
-Sinch Javascript SDK 1.0.0
+Sinch Javascript SDK 1.1.0
 ==========================
 Welcome to Sinch JS SDK, http://www.sinch.com
 
@@ -12,22 +12,20 @@ Features
  - Make calls using WebRTC
 - Web calling 
  - Make and receive calls using WebRTC
- - Limited to browsers now, compatibility with native clients coming
+ - Call both web clients and native (iOS and Android)
 - Instant messaging
- - Cross platform, compatible with iOS and Android
+ - Cross platform, using native SDK's for iOS and Android
  - Conversations with up to 10 participants
  - Delivery receipts
 - Partner user management
  - Authentication ticket for session creation
  - Allows full user management for partner
- - Include sample backend and usage in sample app (SinchAUTHsample)
+ - Sample python (tornado) backend in samples folder (SinchAUTHsample)
  - NOTE: Review your app setting for "JS Auth" in the Sinch portal
 - Sinch user management
  - Create user, update password and basic profile
  - Authenticate as user
-
-_Note: Browser/browser calling is implemented, Browser/iOS or Browser/Android is 
-still in development._
+ - Generate authentication tickets when running as backend
 
 Should you encounter any bugs, glitches, lack of functionality or other problems
 using  our SDK, please send us an email to dev@sinch.com. 
@@ -117,10 +115,6 @@ In order to get started follow these steps:
 8. Open the same page in a separate window and create another user
 9. You can now try sending messages between these two users.
 
-Note: Currently there is a connection-limit interfering when too many tabs are 
-open at the same time. Please use multiple browsers and/or Incognito mode when 
-developing.
-
 Have a look at the source code in IMsample.js, enable the onLogMessage callback 
 if you're curious about the activity under the hood. It's a good way to have 
 logging enabled during development for easy error tracking.
@@ -159,7 +153,7 @@ Reference documentation is available in docs/ folder. Read about:
 Known issues
 ============
 - There is an issue running too many instances at the same time. No more than 
-  4-5 instances can be run at the same time in the same browser. 
+  5-6 instances can be run at the same time in the same browser. 
   (if problem experienced, restart browser and only run one instance and try 
   again with fewer instances)
 - After three failed login attempts on one user accounts, that account is 

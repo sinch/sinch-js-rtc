@@ -1,3 +1,13 @@
+Sinch 1.1.0
+	- Support for calling native clients (compatible with Sinch iOS SDK 
+	  v3.4.0 and above)
+	- Support for receiving calls from native clients (compatible with Sinch 
+	  iOS SDK v3.4.0 and above)
+	- Mute and unmute mic on a call using call.mute() and call.unmunte()
+	- Automatic mute during call setup for privacy
+	- Support for self signed requests for authentication (backend in Node)
+	- Improved robustness on signalling issues and Firefox compatibility
+	
 Sinch 1.0.0
 	- API Change: Call timestamps are now javascript Date-objects
 	- API Change: "supportActiveConnection" configuration option now only enable 

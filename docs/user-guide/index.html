@@ -10,9 +10,9 @@
 
 <h1 id="introduction">Introduction</h1>
 
-<p>The Sinch SDK is a product that makes adding voice calling and/or instant messaging to web apps easy. It handles the complexity of signaling and audio management while providing you the freedom to create a stunning user interface. The current release supports instant messaging, web to phone calling and web to web calling. Web to app calling is coming soon (iOS and Android).</p>
+<p>The Sinch SDK is a product that makes adding voice calling and/or instant messaging to web apps easy. It handles the complexity of signaling and audio management while providing you the freedom to create a stunning user interface. The current release supports instant messaging, web to phone calling and web to web calling as well as web to app calling. </p>
 
-<p>This document provides an overview for developers integrating with the Sinch SDK for the first time. It outlines the prerequisites and guides you through the process of sending and receiving instant messages. </p>
+<p>This document provides an overview for developers integrating with the Sinch SDK for the first time. It outlines the prerequisites and guides you through the process of placing calls from a web application or sending and receiving instant messages. </p>
 
 <p>Please see the <a href="http://www.sinch.com/docs/javascript/reference/">Reference Documentation</a> for a comprehensive description of all the classes.</p>
 
@@ -80,7 +80,7 @@
 
 <h3 id="sinchisavailableasabowermodule">Sinch is available as a Bower module</h3>
 
-<p>If you are using <a href="http://www.bower.org">Bower</a>, add a dependency to sinch by running: </p>
+<p>If you are using <a href="http://bower.io/">Bower</a>, add a dependency to sinch by running: </p>
 
 <pre><code>bower install sinch-rtc --save
 </code></pre>
@@ -168,7 +168,7 @@ sinchClient.start(loginObj)
 
 <h1 id="calling">Calling</h1>
 
-<p>The Sinch SDK supports two types of calls: <em>web-to-web</em> calls and <em>web-to-phone</em> calls. At the moment, calling is only supported in Chrome and Firefox, and we hope to add support in more browsers later on. <code>CallClient</code> is the entry point for the calling functionality of the Sinch SDK.</p>
+<p>The Sinch SDK supports two types of calls: <em>web-to-web (or app)</em> calls and <em>web-to-phone</em> calls. At the moment, calling is only supported in Chrome and Firefox, and we hope to add support in more browsers later on. <code>CallClient</code> is the entry point for the calling functionality of the Sinch SDK.</p>
 
 <p>Calls are placed through the <code>CallClient</code> and general events are received through <code>eventListener</code> callback on CallClient. The call client is owned by the SinchClient and accessed using <code>sinchClient.getCallClient()</code>. When a call is placed, a new <code>call</code> object is generated. It&#8217;s possible to add eventListener` callbacks on the created call-object, to listen for events related to this call, such as when the call state changes.</p>
 
@@ -177,7 +177,7 @@ sinchClient.start(loginObj)
 <pre><code>var sinchClient = new SinchClient({applicationKey: '...', capabilities: {calling: true}});
 </code></pre>
 
-<h2 id="setupaweb-to-webcall">Set up a <em>web-to-web</em> call</h2>
+<h2 id="setupaweb-to-weborappcall">Set up a <em>web-to-web (or app)</em> call</h2>
 
 <p>Use the CallClient to start the call (the <code>callUser</code> method). Pass the user identifier of the callee (the user receiving the call) to the call method, so that Sinch services can connect the call to the callee.</p>
 
@@ -641,6 +641,8 @@ sinchClient.newUser(signUpObject)
 <p><em>Note: Other valid identities include email or number.</em></p>
 
 <p>After the new user is created, this code will proceed with executing the next method in the chain, which is starting the sinch client. The input parameter will be the output of newUser, which is an object with the authentication ticket. Finally, when the sinchClient is started, the <code>handleSuccess</code> method is called, which may do things like storing the session and displaying the user interface. </p>
+
+<p><em>Note: Users created using the native SDK will have no password set, and can not be used with Sinch Authentication in the JS SDK. In scenarios where you need web authentication of users created using the native SDK, we recommend disabling Sinch authentication and instead integrate authentication with your custom backend.</em></p>
 
 <h1 id="sessionmanagement">Session Management</h1>
 
