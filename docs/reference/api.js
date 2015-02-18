@@ -7,6 +7,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "CallState",
         "ErrorCode",
         "ErrorDomain",
+        "GroupCall",
         "MXP",
         "MXPCryptError",
         "MXPError",

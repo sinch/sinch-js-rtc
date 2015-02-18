@@ -1,0 +1,240 @@
+
+
+body {
+	font-family: 'Arial', 'Helvetica', 'Sans Serif';
+	margin: 0px;
+}
+
+h3 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	color: #62029d;
+	margin-top: 0px;
+	margin-bottom: 5px;
+	text-transform: uppercase;
+	font-size: 22px;
+}
+
+div.container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+	padding: 0px;
+}
+
+img.logo {
+	margin-top: 20px;
+	margin-bottom: 30px;
+}
+
+img.instructions {
+	float: right;
+	margin-right: 30px;
+	margin-top: 15px;
+	display: none;
+}
+
+div.clearfix {
+	clear: both;
+}
+
+div.frame {
+	background-color: #fdf8ff;
+	padding: 15px;
+	margin: 5px 5px;
+	float: left;
+	width: 480px;
+}
+
+div.frame.small {
+	width: 140px;
+}
+
+div.frame.big {
+	width: 660px;
+	font-size: 14px;
+}
+
+input {
+	width: 100%;
+}
+
+button {
+	float: right;
+	margin: 2px;
+}
+
+div.frame div#auth {
+}
+
+div.frame div#call {
+	display: none;
+}
+
+div.clearfix {
+	clear: both;
+}
+
+div#callLog {
+	font-size: 12px;
+}
+
+div#callLog #title {
+	margin-top: 10px;
+	font-size: 13px;
+	font-weight: 700;
+}
+
+div#callLog #stats {
+	margin-left: 20px;
+}
+
+div.me {
+	float: right;
+	padding: 2px 0px;
+}
+
+div.me #from {
+	display: none;
+}
+
+div.me #textBody {
+	background-color: #62029d;
+	color: #fdf8ff;
+	border-radius: 3px;
+	float: right;
+	min-width: 100px;
+	padding: 2px 6px;
+	clear: both;
+}
+
+div.me div.recipients {
+	font-size: 10px;
+	clear: both;
+}
+
+
+div.other {
+	float: left;
+	padding: 2px 0px;
+}
+
+div.other #from {
+	font-size: 10px;
+}
+
+div.other div.recipients {
+	display: none;
+}
+
+div.other #textBody {
+	background-color: #d9bfe9;
+	border-radius: 3px;
+	min-width: 100px;
+	padding: 2px 6px;
+}
+
+div.error {
+	background-color: pink;
+	border-radius: 3px;
+	display: none;
+	margin-top: 5px;
+	padding: 5px;
+}
+
+div#chromeWarning {
+	margin-left: auto;
+	margin-right: auto;
+	width: 1000px;
+	display: none;
+	background-color: pink;
+	padding: 15px;
+}
+
+form#userForm {
+	display: none;
+}
+
+input {
+	border: 1px solid #d9bfe9;
+}
+
+input:disabled {
+	background: lightgrey;
+}
+
+button {
+	color: #fff;
+	background-color: #62029d;
+	font-size: 14px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	border-radius: 0;
+	text-transform: uppercase;
+	vertical-align: bottom;
+	border: none;
+	outline: 0 none;
+}
+
+button#call.incall {
+	background-color: #d9bfe9;
+}
+
+button#call.callwaiting {
+	background-color: #d9bfe9;
+}
+
+button#hangup {
+	background-color: #d9bfe9;
+}
+
+button#hangup.incall {
+	background-color: #62029d;
+}
+
+button#answer {
+	background-color: #d9bfe9;
+}
+
+button#answer.callwaiting {
+	background-color: #62029d;
+}
+
+div#userInfo {
+	font-size: 14px;
+	display: none;
+}
+
+span#username {
+	float: right;
+}
+
+div.top1 {
+    height:330px;
+    background-color:#FFFFFF;
+    overflow: hidden;
+    transform:translate3d(0, 0px, 0);
+    background-image:url('Sinch_Banner.jpeg');
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center;
+    margin-bottom: 30px;
+    color: white;
+    text-transform: uppercase;
+	text-align: center;
+}
+
+div.top1 h1 {
+	margin-top: 140px;
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+	font-size: 40px;
+}
+
+video {
+	width: 320px;
+	height: 240px;
+}
+
+
+

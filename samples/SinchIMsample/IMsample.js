@@ -1,13 +1,16 @@
 var global_username = '';
 
-
 /*** After successful authentication, show user interface ***/
 
 var showUI = function() {
 	$('div#chat').show();
 	$('form#userForm').css('display', 'none');
 	$('div#userInfo').css('display', 'inline');
+	$('h3#login').css('display', 'none');
 	$('span#username').text(global_username);
+
+	$('form#newRecipient').show();
+	$('input#recipients').focus();
 }
 
 
@@ -15,19 +18,19 @@ var showUI = function() {
 
 var showLoginUI = function() {
 	$('form#userForm').css('display', 'inline');
+	$('input#username').focus();
 }
 
-
-/*** Set up sinchClient ***/
+//*** Set up sinchClient ***/
 
 sinchClient = new SinchClient({
 	applicationKey: 'MY_APPLICATION_KEY',
 	capabilities: {messaging: true},
-	startActiveConnection: true, /* NOTE: This is required if application is to receive calls / instant messages. */ 
+	startActiveConnection: true,
 	//Note: For additional loging, please uncomment the three rows below
 	onLogMessage: function(message) {
 		console.log(message);
-	},
+	}
 });
 
 
@@ -113,12 +116,13 @@ $('button#loginUser').on('click', function(event) {
 
 var messageClient = sinchClient.getMessageClient();
 
-$('button#sendMsg').on('click', function(event) {
+$('form#newMessage').on('submit', function(event) {
 	event.preventDefault();
 	clearError();
 
 	var recipients = $('input#recipients').val().split(' ');
 	var text = $('input#message').val();
+	$('input#message').val('');
 
 	//Create new sinch-message, using messageClient
 	var sinchMessage = messageClient.newMessage(recipients, text);
@@ -126,19 +130,26 @@ $('button#sendMsg').on('click', function(event) {
 	messageClient.send(sinchMessage).fail(handleError);
 });
 
+$('form#newRecipient').on('submit', function(event) {
+	event.preventDefault();
+
+	$('form#newMessage').show();
+	$('input#message').focus();
+});
 
 /*** Handle incoming messages ***/
 
 var eventListener = {
 	onIncomingMessage: function(message) {
-		$('div#chatArea').append('<div class="msgRow" id="'+message.messageId+'"></div><div class="clearfix"></div>');
+		$('div#chatArea').prepend('<div class="msgRow" id="'+message.messageId+'"></div><div class="clearfix"></div>');
 
 		$('div.msgRow#'+message.messageId)
 			.attr('class', global_username == message.senderId ? 'me' : 'other')
 			.append([
-				'<div id="from">from: '+message.senderId+'</div>', 
+				'<div id="from">'+message.senderId+' <span>'+message.timestamp.toLocaleTimeString()+(global_username == message.senderId ? ',' : '')+'</span></div>', 
+				'<div id="pointer"></div>',
 				'<div id="textBody">'+message.textBody+'</div>',
-				'<div class="recipients">delivered: </div>'
+				'<div class="recipients"></div>'
 			]);
 	}
 }
@@ -150,7 +161,8 @@ messageClient.addEventListener(eventListener);
 
 var eventListenerDelivery = {
 	onMessageDelivered: function(messageDeliveryInfo) {
-		$('div#'+messageDeliveryInfo.messageId+' div.recipients').append(messageDeliveryInfo.recipientId + ' ');
+		//$('div#'+messageDeliveryInfo.messageId+' div.recipients').append(messageDeliveryInfo.recipientId + ' ');
+		$('div#'+messageDeliveryInfo.messageId+' div.recipients').append('<img src="style/delivered_green.png" title="'+messageDeliveryInfo.recipientId+'">');
 	}
 }
 
@@ -164,8 +176,7 @@ $('button#logOut').on('click', function(event) {
 	clearError();
 
 	//Stop the sinchClient
-	sinchClient.terminate();
-	//Note: sinchClient object is now considered stale. Instantiate new sinchClient to reauthenticate, or reload the page.
+	sinchClient.terminate(); //Note: sinchClient object is now considered stale. Instantiate new sinchClient to reauthenticate, or reload the page.
 
 	//Remember to destroy / unset the session info you may have stored
 	delete localStorage[sessionName];
@@ -195,14 +206,4 @@ var handleError = function(error) {
 var clearError = function() {
 	$('div.error').hide();
 }
-
-
-
-
-
-
-
-
-
-
 

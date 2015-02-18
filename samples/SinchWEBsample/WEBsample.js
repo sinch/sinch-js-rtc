@@ -7,6 +7,7 @@ var showUI = function() {
 	$('div#call').show();
 	$('form#userForm').css('display', 'none');
 	$('div#userInfo').css('display', 'inline');
+	$('h3#login').css('display', 'none');
 	$('span#username').text(global_username);
 }
 
@@ -148,12 +149,15 @@ var callListeners = {
 /*** Set up callClient and define how to handle incoming calls ***/
 
 var callClient = sinchClient.getCallClient();
+callClient.initStream().then(function() { // Directly init streams, in order to force user to accept use of media sources at a time we choose
+	$('div.frame').not('#chromeFileWarning').show();
+}); 
 var call;
 
 callClient.addEventListener({
   onIncomingCall: function(incomingCall) {
 	//Play some groovy tunes 
-	$('audio#ringtone').prop("currentTime",0);
+	$('audio#ringtone').prop("currentTime", 0);
 	$('audio#ringtone').trigger("play");
 
 	//Print statistics

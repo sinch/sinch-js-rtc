@@ -1,6 +1,6 @@
 {
   "name": "sinch-rtc",
-  "version": "1.0.11",
+  "version": "1.2.0",
   "description": "Sinch JS SDK for real time communication, voice and IM",
   "main": "lib/sinch.node.min.js",
   "scripts": {

@@ -182,7 +182,7 @@ sinchClient.start(loginObj)
 <p>Use the CallClient to start the call (the <code>callUser</code> method). Pass the user identifier of the callee (the user receiving the call) to the call method, so that Sinch services can connect the call to the callee.</p>
 
 <pre><code>var sinchClient = new SinchClient({applicationKey: '...', capabilities: {calling: true}});
-Call call = sinchClient.callUser('&lt;remote user id&gt;');
+var call = sinchClient.callUser('&lt;remote user id&gt;');
 call.addEventListener(...); 
 </code></pre>
 
@@ -332,6 +332,53 @@ var call = callClient.callPhoneNumber(&quot;&lt;remote participant&gt;&quot;);
 // User changed his/her mind, let’s hangup
 call.hangup();
 </code></pre>
+
+<h2 id="videocalling">Video calling</h2>
+
+<p><em>Beta: The Sinch JS SDK Video Calling features are still under development and not suitable for a production environment</em></p>
+
+<p>Video calling can be activated for data calling by adding the capability &#8220;video&#8221; when starting the client. With this capability, video will now be added to all data-calls. Web to phone (PSTN) calling will be unaffected. A video call is set up in the same way as a voice only call: </p>
+
+<pre><code>var sinchClient = new SinchClient({applicationKey: '...', capabilities: {calling: true, video: true}}); // Notice the video capability
+var call = sinchClient.callUser('&lt;remote user id&gt;');
+call.addEventListener(...); 
+</code></pre>
+
+<p>For callbacks, hangup and other methods on the call object when performing a video call, please reference the API docs for audio-only calls. </p>
+
+<h2 id="groupcalling">Group calling</h2>
+
+<p><em>Beta: The Sinch JS SDK group calling feature is still under development and not suitable for a production environment</em></p>
+
+<p>Group calling allows participants to broadcast their presence to a particular &#8220;conference room&#8221;, upon which all participants already online will automatically add the new participant to the call. This results in a flexible &#8220;all-to-all&#8221; video conferencing solution.</p>
+
+<p>For starting the sinchClient with the capability of making a group call, the capability &#8220;multiCall&#8221; must be set. </p>
+
+<pre><code>var sinchClient = new SinchClient({applicationKey: '...', capabilities: {calling: true, video: true, multiCall: true}}); // Notice the multiCall capability
+</code></pre>
+
+<p>When joining a particular group and acting on the incoming media streams from other participants, the Sinch JS SDK will automatically take care of all call management, but you have to initiate the process and act on certain callbacks in order to connect incoming media streams to the relevant HTML elements. </p>
+
+<pre><code>var callClient = sinchClient.getCallClient();
+
+sinchClient.start({username: &quot;&lt;username&gt;&quot;, password: &quot;&lt;password&gt;&quot;}).then(function() { // After the client is started, place the call
+    var groupCall = callClient.callGroup(&quot;&lt;name_of_group&gt;&quot;);
+
+    groupCall.addEventListener({
+        onGroupRemoteCallAdded: function(call) { // Called when a remote participant stream is ready
+            $('video#other').attr('src', call.incomingStreamURL);
+        },
+        onGroupLocalMediaAdded: function(stream) { // Called when the local media stream is ready (optional)
+            $('video#me').attr('src', window.URL.createObjectURL(stream));
+        },
+        onGroupRemoteCallRemoved: function(call) { // Called when a remote participant has left and the stream needs to be removed from the HTML element
+            $('video#other').attr('src', (remoteCalls[index] || {}).incomingStreamURL || '');
+        },
+    });
+});
+</code></pre>
+
+<p>In this example, the group call is initiated after the client is started. A number of listeners was added in order to connect the incoming remote media streams (first callback), connect the local media stream and also manage lost participants.</p>
 
 <h1 id="instantmessaging">Instant Messaging</h1>
 

@@ -7,6 +7,7 @@ var showUI = function() {
 	$('div#call').show();
 	$('form#userForm').css('display', 'none');
 	$('div#userInfo').css('display', 'inline');
+	$('h3#login').css('display', 'none');
 	$('span#username').text(global_username);
 }
 
@@ -18,7 +19,7 @@ var showLoginUI = function() {
 }
 
 
-/*** Set up sinchClient ***/
+//*** Set up sinchClient ***/
 
 sinchClient = new SinchClient({
 	applicationKey: 'MY_APPLICATION_KEY',
@@ -145,6 +146,9 @@ var callListeners = {
 /*** Make a new PSTN call ***/
 
 var callClient = sinchClient.getCallClient();
+callClient.initStream().then(function() { // Directly init streams, in order to force user to accept use of media sources at a time we choose
+	$('div.frame').not('#chromeFileWarning').show();
+}); 
 var call;
 
 $('button#call').click(function(event) {

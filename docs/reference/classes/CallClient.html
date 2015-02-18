@@ -53,6 +53,8 @@
             
                 <li><a href="../classes/ErrorDomain.html">ErrorDomain</a></li>
             
+                <li><a href="../classes/GroupCall.html">GroupCall</a></li>
+            
                 <li><a href="../classes/Message.html">Message</a></li>
             
                 <li><a href="../classes/MessageClient.html">MessageClient</a></li>
@@ -301,6 +303,13 @@ callClient.addEventListener(...);</code></pre>
                             </li>
                         
                             <li class="index-item method">
+                                <a href="#method_callGroup">callGroup</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
                                 <a href="#method_callPhoneNumber">callPhoneNumber</a>
 
                                 
@@ -397,7 +406,7 @@ callClient.addEventListener(...);</code></pre>
             
         
         
-        <a href="../files/src_SDK_CallClient.js.html#l62"><code>src&#x2F;SDK&#x2F;CallClient.js:62</code></a>
+        <a href="../files/src_SDK_CallClient.js.html#l65"><code>src&#x2F;SDK&#x2F;CallClient.js:65</code></a>
         
         </p>
 
@@ -539,7 +548,7 @@ callClient.addEventListener(myListener);</code></pre>
             
         
         
-        <a href="../files/src_SDK_CallClient.js.html#l142"><code>src&#x2F;SDK&#x2F;CallClient.js:142</code></a>
+        <a href="../files/src_SDK_CallClient.js.html#l146"><code>src&#x2F;SDK&#x2F;CallClient.js:146</code></a>
         
         </p>
 
@@ -606,6 +615,138 @@ callClient.addEventListener(myListener);</code></pre>
 </div>
 
                 
+                    <div id="method_callGroup" class="method item">
+    <h3 class="name"><code>callGroup</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>groupName</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/GroupCall.html" class="crosslink">GroupCall</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_SDK_CallClient.js.html#l322"><code>src&#x2F;SDK&#x2F;CallClient.js:322</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p><b>Beta:</b> Join a call group, works with both video and audio. Currently only p2p conferencing works, where each participant is streaming to all other participants. </p>
+<p><i><b>Note: </b> Remember to play the media in a audio/video element. When adding the incoming media source, remember to play back the stream, or use the attribute &quot;autoplay&quot; on the audio element. </i><br>
+<i><b>Note: </b> Also requires the &quot;multiCall&quot; capability set to true. For video, also set the &quot;video&quot; capability to true.</i><br></p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">groupName</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The name of the group to join</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="../classes/GroupCall.html" class="crosslink">GroupCall</a></span>:
+                    
+                    <p>Call Group for adding event handlers related to this group conversation.</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var callClient = sinchClient.getCallClient();
+
+var call = callClient.callGroup(&#39;someGroupName&#39;); //When sinchClient has started
+
+groupCall.addEventListener({
+    onGroupLocalMediaAdded: function(stream) { // Local media stream is available for consumption
+        $(&#39;video#me&#39;).attr(&#39;src&#39;, window.URL.createObjectURL(stream));
+    },
+    onGroupRemoteCallAdded: function(call) { // A new participant is ready
+        $(&#39;video#other&#39;).attr(&#39;src&#39;, call.incomingStreamURL);
+    }, 
+    onGroupRemoteCallRemoved: function(call) {
+        $(&#39;video#other&#39;).attr(&#39;src&#39;, &#39;&#39;);
+    },
+})</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
                     <div id="method_callPhoneNumber" class="method item">
     <h3 class="name"><code>callPhoneNumber</code></h3>
 
@@ -666,7 +807,7 @@ callClient.addEventListener(myListener);</code></pre>
             
         
         
-        <a href="../files/src_SDK_CallClient.js.html#l261"><code>src&#x2F;SDK&#x2F;CallClient.js:261</code></a>
+        <a href="../files/src_SDK_CallClient.js.html#l268"><code>src&#x2F;SDK&#x2F;CallClient.js:268</code></a>
         
         </p>
 
@@ -843,7 +984,7 @@ call.addEventListener(callListener);</code></pre>
             
         
         
-        <a href="../files/src_SDK_CallClient.js.html#l212"><code>src&#x2F;SDK&#x2F;CallClient.js:212</code></a>
+        <a href="../files/src_SDK_CallClient.js.html#l219"><code>src&#x2F;SDK&#x2F;CallClient.js:219</code></a>
         
         </p>
 
@@ -1010,7 +1151,7 @@ call.addEventListener(callListener);</code></pre>
             
         
         
-        <a href="../files/src_SDK_CallClient.js.html#l162"><code>src&#x2F;SDK&#x2F;CallClient.js:162</code></a>
+        <a href="../files/src_SDK_CallClient.js.html#l169"><code>src&#x2F;SDK&#x2F;CallClient.js:169</code></a>
         
         </p>
 
@@ -1113,7 +1254,7 @@ call.addEventListener(callListener);</code></pre>
             
         
         
-        <a href="../files/src_SDK_CallClient.js.html#l105"><code>src&#x2F;SDK&#x2F;CallClient.js:105</code></a>
+        <a href="../files/src_SDK_CallClient.js.html#l108"><code>src&#x2F;SDK&#x2F;CallClient.js:108</code></a>
         
         </p>
 
@@ -1207,7 +1348,7 @@ The stream will be cached; in order to avoid a question when making / receiving 
             
         
         
-        <a href="../files/src_SDK_CallClient.js.html#l81"><code>src&#x2F;SDK&#x2F;CallClient.js:81</code></a>
+        <a href="../files/src_SDK_CallClient.js.html#l84"><code>src&#x2F;SDK&#x2F;CallClient.js:84</code></a>
         
         </p>
 

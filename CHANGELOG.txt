@@ -1,3 +1,14 @@
+Sinch 1.2.0
+	- New capability, "video" for video calling (beta)
+	- New capability, "multiCall", make sinchClient capable of handling multiple
+	  simultaneous calls (beta)
+	- New method, callClient.callGroup('groupName'), for making video group calls 
+	  (beta)
+	- Support for calling native clients (compatible with Sinch iOS SDK v3.4.0 
+	  and Android v3.5.0 and above)
+	- Support for receiving calls from native clients (compatible with Sinch
+	  iOS SDK v3.4.0 and Android SDK v3.5.0 and above)
+
 Sinch 1.1.0
 	- Support for calling native clients (compatible with Sinch iOS SDK 
 	  v3.4.0 and above)
@@ -7,7 +18,7 @@ Sinch 1.1.0
 	- Automatic mute during call setup for privacy
 	- Support for self signed requests for authentication (backend in Node)
 	- Improved robustness on signalling issues and Firefox compatibility
-	
+
 Sinch 1.0.0
 	- API Change: Call timestamps are now javascript Date-objects
 	- API Change: "supportActiveConnection" configuration option now only enable 

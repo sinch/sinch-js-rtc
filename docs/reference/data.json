@@ -87,6 +87,15 @@
             "fors": {},
             "namespaces": {}
         },
+        "src/SDK/GroupCall.js": {
+            "name": "src/SDK/GroupCall.js",
+            "modules": {},
+            "classes": {
+                "GroupCall": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/SDK/Message.js": {
             "name": "src/SDK/Message.js",
             "modules": {},
@@ -186,6 +195,7 @@
                 "CallClient": 1,
                 "CallState": 1,
                 "CallEndCause": 1,
+                "GroupCall": 1,
                 "Message": 1,
                 "MessageDeliveryInfo": 1,
                 "MessageClient": 1,
@@ -251,7 +261,7 @@
             "module": "MXP",
             "namespace": "",
             "file": "src/MXP/MXP.js",
-            "line": 756,
+            "line": 791,
             "description": "Class for MXP Errors",
             "access": "protected",
             "tagname": "",
@@ -291,7 +301,7 @@
             "module": "MXP",
             "namespace": "",
             "file": "src/MXP/MXP.js",
-            "line": 808,
+            "line": 843,
             "description": "Create a new log message and track description / object as one log item",
             "access": "protected",
             "tagname": "",
@@ -469,6 +479,35 @@
             "access": "protected",
             "tagname": "",
             "static": 1
+        },
+        "GroupCall": {
+            "name": "GroupCall",
+            "shortname": "GroupCall",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "SinchInternal",
+            "namespace": "",
+            "file": "src/SDK/GroupCall.js",
+            "line": 2,
+            "description": "A class for managing group calls. \n\n<i><b>Note:</b> Do not instantiate GroupCall, rather use relevant methods for placing or receiving group calls in CallClient. See the examples below.</i>",
+            "is_constructor": 1,
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "sinch",
+                    "description": "Group belongs to this Sinch instrance",
+                    "type": "Sinch"
+                },
+                {
+                    "name": "groupChannel",
+                    "description": "Name of the channel",
+                    "type": "String"
+                }
+            ]
         },
         "Message": {
             "name": "Message",
@@ -694,6 +733,18 @@
                                     "description": "Enable data calling by setting this to true",
                                     "type": "Boolean",
                                     "optional": true
+                                },
+                                {
+                                    "name": "multiCall",
+                                    "description": "Enable multiple concurrent calls by setting this to true",
+                                    "type": "Boolean",
+                                    "optional": true
+                                },
+                                {
+                                    "name": "video",
+                                    "description": "Enable video calling by setting this to true (Beta)",
+                                    "type": "Boolean",
+                                    "optional": true
                                 }
                             ]
                         },
@@ -845,7 +896,30 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 141,
+            "line": 142,
+            "description": "Internal function to subscribe to special PubNub channels",
+            "itemtype": "method",
+            "name": "subscribe2",
+            "chainable": 1,
+            "async": 1,
+            "access": "protected",
+            "tagname": "",
+            "params": [
+                {
+                    "name": "channel",
+                    "description": "A channel, or list of channels.",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "promise which resolves null when complete"
+            },
+            "class": "MXP",
+            "module": "MXP"
+        },
+        {
+            "file": "src/MXP/MXP.js",
+            "line": 176,
             "description": "Internal function to unsubscribe to channels for a pupnub object",
             "itemtype": "method",
             "name": "subscribe",
@@ -868,7 +942,7 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 162,
+            "line": 197,
             "description": "Check for subscription on Signal",
             "itemtype": "method",
             "name": "signalStatus",
@@ -882,7 +956,7 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 173,
+            "line": 208,
             "description": "Incoming PubNub messages, any channel / origin. Initiatiates the MXP inbound message processing chain.",
             "itemtype": "event",
             "name": "_onmessagePubNub",
@@ -901,7 +975,7 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 200,
+            "line": 235,
             "description": "Store data on a particular MXP session, used for call signalling",
             "itemtype": "method",
             "name": "configureMxpSession",
@@ -930,7 +1004,7 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 215,
+            "line": 250,
             "description": "Handle previously un-encrypted messages for a particular session key",
             "itemtype": "method",
             "name": "processUnencryptedForKey",
@@ -949,7 +1023,7 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 230,
+            "line": 265,
             "description": "Handle disconnects from PubNub, log the event",
             "itemtype": "event",
             "name": "_ondisconnectPubNub",
@@ -967,7 +1041,7 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 250,
+            "line": 285,
             "description": "Collect MXP Frames for a particular incoming message / set of messages.",
             "itemtype": "method",
             "name": "collectFrames",
@@ -983,7 +1057,7 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 293,
+            "line": 328,
             "description": "Identify decryption key for a complete MXP message (headers + defragmented content + footers). Analyzes if message was encrypted using a transport key, signal key or instance key.",
             "itemtype": "method",
             "name": "identifyKey",
@@ -1007,7 +1081,7 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 347,
+            "line": 382,
             "description": "Handle decrypted message and pass to the right set of handlers as specified by other parts of the MXP protocol. (i.e., MXPCalling or MXPMessaging)",
             "itemtype": "method",
             "name": "handleMessage",
@@ -1030,7 +1104,7 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 380,
+            "line": 415,
             "description": "Handle error messages by logging + writing to console if there's an error stack",
             "itemtype": "method",
             "name": "handleError",
@@ -1051,7 +1125,7 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 395,
+            "line": 430,
             "description": "Method to retrieve transport by transportId or recipientId's, can be used in a chan with MXPMessageObj as input/output",
             "itemtype": "method",
             "name": "getTransport",
@@ -1075,13 +1149,13 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 544,
+            "line": 579,
             "class": "MXP",
             "module": "MXP"
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 546,
+            "line": 581,
             "description": "Send MXP Message as defined by the incoming msgObj {MXPMessageObj}",
             "itemtype": "method",
             "name": "sendMXP",
@@ -1104,7 +1178,7 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 582,
+            "line": 617,
             "description": "Method to construct MXP Message by padding an incoming MXP Message with necessary parameters",
             "itemtype": "method",
             "name": "constructMXP",
@@ -1126,7 +1200,7 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 602,
+            "line": 637,
             "description": "Method to identify encryption key. The options are; instance key, session key or transport key.",
             "itemtype": "method",
             "name": "identifyEnKey",
@@ -1147,7 +1221,7 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 628,
+            "line": 663,
             "description": "Split a full MXP message into many frames. Resulting frames stored in the {MXPMessageObj}",
             "itemtype": "method",
             "name": "splitFrames",
@@ -1169,7 +1243,7 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 674,
+            "line": 709,
             "description": "Identify transmit channels for a particular MXPMessageObj",
             "itemtype": "method",
             "name": "getTxChannels",
@@ -1190,7 +1264,7 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 696,
+            "line": 731,
             "description": "Transmit MXP Frames stored in a {MXPMessageObj}",
             "itemtype": "method",
             "name": "transmitFrames",
@@ -1213,13 +1287,13 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 754,
+            "line": 789,
             "class": "MXP",
             "module": "MXP"
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 777,
+            "line": 812,
             "description": "Error domain",
             "itemtype": "property",
             "name": "domain",
@@ -1229,7 +1303,7 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 783,
+            "line": 818,
             "description": "Error code",
             "itemtype": "property",
             "name": "code",
@@ -1239,7 +1313,7 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 789,
+            "line": 824,
             "description": "Object relevant to the cause of the error, typically a response on a REST request",
             "itemtype": "property",
             "name": "response",
@@ -1249,7 +1323,7 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 795,
+            "line": 830,
             "description": "Text message (human readable)",
             "itemtype": "property",
             "name": "message",
@@ -1259,7 +1333,7 @@
         },
         {
             "file": "src/MXP/MXP.js",
-            "line": 801,
+            "line": 836,
             "description": "Error stack",
             "itemtype": "property",
             "name": "stack",
@@ -1458,7 +1532,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 115,
+            "line": 116,
             "description": "Add event listeners to the call, multiple listeners can be added with this method. \nListeners are processed in the order they're added. \nListeners can be removed, using the removeEventListener method.",
             "itemtype": "method",
             "name": "addEventListener",
@@ -1506,7 +1580,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 143,
+            "line": 144,
             "description": "Remove event lister objects from the call. Pass the same object as was used when adding the listener.",
             "itemtype": "method",
             "name": "removeEventListener",
@@ -1528,7 +1602,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 157,
+            "line": 158,
             "description": "Internal: Set media streams, this is used internally by the call object. Internal function!",
             "itemtype": "method",
             "name": "setStream",
@@ -1542,7 +1616,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 175,
+            "line": 176,
             "description": "Internal: Execute a specific listener and pass argument dataObj. Only used internally.",
             "itemtype": "method",
             "name": "execListener",
@@ -1556,7 +1630,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 195,
+            "line": 196,
             "description": "Internal: Set call end cause. Only used internally.",
             "itemtype": "method",
             "name": "setEndCause",
@@ -1570,7 +1644,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 208,
+            "line": 209,
             "description": "Internal: Set participants in the ongoing call. Only used internally.",
             "itemtype": "method",
             "name": "setParticipants",
@@ -1584,7 +1658,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 221,
+            "line": 222,
             "description": "Internal: Change call state to PROGRESSING and do necessary related steps. Only used internally.",
             "itemtype": "method",
             "name": "progress",
@@ -1598,7 +1672,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 256,
+            "line": 257,
             "description": "Internal: Change call state to ESTABLISHED and do necessary related steps. Only used internally.",
             "itemtype": "method",
             "name": "establish",
@@ -1612,7 +1686,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 299,
+            "line": 300,
             "description": "Internal: Trigger actions based on MXP ACK message. Only used internally.",
             "itemtype": "method",
             "name": "mxpAck",
@@ -1626,7 +1700,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 374,
+            "line": 375,
             "description": "Internal: Trigger actions based on MXP Sdp Answer. Only used internally.",
             "itemtype": "method",
             "name": "processRTCAnswer",
@@ -1640,7 +1714,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 423,
+            "line": 424,
             "description": "Internal: Process a mxpPeerEventSdp. Only used internally.",
             "itemtype": "method",
             "name": "mxpPeerEventSdp",
@@ -1654,7 +1728,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 497,
+            "line": 498,
             "description": "Internal: Trigger actions based on ICE CANDIDATE. Only used internally.",
             "itemtype": "method",
             "name": "mxpInjectIce",
@@ -1668,7 +1742,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 527,
+            "line": 528,
             "description": "Internal: Internal method to inject ICE in PC. Only used internally.",
             "itemtype": "method",
             "name": "injectIce",
@@ -1682,7 +1756,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 578,
+            "line": 579,
             "description": "Internal: Trigger actions based on MXP JOIN message. Only used internally.",
             "itemtype": "method",
             "name": "mxpJoin",
@@ -1696,7 +1770,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 663,
+            "line": 664,
             "description": "Internal: Trigger actions based on MXP JOIN message. Only used internally.",
             "itemtype": "method",
             "name": "mxpJoined",
@@ -1710,7 +1784,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 713,
+            "line": 714,
             "description": "Internal: Trigger actions based on MXP HANGUP message. Only used internally.",
             "itemtype": "method",
             "name": "mxpHangup",
@@ -1724,7 +1798,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 755,
+            "line": 756,
             "description": "Internal: Trigger actions based on MXP DENY message. Only used internally.",
             "itemtype": "method",
             "name": "mxpDeny",
@@ -1738,7 +1812,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 787,
+            "line": 788,
             "description": "Internal: Trigger actions based on MXP CANCEL message. Only used internally.",
             "itemtype": "method",
             "name": "mxpCancel",
@@ -1752,7 +1826,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 824,
+            "line": 825,
             "description": "Internal: Trigger actions based on MXP FAIL message. Only used internally.",
             "itemtype": "method",
             "name": "mxpFail",
@@ -1766,7 +1840,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 844,
+            "line": 845,
             "description": "Internal: Fail a current call, used in various error scenarios. Only used internally.",
             "itemtype": "method",
             "name": "callFailure",
@@ -1780,7 +1854,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 874,
+            "line": 875,
             "description": "Internal: Prototype used in call when adding callbacks to data channels. Only used internally.",
             "itemtype": "method",
             "name": "addEventListenerPrototype",
@@ -1794,7 +1868,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 890,
+            "line": 891,
             "description": "Internal: Initialize peer connection and configure all callbacks. Only used internally.",
             "itemtype": "method",
             "name": "initPC",
@@ -1808,7 +1882,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 997,
+            "line": 998,
             "description": "Internal: Start a call. Only used internally.",
             "itemtype": "method",
             "name": "placeCall",
@@ -1822,7 +1896,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1088,
+            "line": 1093,
             "description": "Internal: Recieve a call, do not use this directly! Only used internally.",
             "itemtype": "method",
             "name": "ackIncomingCall",
@@ -1836,7 +1910,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1213,
+            "line": 1218,
             "description": "Pick up an incoming call which is currently ringing.",
             "itemtype": "method",
             "name": "answer",
@@ -1848,7 +1922,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1256,
+            "line": 1261,
             "description": "Beta: Open data channel on ongoing call session. Can only be used with \"new\" data clients (i.e., not PSTN).",
             "itemtype": "method",
             "name": "openDataChannel",
@@ -1871,7 +1945,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1280,
+            "line": 1285,
             "description": "End the call, regardless of what state it is in. If the call is an incoming call that has not yet been answered, the call will be reported as denied to the caller.",
             "itemtype": "method",
             "name": "hangup",
@@ -1883,7 +1957,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1331,
+            "line": 1336,
             "description": "Returns the call identifier.",
             "itemtype": "method",
             "name": "getCallId",
@@ -1896,7 +1970,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1350,
+            "line": 1355,
             "description": "Returns metadata about the call.",
             "itemtype": "method",
             "name": "getDetails",
@@ -1909,7 +1983,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1362,
+            "line": 1367,
             "description": "Returns the call direction of the call.",
             "itemtype": "method",
             "name": "getDirection",
@@ -1921,7 +1995,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1372,
+            "line": 1377,
             "description": "Returns the identifier of the remote participant in the call.",
             "itemtype": "method",
             "name": "getRemoteUserId",
@@ -1934,7 +2008,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1387,
+            "line": 1392,
             "description": "Returns the Call State the call is currently in.",
             "itemtype": "method",
             "name": "getState",
@@ -1947,7 +2021,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1397,
+            "line": 1402,
             "description": "Returns the Call End Cause for the call",
             "itemtype": "method",
             "name": "getEndCause",
@@ -1960,7 +2034,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1407,
+            "line": 1412,
             "description": "Returns the Call Headers for this call",
             "itemtype": "method",
             "name": "getHeaders",
@@ -1973,7 +2047,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1417,
+            "line": 1422,
             "description": "Sends one or more DTMF tones for tone dialing.",
             "itemtype": "method",
             "name": "sendDTMF",
@@ -1992,7 +2066,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1431,
+            "line": 1436,
             "description": "Mute microphone in ongoing call. Must be active call.",
             "itemtype": "method",
             "name": "mute",
@@ -2004,7 +2078,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1450,
+            "line": 1459,
             "description": "Un-mute microphone in ongoing call. Must be active call.",
             "itemtype": "method",
             "name": "unmute",
@@ -2016,7 +2090,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 62,
+            "line": 65,
             "description": "Add event listeners to the callClient, multiple listeners can be added with this method. Listeners are processed in the order they're added. \nListeners can be removed, using the CallClient.removeEventListener method.",
             "itemtype": "method",
             "name": "addEventListener",
@@ -2046,7 +2120,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 81,
+            "line": 84,
             "description": "Remove event lister objects from the callClient. Pass the same object as was used when adding the listeners.",
             "itemtype": "method",
             "name": "removeEventListener",
@@ -2068,7 +2142,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 105,
+            "line": 108,
             "description": "Initialize media streams, this is used to create the stream from the microphone. \nThe stream will be cached; in order to avoid a question when making / receiving a call, run initStream() once when it's a good time in the application flow.\n\n<i><b>Note: </b> This can be used to initialize the stream before it's needed, for example, during application loading.</i>",
             "itemtype": "method",
             "name": "initStream",
@@ -2083,7 +2157,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 142,
+            "line": 146,
             "description": "Check whether we're already in a call.",
             "itemtype": "method",
             "name": "alreadyInCall",
@@ -2109,7 +2183,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 162,
+            "line": 169,
             "description": "Handle incoming call.",
             "itemtype": "method",
             "name": "handleIncomingCall",
@@ -2135,7 +2209,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 212,
+            "line": 219,
             "description": "Calls the user with the given userId.\n\n<i><b>Note: </b> Remember to play the audio in an audio element. When adding the incoming audio source, remember to play back the stream, or use the attribute \"autoplay\" on the audio element. </i>",
             "itemtype": "method",
             "name": "callUser",
@@ -2172,7 +2246,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 261,
+            "line": 268,
             "description": "Calls a phone number and terminate the call to the PSTN-network (Publicly Switched Telephone Network).\n\n<i><b>Note: </b> Remember to play the audio in an audio element. When adding the incoming audio source, remember to play back the stream, or use the attribute \"autoplay\" on the audio element. </i>",
             "itemtype": "method",
             "name": "callPhoneNumber",
@@ -2203,6 +2277,30 @@
             },
             "example": [
                 "\n\tvar callClient = sinchClient.getCallClient();\n\tvar call = callClient.callPhoneNumber('+46000000000');\n\n\tvar callListener = {\n\t\tonProgressing: function(call): { }, //Call is progressing\n\t\tonEstablished: function(call): { //Call is established\n\t\t\t$('audio').attr('src', call.incomingStreamURL); //Add audio stream to audio element.\n\t\t\t//NOTE: Remember to ensure audio element play back audio or has the \"autoplay\" attribute (see sample app)\n\t\t},\n\t\tonCallEnded: function(call): { } //Call is ended\n\t}\n\n\tcall.addEventListener(callListener);"
+            ],
+            "class": "CallClient",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/CallClient.js",
+            "line": 322,
+            "description": "<b>Beta:</b> Join a call group, works with both video and audio. Currently only p2p conferencing works, where each participant is streaming to all other participants. \n\n<i><b>Note: </b> Remember to play the media in a audio/video element. When adding the incoming media source, remember to play back the stream, or use the attribute \"autoplay\" on the audio element. </i><br>\n<i><b>Note: </b> Also requires the \"multiCall\" capability set to true. For video, also set the \"video\" capability to true.</i><br>",
+            "itemtype": "method",
+            "name": "callGroup",
+            "beta": 1,
+            "params": [
+                {
+                    "name": "groupName",
+                    "description": "The name of the group to join",
+                    "type": "String"
+                }
+            ],
+            "return": {
+                "description": "Call Group for adding event handlers related to this group conversation.",
+                "type": "GroupCall"
+            },
+            "example": [
+                "\n\tvar callClient = sinchClient.getCallClient();\n\n\tvar call = callClient.callGroup('someGroupName'); //When sinchClient has started\n\n\tgroupCall.addEventListener({\n\t\tonGroupLocalMediaAdded: function(stream) { // Local media stream is available for consumption\n\t\t\t$('video#me').attr('src', window.URL.createObjectURL(stream));\n\t\t},\n\t\tonGroupRemoteCallAdded: function(call) { // A new participant is ready\n\t\t\t$('video#other').attr('src', call.incomingStreamURL);\n\t\t}, \n\t\tonGroupRemoteCallRemoved: function(call) {\n\t\t\t$('video#other').attr('src', '');\n\t\t},\n\t})"
             ],
             "class": "CallClient",
             "module": "SinchInternal"
@@ -2305,6 +2403,84 @@
             "name": "NONE",
             "type": "{Object}",
             "class": "CallEndCause",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/GroupCall.js",
+            "line": 76,
+            "description": "Add event listeners to the groupCall, multiple listeners can be added with this method. Listeners are processed in the order they're added. \nListeners can be removed, using the groupCall.removeEventListener method.",
+            "itemtype": "method",
+            "name": "addEventListener",
+            "params": [
+                {
+                    "name": "eventListener",
+                    "description": "An object containing a set of listeners for various actions",
+                    "type": "Object",
+                    "props": [
+                        {
+                            "name": "onGroupLocalMediaAdded",
+                            "description": "Callback for taking action on local stream, such as adding it to a media element in the DOM.",
+                            "type": "Function",
+                            "optional": true
+                        },
+                        {
+                            "name": "onGroupRemoteCallAdded",
+                            "description": "Callback for taking action on new participant. Such as adding it's stream to a media element.",
+                            "type": "Function",
+                            "optional": true
+                        },
+                        {
+                            "name": "onGroupRemoteCallRemoved",
+                            "description": "Callback for taking action removing a participant stream from the DOM.",
+                            "type": "Function",
+                            "optional": true
+                        }
+                    ]
+                }
+            ],
+            "return": {
+                "description": "undefined"
+            },
+            "example": [
+                ""
+            ],
+            "class": "GroupCall",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/GroupCall.js",
+            "line": 92,
+            "description": "Remove event lister objects from the groupCall. Pass the same object as was used when adding the listeners.",
+            "itemtype": "method",
+            "name": "removeEventListener",
+            "params": [
+                {
+                    "name": "eventListener",
+                    "description": "An object containing a set of listeners for various actions, that has previously been added to this groupCall",
+                    "type": "Object"
+                }
+            ],
+            "return": {
+                "description": "undefined"
+            },
+            "example": [
+                ""
+            ],
+            "class": "GroupCall",
+            "module": "SinchInternal"
+        },
+        {
+            "file": "src/SDK/GroupCall.js",
+            "line": 115,
+            "description": "End the group call, regardless of which state it's in. It will close the connection to all participants gracefully and then reset the callClient to be ready for a new group call.",
+            "itemtype": "method",
+            "name": "hangupGroup",
+            "access": "protected",
+            "tagname": "",
+            "return": {
+                "description": "undefined"
+            },
+            "class": "GroupCall",
             "module": "SinchInternal"
         },
         {
@@ -2851,7 +3027,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 152,
+            "line": 156,
             "description": "Configure Sinch application key and session id / secret.",
             "itemtype": "method",
             "name": "config",
@@ -2901,7 +3077,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 180,
+            "line": 184,
             "description": "Sinch log function, calls developer supplied log handler and optionally report progress on a defer",
             "itemtype": "method",
             "name": "log",
@@ -2928,7 +3104,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 197,
+            "line": 201,
             "description": "Sinch log MXP function, calls developer supplied MXP log handler, for tracing MXP messages.",
             "itemtype": "method",
             "name": "log",
@@ -2950,7 +3126,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 210,
+            "line": 214,
             "description": "Configure Sinch application URL.",
             "itemtype": "method",
             "name": "setUrl",
@@ -3009,7 +3185,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 235,
+            "line": 239,
             "description": "Terminate session, invalidates sinchClient and this object is considered stale; instance can't be reused.",
             "itemtype": "method",
             "name": "terminate",
@@ -3021,7 +3197,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 266,
+            "line": 270,
             "description": "Add authorization header using \"session\"-method and return modified header object for signed session requests (fallback to non-signed application key).\nCan be sent using jQuery. If using AngularJS, intercept and sign requests before they are sent.",
             "itemtype": "method",
             "name": "signSession",
@@ -3068,7 +3244,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 327,
+            "line": 331,
             "description": "Add authorization header using \"ticket\"-method and return modified header object.\nCan be sent using jQuery. If using AngularJS, intercept and sign requests before they are sent.",
             "itemtype": "method",
             "name": "signTicket",
@@ -3106,7 +3282,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 356,
+            "line": 360,
             "description": "Add authorization header for non signed request, using only the application key for public / open functions.",
             "itemtype": "method",
             "name": "signApp",
@@ -3137,7 +3313,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 385,
+            "line": 389,
             "description": "Retrieve session id and secret",
             "itemtype": "method",
             "name": "getSession",
@@ -3153,7 +3329,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 399,
+            "line": 403,
             "description": "Create a new user. Can either be chained or supplied with success/fail callbacks. A promise will always be returned, supplied callback functions will be called before chained functions.",
             "itemtype": "method",
             "name": "newUser",
@@ -3217,7 +3393,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 447,
+            "line": 451,
             "description": "Initialize the SDK using a loginObject or supplied ticket. Can either be chained or supplied with success/fail callbacks. A promise will always be returned, supplied callback functions will be called before chained functions.",
             "itemtype": "method",
             "name": "start",
@@ -3288,7 +3464,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 566,
+            "line": 570,
             "description": "Retrieve a MessageClient for a particular sinchClient. Requires a sinchClient with messaging capability set true.",
             "itemtype": "method",
             "name": "getMessageClient",
@@ -3304,7 +3480,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 586,
+            "line": 590,
             "description": "Retrieve a CallClient for a particular sinchClient. Requires a sinchClient with calling capability set true.",
             "itemtype": "method",
             "name": "getCallClient",
@@ -3320,7 +3496,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 606,
+            "line": 610,
             "description": "Start connection for messages and data call signalling.",
             "itemtype": "method",
             "name": "startActiveConnection",
@@ -3335,7 +3511,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 630,
+            "line": 634,
             "description": "Stop connection for messages and data call signalling.",
             "itemtype": "method",
             "name": "stopActiveConnection",
@@ -3350,7 +3526,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 651,
+            "line": 655,
             "description": "Retrieve the current version of the Sinch JS SDK",
             "itemtype": "method",
             "name": "getVersion",
@@ -3426,11 +3602,15 @@
         },
         {
             "message": "replacing incorrect tag: params with param",
-            "line": " src/MXP/MXP.js:141"
+            "line": " src/MXP/MXP.js:142"
         },
         {
             "message": "replacing incorrect tag: params with param",
-            "line": " src/MXP/MXP.js:293"
+            "line": " src/MXP/MXP.js:176"
+        },
+        {
+            "message": "replacing incorrect tag: params with param",
+            "line": " src/MXP/MXP.js:328"
         },
         {
             "message": "replacing incorrect tag: params with param",
@@ -3450,11 +3630,11 @@
         },
         {
             "message": "Missing item type",
-            "line": " src/MXP/MXP.js:544"
+            "line": " src/MXP/MXP.js:579"
         },
         {
             "message": "Missing item type",
-            "line": " src/MXP/MXP.js:754"
+            "line": " src/MXP/MXP.js:789"
         },
         {
             "message": "Missing item type\nHandlers for processing MXP messages related to Calling\nDocumentation TBD",

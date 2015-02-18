@@ -7,6 +7,7 @@ var showUI = function() {
 	$('div#authStat').show();
 	$('form#userForm').css('display', 'none');
 	$('div#userInfo').css('display', 'inline');
+	$('h3#login').css('display', 'none');
 	$('span#username').text(global_username);
 }
 
@@ -166,3 +167,16 @@ if(location.protocol == 'file:' && navigator.userAgent.toLowerCase().indexOf('ch
 
 $('button').prop('disabled', false); //Solve Firefox issue, ensure buttons always clickable after load
 
+// Check if backend is up & alert developer 
+// NOTE: No need to do this in production, this is for aiding developers who use this sample app
+setInterval(function() { 
+	$.get('http://localhost:2048/ping', function(response) {
+			$('div#backendWarning').hide();
+		}, 'html')
+		.fail(function (jqXHR, textStatus, errorThrown) {
+			$('div#backendWarning').show();
+			console.log(jqXHR);
+			console.log(textStatus);
+			console.log(errorThrown);
+		});
+}, 1000);
