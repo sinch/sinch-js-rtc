@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8"/>
+	<title>Sinch JavaScript User Guide</title>
+	<meta name="copyright" content="Copyright (c) 2014 Sinch Networks AB. All rights reserved."/>
+	<link type="text/css" rel="stylesheet" href="css/Sinch.css"/>
+</head>
+<body>
+
+<h1 id="introduction">Introduction</h1>
+
+<p>The Sinch SDK is a product that makes adding voice calling, instant messaging or phone verification to web apps easy. It handles the complexity of signaling and audio management while providing you the freedom to create a stunning user interface. The current release supports instant messaging, web/phone (PSTN) calling as well as verification. </p>
+
+<p>This document provides an overview for developers integrating with the Sinch SDK for the first time. It outlines the prerequisites and guides you through the process of verifying phone numbers in a Javascript environment, such as in a website. </p>
+
+<p>Please see the <a href="http://www.sinch.com/docs/javascript/reference/">Reference Documentation</a> for a comprehensive description of all the classes.</p>
+
+<p><strong>Please note:</strong> Should you encounter any bugs, glitches, lack of functionality or other problems using our SDK, please send us an email to <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#100;&#x65;&#x76;&#64;&#x73;&#105;&#x6e;&#x63;&#104;&#46;&#99;&#111;&#109;">&#x64;&#101;&#x76;&#x40;&#115;&#105;&#110;&#x63;&#x68;&#x2e;&#x63;&#111;&#109;</a>. Your help in this regard is greatly appreciated.</p>
+
+<h1 id="firsttimesetup">First time setup</h1>
+
+<p>This is a step-by-step guide about setting up the Sinch SDK for the first time.</p>
+
+<h2 id="registeranapplication">Register an Application</h2>
+
+<ol>
+<li>Register a Sinch Developer account at <a href="http://www.sinch.com/signup">http://www.sinch.com/signup</a>.</li>
+<li>Setup a new Application using the Dashboard where you can then obtain an <em>Application Key</em> and <em>Application Secret</em>.</li>
+</ol>
+
+<h2 id="download">Download</h2>
+
+<p>The Sinch SDK can be downloaded at <a href="http://www.sinch.com/downloads/">www.sinch.com/downloads/</a>. It contains: the Sinch JS SDK, this user guide, reference documentation, and sample apps. </p>
+
+<h2 id="runningsampleapps">Running sample apps</h2>
+
+<p>Make sure you configure your application key in the sample apps by replacing the placeholder text &#8220;MY_APPLICATION_KEY&#8221; with your key. Samples can be run in the browser as files by double-clicking the index.html file. Make sure you open the developer console in your browser to catch possible error messages. </p>
+
+<p><em>Note: Currently, calling only works in the Chrome or Firefox browsers. Chrome additionally requires the web page to be loaded using http or https and is not compatible with local storage (i.e., file://).</em></p>
+
+<h2 id="development">Development</h2>
+
+<p>There are many ways to include Sinch in your project, enabling you to select a suitable method depending on how your project is set up. </p>
+
+<h3 id="hostedwithyourwebapp">Hosted with your webapp</h3>
+
+<p>You can host the library co-located with your website and include Sinch using</p>
+
+<pre><code>&lt;script src=&quot;sinch.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<h3 id="loadfromsinchcdn">Load from Sinch CDN</h3>
+
+<p>If you prefer to always load the latest version from our CDN, use</p>
+
+<pre><code>&lt;script src=&quot;//cdn.sinch.com/latest/sinch.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<p>To control which version you load from our CDN, use</p>
+
+<pre><code>&lt;script src=&quot;//cdn.sinch.com/0.0.1/sinch.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<h3 id="sinchisavailableasanpmpackage">Sinch is available as a npm package</h3>
+
+<p>If you are using <a href="http://www.nodejs.org">NodeJS</a>, add a dependency to Sinch by running: </p>
+
+<pre><code>npm install sinch-rtc --save
+</code></pre>
+
+<p><em>Note: The &#8211;save flag is optional for saving the dependency in package.json</em></p>
+
+<p>Import Sinch SDK in your project using</p>
+
+<pre><code>var SinchClient = require('sinch-rtc');
+</code></pre>
+
+<h3 id="sinchisavailableasabowermodule">Sinch is available as a Bower module</h3>
+
+<p>If you are using <a href="http://bower.io/">Bower</a>, add a dependency to Sinch by running: </p>
+
+<pre><code>bower install sinch-rtc --save
+</code></pre>
+
+<p>Import the Sinch SDK in your website using</p>
+
+<pre><code>&lt;script src=&quot;PATH_TO_BOWER_MODULES/sinch-rtc/sinch.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+
+<p><em>Note: The &#8211;save flag is optional for saving the dependency in bower.json</em></p>
+
+<h1 id="sinchclient">Sinch client</h1>
+
+<p>The <code>SinchClient</code> class is the SDK entry point. It is used to configure the user&#8217;s and device&#8217;s capabilities, as well as providing access to feature classes such as the MessageClient, CallClient, and VerificationClient. </p>
+
+<h2 id="instantiatingthesinchclient">Instantiating the SinchClient</h2>
+
+<p>To use Sinch you first need to create a &#8220;sinchClient&#8221; object using the application key and you can specify some other options.</p>
+
+<pre><code>var sinchClient = new SinchClient({
+    applicationKey: '&lt;application_key&gt;'
+});
+</code></pre>
+
+<p>The <em>&lt;application_key&gt;</em> is obtained from the Sinch Developer Dashboard. In this example, the SinchClient is set up for Verification. </p>
+
+<h2 id="asynchronoussinchcalls">Asynchronous Sinch Calls</h2>
+
+<p>The Sinch SDK contains many asynchronous methods. Several network requests are made in the background when making certain method calls and, while this happens, your code continues to execute.</p>
+
+<p>When using asynchronous methods in Sinch, there are two ways of acting on the result. All asynchronous methods accept two callbacks as additional parameters, first the success callback, then the fail callback. </p>
+
+<p>Additionally, all asynchronous methods in Sinch also return a promise, which will either be resolved or rejected. If it&#8217;s resolved the next method in the chain, which is specified using <code>.then()</code>, is called. If there is a failure, the method specified in <code>.fail()</code> is called.</p>
+
+<h3 id="sinchwithcallbacks">Sinch with callbacks</h3>
+
+<pre><code>var handleSuccess = function() {...};
+var handleFail = function() {...};
+
+sinchClient.start(loginObj, handleSuccess, handleFail);
+</code></pre>
+
+<h3 id="sinchwithpromises">Sinch with promises</h3>
+
+<pre><code>var handleSuccess = function() {...};
+var handleFail = function() {...};
+
+sinchClient.start(loginObj)
+    .then(handleSuccess)
+    .fail(handleFail);
+</code></pre>
+
+<p>The benefit of using promises is that it&#8217;s easy to make a <em>chain of method calls</em> and the code is clearer, but either method works.</p>
+
+<p><em>Note: If both callbacks and promises are used, the execution order is for callbacks to be executed first followed by the methods in the promise-chain, specified using <code>.then()</code></em></p>
+
+<h1 id="verification">Verification</h1>
+
+<p>The Sinch JavaScript SDK supports verification of phone numbers via SMS. Flash calling verification will be supported in a later release.</p>
+
+<p>Verification of a phone number is performed in two steps, a verification SMS is requested and a verification code for that particular verification session is sent to the recipient. It&#8217;s the responsibility of the developer to ask the end-user to provide the verification code from the SMS.</p>
+
+<p>When the verification code is known, the <code>verify(code, success, fail)</code> method is used to verify the number. </p>
+
+<p>When the supplied code is correct, the phone number is considered verified and you will receive this information in the response. If you have configured a callback URL for verification you will also receive confirmation through a callback to your backend.</p>
+
+<h2 id="requestsmsverification">Request SMS verification</h2>
+
+<p>To initiate a SMS verification, start by creating a SMS verification session. This is done by calling the <code>createSmsVerification(phoneNumber)</code> method on your <code>sinchClient</code>. This method returns a verification object which can be used to send the verification SMS, and re-send the SMS, per the example below.</p>
+
+<pre><code>var sinchClient = new SinchClient({applicationKey: YOUR_APPLICATION_KEY})
+
+var verification = sinchClient.createSmsVerification(PHONE_NUMBER)
+
+verification.initiate(success, fail);
+</code></pre>
+
+<p>The call to <code>initiate(success, fail)</code> triggers sending a verification SMS. This method can be called multiple times, in the case another SMS should be sent. Callbacks for success and failure should be supplied to inform the user whether the action succeeded. However, delivery is not guaranteed even if success is called, which is why it is recommended to provide the end-user a user interface to re-send the verification SMS.</p>
+
+<h2 id="verifycode">Verify code</h2>
+
+<p>To verify the phone number, the resulting code from the SMS should be verified using the <code>verify()</code> method. This can be done in the following way: </p>
+
+<pre><code>var code = codeFromUser;
+
+verification.verify(code, success, fail);
+</code></pre>
+
+<p>The verify method takes two callbacks (beyond the pin-code), which can be used to inform the user of any issues or of success in verifying the phone number. However, important actions should be performed server-side using the callback on successful verification of a phone number.</p>
+
+<h2 id="passdatatoyourbackend">Pass data to your backend</h2>
+
+<p>For each call to <code>verification.initiate()</code>, the Sinch backend can perform a callback to the application backend to allow or disallow an SMS or flashcall being initiated. By using the optional parameter <code>custom</code> on <code>SinchVerification.createFlashCallVerification</code> and <code>createSmsVerification</code>, any unique identifier can be passed from the application to the application backend. The data is passed as a string. If there is a need for a more complex datatype, it needs to be stringified or encoded before being sent.</p>
+
+<h2 id="actoncallback">Act on callback</h2>
+
+<p>As shown earlier, both <code>initiate</code> and <code>verify</code> take two callbacks as arguments for successful result or failure. These callbacks should be used to progress correctly through the flow:</p>
+
+<ul>
+<li>UI to enter phone number
+
+<ul>
+<li>Success: Progress to enter verification code</li>
+<li>Fail: UI to inform user of a problem and/or ask the user to try again</li>
+</ul></li>
+<li>UI to enter verification code (or re-send SMS)
+
+<ul>
+<li>Success: Confirmation of successful verification</li>
+<li>Fail: UI to inform user of verification problem</li>
+</ul></li>
+</ul>
+
+<h2 id="smstemplate">SMS Template</h2>
+
+<p>By default, the SMS template used for Sinch verification SMS has a fixed format. Contact us at <a href="&#109;&#x61;&#x69;&#x6c;&#116;&#x6f;&#58;&#x64;&#x65;&#x76;&#x40;&#115;&#x69;&#110;&#99;&#x68;&#46;&#x63;&#111;&#x6d;">&#100;&#101;&#x76;&#64;&#115;&#105;&#x6e;&#x63;&#x68;&#46;&#x63;&#111;&#x6d;</a> to update its content when your app is ready for Production.</p>
+
+<h2 id="promises">Promises</h2>
+
+<p>As an alternative to callbacks, the verification session object also supports promises. The execution order is for callbacks to be called first, followed by promises. When using promises, the full flow may look like this:</p>
+
+<pre><code>var sinchClient = new SinchClient({applicationKey: YOUR_APPLICATION_KEY})
+
+var verification = sinchClient.createSmsVerification(PHONE_NUMBER)
+
+verification.initiate().then(function(successInfo) {
+    // Act on success
+    // Display &quot;enter pin&quot; UI
+}).fail(function(errorInfo) {
+    // Act on error
+});
+
+//PIN is retrieved from user
+var code = codeFromUser;
+
+verification.verify(code).then(function(successInfo) {
+    // Act on success (valid number)
+}).fail(function(errorInfo) {
+    // Act on error and inform the user / retry
+});
+</code></pre>
+
+<h1 id="miscellaneous">Miscellaneous</h1>
+
+<h2 id="phonenumbers">Phone numbers</h2>
+
+<p>The phone number should be specified according to the E.164 number formatting (http://en.wikipedia.org/wiki/E.164) recommendation and should be prefixed with a ‘+’. E.g. to call the US phone number 415 555 0101, the phone number should be specified as “+14155550101”. The ‘+’ is the required prefix and the US country code ‘1’ prepended to the local subscriber number.</p>
+
+<h2 id="encryptionexportregulations">Encryption export regulations</h2>
+
+<p>Please check the Summary of U.S. Export Controls Applicable to Commercial Encryption Products and ensure that the application is registered for the Encryption Regulations, if applicable. It can be found under this <a href="http://www.sinch.com/export">link</a>.</p>
+
+<h2 id="statistics">Statistics</h2>
+
+<p>The Sinch SDK client uploads statistics to the Sinch servers at the end of a call, a call failure, or similar event. The statistics are used for monitoring of network status, call quality, and other aspects regarding the general quality of the service.</p>
+
+<p>Some of the information is not anonymous and may be associated with the User ID call participants.</p>
+
+<p>The statistics upload is done by the client in the background.</p>
+
+<h2 id="thirdpartylibrariesandcopyrightnotices">Third party libraries and copyright notices</h2>
+
+<p>All Third Party Libraries and Copyright notices can be found under this <a href="http://www.sinch.com/legal/third-party-licenses/">link</a>.</p>
+
+</body>
+</html>

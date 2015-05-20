@@ -16,7 +16,7 @@
 
 <p>Please see the <a href="http://www.sinch.com/docs/javascript/reference/">Reference Documentation</a> for a comprehensive description of all the classes.</p>
 
-<p><strong>Please note</strong> Should you encounter any bugs, glitches, lack of functionality or other problems using our SDK, please send us an email to <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#100;&#x65;&#x76;&#64;&#x73;&#105;&#x6e;&#x63;&#104;&#46;&#99;&#111;&#109;">&#x64;&#101;&#x76;&#x40;&#115;&#105;&#110;&#x63;&#x68;&#x2e;&#x63;&#111;&#109;</a>.</p>
+<p><strong>Please note:</strong> Should you encounter any bugs, glitches, lack of functionality or other problems using our SDK, please send us an email to <a href="&#x6d;&#97;&#x69;&#x6c;&#x74;&#x6f;&#58;&#100;&#x65;&#x76;&#64;&#x73;&#105;&#x6e;&#x63;&#104;&#46;&#99;&#111;&#109;">&#x64;&#101;&#x76;&#x40;&#115;&#105;&#110;&#x63;&#x68;&#x2e;&#x63;&#111;&#109;</a>.</p>
 
 <p>Your help in this regard is greatly appreciated.</p>
 
@@ -28,7 +28,7 @@
 
 <ol>
 <li>Register a Sinch Developer account at <a href="http://www.sinch.com/signup">http://www.sinch.com/signup</a>.</li>
-<li>Setup a new Application using the Dashboard where you can then obtain an <em>Application Key</em> and an <em>Application Secret</em>.</li>
+<li>Setup a new Application using the Dashboard where you can then obtain an <em>Application Key</em> and <em>Application Secret</em>.</li>
 </ol>
 
 <h2 id="download">Download</h2>
@@ -37,13 +37,13 @@
 
 <h2 id="runningsampleapps">Running sample apps</h2>
 
-<p>Make sure you configure your application key in the sample apps by replacing the placeholder text &#8220;MY_APPLICATION_KEY&#8221; with your key. Samples can be run in the browser as files by double clicking the index.html file. Make sure you open the developer console in your browser to catch possible error messages. </p>
+<p>Make sure you configure your application key in the sample apps by replacing the placeholder text &#8220;MY_APPLICATION_KEY&#8221; with your key. Samples can be run in the browser as files by double-clicking the index.html file. Make sure you open the developer console in your browser to catch possible error messages. </p>
 
-<p><em>Note: Calling only works in Chrome or Firefox browser at this moment. Chrome additionally requires the webpage to be loaded using http or https and is not compatible with local storage (i.e., file://).</em></p>
+<p><em>Note: Currently, calling only works in the Chrome or Firefox browsers. Chrome additionally requires the web page to be loaded using http or https and is not compatible with local storage (i.e., file://).</em></p>
 
 <h2 id="development">Development</h2>
 
-<p>There are many ways to include Sinch in your project, enabling you to select a suitable method depending on which way your project is set up. </p>
+<p>There are many ways to include Sinch in your project, enabling you to select a suitable method depending on how your project is set up. </p>
 
 <h3 id="hostedwithyourwebapp">Hosted with your webapp</h3>
 
@@ -66,7 +66,7 @@
 
 <h3 id="sinchisavailableasanpmpackage">Sinch is available as a npm package</h3>
 
-<p>If you are using <a href="http://www.nodejs.org">NodeJS</a>, add a dependency to sinch by running: </p>
+<p>If you are using <a href="http://www.nodejs.org">NodeJS</a>, add a dependency to Sinch by running: </p>
 
 <pre><code>npm install sinch-rtc --save
 </code></pre>
@@ -80,7 +80,7 @@
 
 <h3 id="sinchisavailableasabowermodule">Sinch is available as a Bower module</h3>
 
-<p>If you are using <a href="http://bower.io/">Bower</a>, add a dependency to sinch by running: </p>
+<p>If you are using <a href="http://bower.io/">Bower</a>, add a dependency to Sinch by running: </p>
 
 <pre><code>bower install sinch-rtc --save
 </code></pre>
@@ -134,7 +134,7 @@
 
 <p>When starting Sinch, supplying a user identity with password is one way of starting the client; use this when you want Sinch to manage your users for you.</p>
 
-<p>If you prefer to manage your users yourself, and/or select a third party provider, a <code>SinchClient</code> instance can also be started using a valid authentication ticket. Please see the chapter on authentication for an overview of Sinch user identity management and options for managing your own users. There is also an sample app, <em>SinchAUTHsample</em>, which demonstrates this concept. </p>
+<p>If you prefer to manage your users yourself, and/or select a third party provider, a <code>SinchClient</code> instance can also be started using a valid authentication ticket. Please see the chapter on authentication for an overview of Sinch user identity management and options for managing your own users. There is also a sample app, <em>SinchAUTHsample</em>, which demonstrates this concept. </p>
 
 <h2 id="asynchronoussinchcalls">Asynchronous Sinch Calls</h2>
 
@@ -146,16 +146,16 @@
 
 <h3 id="sinchwithcallbacks">Sinch with callbacks</h3>
 
-<pre><code>var handleSuccess = function() = {...};
-var handleFail = function() = {...};
+<pre><code>var handleSuccess = function() {...};
+var handleFail = function() {...};
 
 sinchClient.start(loginObj, handleSuccess, handleFail);
 </code></pre>
 
 <h3 id="sinchwithpromises">Sinch with promises</h3>
 
-<pre><code>var handleSuccess = function() = {...};
-var handleFail = function() = {...};
+<pre><code>var handleSuccess = function() {...};
+var handleFail = function() {...};
 
 sinchClient.start(loginObj)
     .then(handleSuccess)
@@ -200,6 +200,7 @@ var callListeners = {
     },
 }
 
+var callClient = sinchClient.getCallClient();
 var call = callClient.callUser('&lt;remote user id&gt;');
 call.addEventListener(callListeners);
 </code></pre>
@@ -378,7 +379,7 @@ sinchClient.start({username: &quot;&lt;username&gt;&quot;, password: &quot;&lt;p
 });
 </code></pre>
 
-<p>In this example, the group call is initiated after the client is started. A number of listeners was added in order to connect the incoming remote media streams (first callback), connect the local media stream and also manage lost participants.</p>
+<p>In this example, the group call is initiated after the client is started. A number of listeners was added in order to connect the incoming remote media streams (first callback), connect the local media stream and also manage lost participants. When the callGroup method is called, the callClient will immediatley start communication with other participants on the specified Channel in order to establish active video calls. </p>
 
 <h1 id="instantmessaging">Instant Messaging</h1>
 

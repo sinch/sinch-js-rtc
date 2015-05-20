@@ -22,7 +22,8 @@ YUI.add("yuidoc-meta", function(Y) {
         "SinchClient",
         "SinchError",
         "Support",
-        "User"
+        "User",
+        "Verification"
     ],
     "modules": [
         "MXP",

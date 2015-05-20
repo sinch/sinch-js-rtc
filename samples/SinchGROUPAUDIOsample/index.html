@@ -1,0 +1,47 @@
+<html>
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<title>Sinch AUDIO Sample app</title>
+	<link rel="stylesheet" href="style/style.css"/>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="../../sinch.min.js"></script>
+</head>
+
+<body>
+	<div class="top1">
+		<img class="instructions" src="style/instructions.png">
+		<h1>Group audio calling</h1>
+	</div>
+
+	<div id="chromeWarning" class="big">
+		<b style="color: red;">Warning!</b> Chrome is the only supported browser atm.
+	</div>
+
+	<div class="container">
+		<!--<a href="./">New conference</a>-->
+		<div class="clearfix"></div>
+
+		<div class="indicator" id="me"></div>
+		<div class="indicator" id="other0"></div>
+		<div class="indicator" id="other1"></div>
+		<div class="indicator" id="other2"></div>
+		<div class="indicator" id="other3"></div>
+		<div class="indicator" id="other4"></div>
+
+		<audio id="me" autoplay></audio>
+		<audio id="other0" autoplay></audio>
+		<audio id="other1" autoplay></audio>
+		<audio id="other2" autoplay></audio>
+		<audio id="other3" autoplay></audio>
+		<audio id="other4" autoplay></audio>
+</body>
+
+<script src="GROUPAUDIOsample.js"></script>
+
+</html>
+
+
+
+

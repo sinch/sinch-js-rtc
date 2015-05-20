@@ -1,4 +1,4 @@
-Sinch Javascript SDK 1.2.0
+Sinch Javascript SDK 1.3.0
 ==========================
 Welcome to Sinch JS SDK, http://www.sinch.com
 
@@ -21,6 +21,7 @@ Features
  - Web clients only
 - Group calling / conferencing (beta)
  - Web clients only
+- Phone number verification (beta)
 - Partner user management
  - Authentication ticket for session creation
  - Allows full user management for partner
@@ -95,10 +96,14 @@ Have a look at the Sample App in the samples/ folder, where you'll find:
 - SinchIMsample, our Instant Messaging sample app
 - SinchPSTNsample, our PSTN calling sample app
 - SinchWEBsample, our Web to Web calling sample app
-- SinchAUTHsample, our sample for demonstrating integrating authenticate 
-  users with a custom backend
+- SinchAUTHsample, our sample for demonstrating integrating a custom backend
+  for user authentication (useful for native app compatability)
 - python-backend-sample, a sample backend for Sinch written in Python 
   (see README.md for more information on getting started)
+- SinchVIDEOsample, sample for person to person video calling
+- SinchGROUPVIDEOsample, sample for group video conferencing
+- SinchGROUPAUDIOsample, sample for group audio conferencing
+- SinchVERsample, sample for number verification
 
 These sample apps demonstrate user management, session handling and more. 
 The interesting stuff can be found in the .js files.

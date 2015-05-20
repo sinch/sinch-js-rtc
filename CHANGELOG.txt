@@ -1,3 +1,14 @@
+Sinch 1.3.0
+	- Introducing SMS Verification Beta
+		- New method in SinchClient, "createSmsVerification()”
+		- New verification object (retrieved by createSmsVerification), with 
+		  support for sending and resending a verification SMS as well as 
+		  methods to validate a verification code.
+		- Sample application for SMS Verification
+	- Increased call-setup timeout to 10s, in line with iOS & Android SDK
+	- Enabled SinchClient to start without any capabilities
+	- Bug fix: audio group calling (note: still beta feature)
+
 Sinch 1.2.0
 	- New capability, "video" for video calling (beta)
 	- New capability, "multiCall", make sinchClient capable of handling multiple
