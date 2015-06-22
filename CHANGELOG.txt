@@ -1,3 +1,8 @@
+Sinch 1.3.1
+	- SMS Verification GA 
+	- Calling verify method on a previously verified verification object will 
+	  return that it is a verified number. 
+
 Sinch 1.3.0
 	- Introducing SMS Verification Beta
 		- New method in SinchClient, "createSmsVerification()”
@@ -13,8 +18,8 @@ Sinch 1.2.0
 	- New capability, "video" for video calling (beta)
 	- New capability, "multiCall", make sinchClient capable of handling multiple
 	  simultaneous calls (beta)
-	- New method, callClient.callGroup('groupName'), for making video group calls 
-	  (beta)
+	- New method, callClient.callGroup('groupName'), for making video group 
+	  calls (beta)
 	- Support for calling native clients (compatible with Sinch iOS SDK v3.4.0 
 	  and Android v3.5.0 and above)
 	- Support for receiving calls from native clients (compatible with Sinch

@@ -1,8 +1,8 @@
-Sinch Javascript SDK 1.3.0
+Sinch Javascript SDK 1.3.1
 ==========================
 Welcome to Sinch JS SDK, http://www.sinch.com
 
-Copyright 2014, Sinch AB (reg. no 556969-5397)
+Copyright 2014-2015, Sinch AB (reg. no 556969-5397)
 
 
 Features
@@ -21,7 +21,7 @@ Features
  - Web clients only
 - Group calling / conferencing (beta)
  - Web clients only
-- Phone number verification (beta)
+- Phone number verification 
 - Partner user management
  - Authentication ticket for session creation
  - Allows full user management for partner

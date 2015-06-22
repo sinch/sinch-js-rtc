@@ -303,12 +303,12 @@ var sinchClient = new SinchClient(...);
 var verification = sinchClient.createSmsVerification(&#39;+46123456789&#39;); // Verification to telephone +46123456789
 
 // Send a verification code 
-verification.initiate();</code></pre>
-<p> var CODE = &#39;12345&#39;;</p>
-<p> // Verify CODE, will trigger callback configured in partner portal
- verification.verify(CODE).then(function() {
-        // Take action on successful verification
-    }); </p>
+verification.initiate();
+
+// Verify CODE, will trigger callback configured in partner portal
+verification.verify(CODE).then(function() {
+    // Take action on successful verification
+}); </code></pre>
 
             </div>
         </div>
@@ -438,7 +438,7 @@ verification.initiate();</code></pre>
             
         
         
-        <a href="../files/src_SDK_Verification.js.html#l153"><code>src&#x2F;SDK&#x2F;Verification.js:153</code></a>
+        <a href="../files/src_SDK_Verification.js.html#l163"><code>src&#x2F;SDK&#x2F;Verification.js:163</code></a>
         
         </p>
 
@@ -717,7 +717,7 @@ verification.initiate().then(function() {
             
         
         
-        <a href="../files/src_SDK_Verification.js.html#l181"><code>src&#x2F;SDK&#x2F;Verification.js:181</code></a>
+        <a href="../files/src_SDK_Verification.js.html#l190"><code>src&#x2F;SDK&#x2F;Verification.js:190</code></a>
         
         </p>
 
@@ -877,7 +877,7 @@ verification.retry().then(function() {
             
         
         
-        <a href="../files/src_SDK_Verification.js.html#l89"><code>src&#x2F;SDK&#x2F;Verification.js:89</code></a>
+        <a href="../files/src_SDK_Verification.js.html#l94"><code>src&#x2F;SDK&#x2F;Verification.js:94</code></a>
         
         </p>
 
@@ -979,9 +979,9 @@ verification.initiate().then(function() {
     //Ask user to enter secret CODE
 }).fail(function(error) {
     //Infom user of error sending SMS (more info in error.message)
-});</code></pre>
-<p> var CODE = &#39;12345&#39;; //User inputs code somehow</p>
-<pre class="code prettyprint"><code>//Verification of code
+});
+
+//Verification of code
 verification.verify(CODE).then(function() {
     //Perform action on successful verification
 }).fail(function(error) {
