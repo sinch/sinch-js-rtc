@@ -4,6 +4,7 @@ Welcome to Sinch JS SDK, http://www.sinch.com
 
 Copyright 2014-2015, Sinch AB (reg. no 556969-5397)
 
+Additional information available [on our website](https://www.sinch.com/products/voice-api/).
 
 Features
 ========
