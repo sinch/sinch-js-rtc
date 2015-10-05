@@ -305,6 +305,13 @@ callClient.addEventListener(...);</code></pre>
                             </li>
                         
                             <li class="index-item method">
+                                <a href="#method_callConference">callConference</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
                                 <a href="#method_callGroup">callGroup</a>
 
                                 
@@ -320,6 +327,13 @@ callClient.addEventListener(...);</code></pre>
                         
                             <li class="index-item method">
                                 <a href="#method_callUser">callUser</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_connect">connect</a>
 
                                 
                                 
@@ -617,6 +631,183 @@ callClient.addEventListener(myListener);</code></pre>
 </div>
 
                 
+                    <div id="method_callConference" class="method item">
+    <h3 class="name"><code>callConference</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>conferenceId</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[headers]</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[customStream]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Call.html" class="crosslink">Call</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag async">async</span>
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_SDK_CallClient.js.html#l379"><code>src&#x2F;SDK&#x2F;CallClient.js:379</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Calls a conference room, all calls connected to the same room will exchange voice traffic and can also be reached from PSTN. (Voice only)</p>
+<p><i><b>Note: </b> Remember to play the audio in an audio element. When adding the incoming audio source, remember to play back the stream, or use the attribute &quot;autoplay&quot; on the audio element. </i></p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">conferenceId</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The conference room to call.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[headers]</code>
+                        <span class="type">Object</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Header object (map key-value)</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[customStream]</code>
+                        <span class="type">MediaStream</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Custom audio stream to transmit. If none is specified, the stream from the mic will be used.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="../classes/Call.html" class="crosslink">Call</a></span>:
+                    
+                    <p>Call instance for adding event handlers and/or interacting with this call.</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var callClient = sinchClient.getCallClient();
+var call = callClient.callConference(&#39;some-conference-uuid&#39;);
+
+var callListener = {
+    onProgressing: function(call): { }, //Call is progressing
+    onEstablished: function(call): { //Call is established
+        $(&#39;audio&#39;).attr(&#39;src&#39;, call.incomingStreamURL); //Add audio stream to audio element.
+        //NOTE: Remember to ensure audio element play back audio or has the &quot;autoplay&quot; attribute (see sample app)
+    },
+    onCallEnded: function(call): { } //Call is ended
+}
+
+call.addEventListener(callListener);</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
                     <div id="method_callGroup" class="method item">
     <h3 class="name"><code>callGroup</code></h3>
 
@@ -663,7 +854,7 @@ callClient.addEventListener(myListener);</code></pre>
             
         
         
-        <a href="../files/src_SDK_CallClient.js.html#l355"><code>src&#x2F;SDK&#x2F;CallClient.js:355</code></a>
+        <a href="../files/src_SDK_CallClient.js.html#l433"><code>src&#x2F;SDK&#x2F;CallClient.js:433</code></a>
         
         </p>
 
@@ -809,7 +1000,7 @@ groupCall.addEventListener({
             
         
         
-        <a href="../files/src_SDK_CallClient.js.html#l301"><code>src&#x2F;SDK&#x2F;CallClient.js:301</code></a>
+        <a href="../files/src_SDK_CallClient.js.html#l324"><code>src&#x2F;SDK&#x2F;CallClient.js:324</code></a>
         
         </p>
 
@@ -1093,6 +1284,158 @@ var callListener = {
         //NOTE: Remember to ensure audio element play back audio or has the &quot;autoplay&quot; attribute (see sample app)
     },
     onCallEnded: function(call): { } //Call is ended
+}
+
+call.addEventListener(callListener);</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_connect" class="method item">
+    <h3 class="name"><code>connect</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>userId</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[headers]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Call.html" class="crosslink">Call</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag async">async</span>
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_SDK_CallClient.js.html#l281"><code>src&#x2F;SDK&#x2F;CallClient.js:281</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Calls a data user and opens a data channel only. (beta)</p>
+<p><i><b>Note: </b> Only tested in Chrome. Not for production.</i></p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">userId</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The specific id of the user to call. May not be null or empty.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[headers]</code>
+                        <span class="type">Object</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Header object, contains a map key-value. Only string values are supported in native clients.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="../classes/Call.html" class="crosslink">Call</a></span>:
+                    
+                    <p>Call instance for adding event handlers and/or interacting with this call.</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var callClient = sinchClient.getCallClient();
+var call = callClient.connect(username);
+
+var callListener = {
+    onProgressing: function(call): { }, // Call is progressing
+    onEstablished: function(call): { },
+    onCallEnded: function(call): { }, // Call is ended
+    onDataChannelAdded: function(call, channel): { channel.write(&#39;hello world&#39;); } // Data Channel was opened for ongoing call
 }
 
 call.addEventListener(callListener);</code></pre>

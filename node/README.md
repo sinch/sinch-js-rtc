@@ -1,4 +1,4 @@
-Sinch Javascript SDK 1.3.1
+Sinch Javascript SDK 1.4.1
 ==========================
 Welcome to Sinch JS SDK, http://www.sinch.com
 
@@ -14,13 +14,14 @@ Features
 - Web/app calling 
  - Make and receive calls using WebRTC
  - Call both web clients and native (iOS and Android)
+- Conference calling
 - Instant messaging
  - Cross platform, using native SDK's for iOS and Android
  - Conversations with up to 10 participants
  - Delivery receipts
 - Video calling (beta)
  - Web clients only
-- Group calling / conferencing (beta)
+- Group p2p calling
  - Web clients only
 - Phone number verification 
 - Partner user management
