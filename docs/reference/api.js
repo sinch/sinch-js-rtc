@@ -5,6 +5,7 @@ YUI.add("yuidoc-meta", function(Y) {
         "CallClient",
         "CallEndCause",
         "CallState",
+        "CalloutVerification",
         "ErrorCode",
         "ErrorDomain",
         "GroupCall",

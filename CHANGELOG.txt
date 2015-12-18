@@ -1,3 +1,7 @@
+Sinch 1.4.2
+	- Added support for verification using Callout
+	- Bug fix: Custom header support for native client compatability
+
 Sinch 1.4.1
 	- Bug fix: userAgent parsing when Safari running embedded in apps, solving
 	  "50 character" limit bug

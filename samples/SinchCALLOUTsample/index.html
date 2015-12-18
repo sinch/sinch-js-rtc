@@ -1,0 +1,56 @@
+<html>
+<head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+	<meta content="utf-8" http-equiv="encoding">
+	<title>Sinch Callout Verification Sample app</title>
+	<link rel="stylesheet" href="style/style.css"/>
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Roboto+Condensed:300' rel='stylesheet' type='text/css'>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/q.js/0.9.2/q.js"></script>
+	<script src="../../sinch.min.js"></script>
+</head>
+
+<body>
+	<div class="top1">
+		<h1>Callout Verification</h1>
+	</div>
+
+	<div class="container">
+
+		<div class="frame small">
+
+			<div class="inner takeaways">
+				<h3>Takeaways</h3>
+				<ul>
+					<li>Using SinchClient for Callout Verification</li>
+					<li>Verification flow using promises</li>
+					<li>Handle success, fail and retry</li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="frame">
+			<h3>Verify Number</h3>
+
+			<div class="error"></div>
+			<div class="success">Successfully verified number!</div>
+
+			<div id="call">
+				<form id="newVerification">
+					<input id="phoneNumber" placeholder="Phone Number (+46000000000)"><br>
+					<button id="sendSMS">Call out</button>
+				</form>
+			</div>
+
+			<div class="clearfix"></div>
+		</div>
+	</div>
+
+<script src="VERsample.js"></script>
+
+</html>
+
+
+
+

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>MessageDeliveryInfo - sinch</title>
+    <title>CalloutVerification - sinch</title>
     <link rel="stylesheet" href="http://yui.yahooapis.com/3.9.1/build/cssgrids/cssgrids-min.css">
     <link rel="stylesheet" href="../assets/vendor/prettify/prettify-min.css">
     <link rel="stylesheet" href="../assets/css/main.css" id="site_styles">
@@ -134,7 +134,7 @@
             <div class="apidocs">
                 <div id="docs-main">
                     <div class="content">
-                        <h1>MessageDeliveryInfo Class</h1>
+                        <h1>CalloutVerification Class</h1>
 <div class="box meta">
     
 
@@ -142,7 +142,7 @@
 
     
         <div class="foundat">
-            Defined in: <a href="../files/src_SDK_Message.js.html#l113"><code>src&#x2F;SDK&#x2F;Message.js:113</code></a>
+            Defined in: <a href="../files/src_SDK_CalloutVerification.js.html#l2"><code>src&#x2F;SDK&#x2F;CalloutVerification.js:2</code></a>
         </div>
     
 
@@ -158,15 +158,16 @@
 
 
 <div class="box intro">
-    <p>A class to contain delivery information for a message</p>
+    <p>Provides Verification using Callout. </p>
+<p><i><b>Note:</b> Do not instantiate Verification, rather use the createCalloutVerification() method in SinchClient. See the example below.</i></p>
 
 </div>
 
 
     <div class="constructor">
         <h2>Constructor</h2>
-        <div id="method_MessageDeliveryInfo" class="method item protected">
-    <h3 class="name"><code>MessageDeliveryInfo</code></h3>
+        <div id="method_CalloutVerification" class="method item">
+    <h3 class="name"><code>CalloutVerification</code></h3>
 
     
         <div class="args">
@@ -174,13 +175,19 @@
             
                 <li class="arg">
                     
-                        <code>recipientId</code>
+                        <code>sinch</code>
                     
                 </li>
             
                 <li class="arg">
                     
-                        <code>messageId</code>
+                        <code>number</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[custom]</code>
                     
                 </li>
             
@@ -192,8 +199,6 @@
 
     
 
-    
-        <span class="flag protected">protected</span>
     
 
     
@@ -215,7 +220,7 @@
             
         
         
-        <a href="../files/src_SDK_Message.js.html#l113"><code>src&#x2F;SDK&#x2F;Message.js:113</code></a>
+        <a href="../files/src_SDK_CalloutVerification.js.html#l2"><code>src&#x2F;SDK&#x2F;CalloutVerification.js:2</code></a>
         
         </p>
 
@@ -237,14 +242,14 @@
             
                 <li class="param">
                     
-                        <code class="param-name">recipientId</code>
-                        <span class="type">String</span>
+                        <code class="param-name">sinch</code>
+                        <span class="type"><a href="../classes/SinchClient.html" class="crosslink">SinchClient</a></span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>The recipient to whom the message was delivered</p>
+                        <p>The parent object</p>
 
                     </div>
 
@@ -253,14 +258,31 @@
             
                 <li class="param">
                     
-                        <code class="param-name">messageId</code>
+                        <code class="param-name">number</code>
                         <span class="type">String</span>
                     
 
                     
 
                     <div class="param-description">
-                        <p>The ID of the delivered message</p>
+                        <p>The phone number to verify</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[custom]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Custom string to pass to your backend through callback. Useful for identifying user session, or similar. Max size is 4 kbyte.</p>
 
                     </div>
 
@@ -274,6 +296,24 @@
     
 
     
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>// Get verificationClient from sinchClient
+var sinchClient = new SinchClient(...);
+var verification = sinchClient.createCalloutVerification(&#39;+46123456789&#39;); // Verification to telephone +46123456789
+
+// Initiate verification, using promises 
+verification.initiate().then(function() {
+    // Handle successful verification
+}).fail(function(error) {
+    // Handle failed verification    
+});</code></pre>
+
+            </div>
+        </div>
+    
 </div>
 
     </div>
@@ -284,8 +324,8 @@
         <li class="api-class-tab index"><a href="#index">Index</a></li>
 
         
+            <li class="api-class-tab methods"><a href="#methods">Methods</a></li>
         
-            <li class="api-class-tab properties"><a href="#properties">Properties</a></li>
         
         
         
@@ -296,29 +336,13 @@
             <h2 class="off-left">Item Index</h2>
 
             
+                <div class="index-section methods">
+                    <h3>Methods</h3>
 
-            
-                <div class="index-section properties">
-                    <h3>Properties</h3>
-
-                    <ul class="index-list properties">
+                    <ul class="index-list methods">
                         
-                            <li class="index-item property">
-                                <a href="#property_messageId">messageId</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
-                                <a href="#property_recipientId">recipientId</a>
-
-                                
-                                
-                            </li>
-                        
-                            <li class="index-item property">
-                                <a href="#property_timestamp">timestamp</a>
+                            <li class="index-item method">
+                                <a href="#method_initiate">initiate</a>
 
                                 
                                 
@@ -331,23 +355,54 @@
             
 
             
+
+            
         </div>
 
         
-
-        
-            <div id="properties" class="api-class-tabpanel">
-                <h2 class="off-left">Properties</h2>
+            <div id="methods" class="api-class-tabpanel">
+                <h2 class="off-left">Methods</h2>
 
                 
-                    <div id="property_messageId" class="property item">
-    <h3 class="name"><code>messageId</code></h3>
-    <span class="type">Number</span>
+                    <div id="method_initiate" class="method item">
+    <h3 class="name"><code>initiate</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>success</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code>fail</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"></span>
+        </span>
+    
+
+    
 
     
 
     
 
+    
+
+    
+        <span class="flag chainable">chainable</span>
     
 
     
@@ -363,9 +418,10 @@
             
         
         
-        <a href="../files/src_SDK_Message.js.html#l127"><code>src&#x2F;SDK&#x2F;Message.js:127</code></a>
+        <a href="../files/src_SDK_CalloutVerification.js.html#l42"><code>src&#x2F;SDK&#x2F;CalloutVerification.js:42</code></a>
         
         </p>
+
 
         
 
@@ -373,109 +429,82 @@
     </div>
 
     <div class="description">
-        <p>Id of message that was delivered</p>
+        <p>Initiate verification by callout to the phone number provided earlier. Returns promise which is resolved when verified or failed.</p>
 
     </div>
 
     
+        <div class="params">
+            <h4>Parameters:</h4>
 
-    
-
-    
-</div>
-
-                
-                    <div id="property_recipientId" class="property item">
-    <h3 class="name"><code>recipientId</code></h3>
-    <span class="type">Number</span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
+            <ul class="params-list">
             
-                
-                <p>
-                
-                Defined in
-                
+                <li class="param">
+                    
+                        <code class="param-name">success</code>
+                        <span class="type">Function</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Optional success callback, method also returns a promise for chaining</p>
+
+                    </div>
+
+                    
+                </li>
             
-        
-        
-        <a href="../files/src_SDK_Message.js.html#l134"><code>src&#x2F;SDK&#x2F;Message.js:134</code></a>
-        
-        </p>
+                <li class="param">
+                    
+                        <code class="param-name">fail</code>
+                        <span class="type">Function</span>
+                    
 
-        
+                    
 
-        
-    </div>
+                    <div class="param-description">
+                        <p>Optional fail callback, method also returns a promise for chaining</p>
 
-    <div class="description">
-        <p>Id of recipient who acknowledged delivery</p>
+                    </div>
 
-    </div>
-
-    
-
-    
-
-    
-</div>
-
-                
-                    <div id="property_timestamp" class="property item">
-    <h3 class="name"><code>timestamp</code></h3>
-    <span class="type">Number</span>
-
-    
-
-    
-
-    
-
-    
-
-    <div class="meta">
-        
+                    
+                </li>
             
-                
-                <p>
-                
-                Defined in
-                
-            
-        
-        
-        <a href="../files/src_SDK_Message.js.html#l140"><code>src&#x2F;SDK&#x2F;Message.js:140</code></a>
-        
-        </p>
-
-        
-
-        
-    </div>
-
-    <div class="description">
-        <p>Local javascript time when delivery of message was known.</p>
-
-    </div>
-
+            </ul>
+        </div>
     
 
     
+        <div class="returns">
+            <h4>Returns:</h4>
 
+            <div class="returns-description">
+                
+                    
+                    <p>promise Promise which resolves when verified, fail resolves with VerificationError</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <p>To be written..</p>
+
+            </div>
+        </div>
     
 </div>
 
                 
             </div>
+        
+
         
 
         

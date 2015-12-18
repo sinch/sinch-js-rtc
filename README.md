@@ -1,4 +1,4 @@
-Sinch Javascript SDK 1.4.1
+Sinch Javascript SDK 1.4.2
 ==========================
 Welcome to Sinch JS SDK, http://www.sinch.com
 

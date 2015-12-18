@@ -87,6 +87,15 @@
             "fors": {},
             "namespaces": {}
         },
+        "src/SDK/CalloutVerification.js": {
+            "name": "src/SDK/CalloutVerification.js",
+            "modules": {},
+            "classes": {
+                "CalloutVerification": 1
+            },
+            "fors": {},
+            "namespaces": {}
+        },
         "src/SDK/GroupCall.js": {
             "name": "src/SDK/GroupCall.js",
             "modules": {},
@@ -204,6 +213,7 @@
                 "CallClient": 1,
                 "CallState": 1,
                 "CallEndCause": 1,
+                "CalloutVerification": 1,
                 "GroupCall": 1,
                 "Message": 1,
                 "MessageDeliveryInfo": 1,
@@ -490,6 +500,42 @@
             "tagname": "",
             "static": 1
         },
+        "CalloutVerification": {
+            "name": "CalloutVerification",
+            "shortname": "CalloutVerification",
+            "classitems": [],
+            "plugins": [],
+            "extensions": [],
+            "plugin_for": [],
+            "extension_for": [],
+            "module": "SinchInternal",
+            "namespace": "",
+            "file": "src/SDK/CalloutVerification.js",
+            "line": 2,
+            "description": "Provides Verification using Callout. \n\n<i><b>Note:</b> Do not instantiate Verification, rather use the createCalloutVerification() method in SinchClient. See the example below.</i>",
+            "is_constructor": 1,
+            "params": [
+                {
+                    "name": "sinch",
+                    "description": "The parent object",
+                    "type": "SinchClient"
+                },
+                {
+                    "name": "number",
+                    "description": "The phone number to verify",
+                    "type": "String"
+                },
+                {
+                    "name": "custom",
+                    "description": "Custom string to pass to your backend through callback. Useful for identifying user session, or similar. Max size is 4 kbyte.",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "example": [
+                "\n\t// Get verificationClient from sinchClient\n\tvar sinchClient = new SinchClient(...);\n\tvar verification = sinchClient.createCalloutVerification('+46123456789'); // Verification to telephone +46123456789\n\t\n\t// Initiate verification, using promises \n\tverification.initiate().then(function() {\n\t\t// Handle successful verification\n\t}).fail(function(error) {\n\t\t// Handle failed verification\t\n\t});"
+            ]
+        },
         "GroupCall": {
             "name": "GroupCall",
             "shortname": "GroupCall",
@@ -559,7 +605,7 @@
             "module": "SinchInternal",
             "namespace": "",
             "file": "src/SDK/Message.js",
-            "line": 115,
+            "line": 113,
             "description": "A class to contain delivery information for a message",
             "is_constructor": 1,
             "access": "protected",
@@ -1926,7 +1972,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1054,
+            "line": 1058,
             "description": "Internal: Start a call. Only used internally.",
             "itemtype": "method",
             "name": "placeCall",
@@ -1940,7 +1986,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1157,
+            "line": 1161,
             "description": "Internal: Recieve a call, do not use this directly! Only used internally.",
             "itemtype": "method",
             "name": "ackIncomingCall",
@@ -1954,7 +2000,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1282,
+            "line": 1286,
             "description": "Pick up an incoming call which is currently ringing.",
             "itemtype": "method",
             "name": "answer",
@@ -1966,7 +2012,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1325,
+            "line": 1329,
             "description": "Beta: Open data channel on ongoing call session. Can only be used with \"new\" data clients (i.e., not PSTN).",
             "itemtype": "method",
             "name": "openDataChannel",
@@ -1989,7 +2035,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1344,
+            "line": 1348,
             "description": "End the call, regardless of what state it is in. If the call is an incoming call that has not yet been answered, the call will be reported as denied to the caller.",
             "itemtype": "method",
             "name": "hangup",
@@ -2001,7 +2047,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1395,
+            "line": 1399,
             "description": "Returns the call identifier.",
             "itemtype": "method",
             "name": "getCallId",
@@ -2014,7 +2060,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1414,
+            "line": 1418,
             "description": "Returns metadata about the call.",
             "itemtype": "method",
             "name": "getDetails",
@@ -2027,7 +2073,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1426,
+            "line": 1430,
             "description": "Returns the call direction of the call.",
             "itemtype": "method",
             "name": "getDirection",
@@ -2039,7 +2085,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1436,
+            "line": 1440,
             "description": "Returns the identifier of the remote participant in the call.",
             "itemtype": "method",
             "name": "getRemoteUserId",
@@ -2052,7 +2098,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1451,
+            "line": 1455,
             "description": "Returns the Call State the call is currently in.",
             "itemtype": "method",
             "name": "getState",
@@ -2065,7 +2111,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1461,
+            "line": 1465,
             "description": "Returns the Call End Cause for the call",
             "itemtype": "method",
             "name": "getEndCause",
@@ -2078,7 +2124,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1471,
+            "line": 1475,
             "description": "Returns the Call Headers for this call",
             "itemtype": "method",
             "name": "getHeaders",
@@ -2091,7 +2137,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1481,
+            "line": 1485,
             "description": "Sends one or more DTMF tones for tone dialing.",
             "itemtype": "method",
             "name": "sendDTMF",
@@ -2110,7 +2156,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1495,
+            "line": 1499,
             "description": "Mute microphone in ongoing call. Must be active call.",
             "itemtype": "method",
             "name": "mute",
@@ -2122,7 +2168,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1518,
+            "line": 1522,
             "description": "Un-mute microphone in ongoing call. Must be active call.",
             "itemtype": "method",
             "name": "unmute",
@@ -2290,7 +2336,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 281,
+            "line": 308,
             "description": "Calls a data user and opens a data channel only. (beta)\n\n<i><b>Note: </b> Only tested in Chrome. Not for production.</i>",
             "itemtype": "method",
             "name": "connect",
@@ -2321,7 +2367,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 324,
+            "line": 351,
             "description": "Calls a phone number and terminate the call to the PSTN-network (Publicly Switched Telephone Network).\n\n<i><b>Note: </b> Remember to play the audio in an audio element. When adding the incoming audio source, remember to play back the stream, or use the attribute \"autoplay\" on the audio element. </i>",
             "itemtype": "method",
             "name": "callPhoneNumber",
@@ -2358,7 +2404,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 379,
+            "line": 406,
             "description": "Calls a conference room, all calls connected to the same room will exchange voice traffic and can also be reached from PSTN. (Voice only)\n\n<i><b>Note: </b> Remember to play the audio in an audio element. When adding the incoming audio source, remember to play back the stream, or use the attribute \"autoplay\" on the audio element. </i>",
             "itemtype": "method",
             "name": "callConference",
@@ -2395,7 +2441,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 433,
+            "line": 460,
             "description": "<b>Beta:</b> Join a call group, works with both video and audio. Currently only p2p conferencing works, where each participant is streaming to all other participants. \n\n<i><b>Note: </b> Remember to play the media in a audio/video element. When adding the incoming media source, remember to play back the stream, or use the attribute \"autoplay\" on the audio element. </i><br>\n<i><b>Note: </b> Also requires the \"multiCall\" capability set to true. For video, also set the \"video\" capability to true.</i><br>",
             "itemtype": "method",
             "name": "callGroup",
@@ -2518,6 +2564,34 @@
             "module": "SinchInternal"
         },
         {
+            "file": "src/SDK/CalloutVerification.js",
+            "line": 42,
+            "description": "Initiate verification by callout to the phone number provided earlier. Returns promise which is resolved when verified or failed.",
+            "itemtype": "method",
+            "name": "initiate",
+            "chainable": 1,
+            "params": [
+                {
+                    "name": "success",
+                    "description": "Optional success callback, method also returns a promise for chaining",
+                    "type": "Function"
+                },
+                {
+                    "name": "fail",
+                    "description": "Optional fail callback, method also returns a promise for chaining",
+                    "type": "Function"
+                }
+            ],
+            "return": {
+                "description": "promise Promise which resolves when verified, fail resolves with VerificationError"
+            },
+            "example": [
+                "\nTo be written.."
+            ],
+            "class": "CalloutVerification",
+            "module": "SinchInternal"
+        },
+        {
             "file": "src/SDK/GroupCall.js",
             "line": 76,
             "description": "Add event listeners to the groupCall, multiple listeners can be added with this method. Listeners are processed in the order they're added. \nListeners can be removed, using the groupCall.removeEventListener method.",
@@ -2597,7 +2671,7 @@
         },
         {
             "file": "src/SDK/Message.js",
-            "line": 47,
+            "line": 45,
             "description": "Id of message",
             "itemtype": "property",
             "name": "messageId",
@@ -2607,7 +2681,7 @@
         },
         {
             "file": "src/SDK/Message.js",
-            "line": 53,
+            "line": 51,
             "description": "Array of usernames for recipients. Array with one item if there's only one recipient.",
             "itemtype": "property",
             "name": "recipientIds",
@@ -2617,7 +2691,7 @@
         },
         {
             "file": "src/SDK/Message.js",
-            "line": 59,
+            "line": 57,
             "description": "Text body of message",
             "itemtype": "property",
             "name": "textBody",
@@ -2627,7 +2701,7 @@
         },
         {
             "file": "src/SDK/Message.js",
-            "line": 65,
+            "line": 63,
             "description": "Username for sender of this message",
             "itemtype": "property",
             "name": "senderId",
@@ -2637,7 +2711,7 @@
         },
         {
             "file": "src/SDK/Message.js",
-            "line": 71,
+            "line": 69,
             "description": "Custom headers for message",
             "itemtype": "property",
             "name": "headers",
@@ -2647,7 +2721,7 @@
         },
         {
             "file": "src/SDK/Message.js",
-            "line": 77,
+            "line": 75,
             "description": "Local javascript time when message was created",
             "itemtype": "property",
             "name": "timestamp",
@@ -2657,7 +2731,7 @@
         },
         {
             "file": "src/SDK/Message.js",
-            "line": 83,
+            "line": 81,
             "description": "Array of recipients which have acknowledged delivery of their message.",
             "itemtype": "property",
             "name": "delivered",
@@ -2667,7 +2741,7 @@
         },
         {
             "file": "src/SDK/Message.js",
-            "line": 89,
+            "line": 87,
             "description": "True if outgoing (from myself) or false for incoming (from other user)",
             "itemtype": "property",
             "name": "direction",
@@ -2677,7 +2751,7 @@
         },
         {
             "file": "src/SDK/Message.js",
-            "line": 96,
+            "line": 94,
             "description": "A method to clone this {Message} object into a new {MXPMessageObj}",
             "itemtype": "method",
             "name": "getMXPMessageObj",
@@ -2692,7 +2766,7 @@
         },
         {
             "file": "src/SDK/Message.js",
-            "line": 129,
+            "line": 127,
             "description": "Id of message that was delivered",
             "itemtype": "property",
             "name": "messageId",
@@ -2702,7 +2776,7 @@
         },
         {
             "file": "src/SDK/Message.js",
-            "line": 136,
+            "line": 134,
             "description": "Id of recipient who acknowledged delivery",
             "itemtype": "property",
             "name": "recipientId",
@@ -2712,7 +2786,7 @@
         },
         {
             "file": "src/SDK/Message.js",
-            "line": 142,
+            "line": 140,
             "description": "Local javascript time when delivery of message was known.",
             "itemtype": "property",
             "name": "timestamp",
@@ -3254,7 +3328,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 153,
+            "line": 154,
             "description": "Configure Sinch application key and session id / secret.",
             "itemtype": "method",
             "name": "config",
@@ -3304,7 +3378,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 181,
+            "line": 182,
             "description": "Sinch log function, calls developer supplied log handler and optionally report progress on a defer",
             "itemtype": "method",
             "name": "log",
@@ -3331,7 +3405,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 198,
+            "line": 199,
             "description": "Sinch log MXP function, calls developer supplied MXP log handler, for tracing MXP messages.",
             "itemtype": "method",
             "name": "log",
@@ -3352,7 +3426,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 210,
+            "line": 211,
             "description": "Configure Sinch application URL.",
             "itemtype": "method",
             "name": "setUrl",
@@ -3411,7 +3485,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 236,
+            "line": 238,
             "description": "Terminate session, invalidates sinchClient and this object is considered stale; instance can't be reused.",
             "itemtype": "method",
             "name": "terminate",
@@ -3423,7 +3497,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 267,
+            "line": 269,
             "description": "Add authorization header using \"session\"-method and return modified header object for signed session requests (fallback to non-signed application key).\nCan be sent using jQuery. If using AngularJS, intercept and sign requests before they are sent.",
             "itemtype": "method",
             "name": "signSession",
@@ -3470,7 +3544,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 328,
+            "line": 330,
             "description": "Add authorization header using \"ticket\"-method and return modified header object.\nCan be sent using jQuery. If using AngularJS, intercept and sign requests before they are sent.",
             "itemtype": "method",
             "name": "signTicket",
@@ -3508,7 +3582,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 357,
+            "line": 359,
             "description": "Add authorization header for non signed request, using only the application key for public / open functions.",
             "itemtype": "method",
             "name": "signApp",
@@ -3539,7 +3613,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 386,
+            "line": 388,
             "description": "Retrieve session id and secret",
             "itemtype": "method",
             "name": "getSession",
@@ -3555,7 +3629,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 400,
+            "line": 402,
             "description": "Create a new user. Can either be chained or supplied with success/fail callbacks. A promise will always be returned, supplied callback functions will be called before chained functions.",
             "itemtype": "method",
             "name": "newUser",
@@ -3618,7 +3692,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 447,
+            "line": 449,
             "description": "Initialize the SDK using a loginObject or supplied ticket. Can either be chained or supplied with success/fail callbacks. A promise will always be returned, supplied callback functions will be called before chained functions.",
             "itemtype": "method",
             "name": "start",
@@ -3688,7 +3762,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 565,
+            "line": 567,
             "description": "Retrieve a MessageClient for a particular sinchClient. Requires a sinchClient with messaging capability set true.",
             "itemtype": "method",
             "name": "getMessageClient",
@@ -3704,7 +3778,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 585,
+            "line": 587,
             "description": "Retrieve a CallClient for a particular sinchClient. Requires a sinchClient with calling capability set true.",
             "itemtype": "method",
             "name": "getCallClient",
@@ -3720,8 +3794,8 @@
         },
         {
             "file": "src/main.js",
-            "line": 605,
-            "description": "Create a Verification for a particular sinchClient.",
+            "line": 607,
+            "description": "Create a SMS Verification for a particular sinchClient.",
             "itemtype": "method",
             "name": "createSmsVerification",
             "params": [
@@ -3750,7 +3824,37 @@
         },
         {
             "file": "src/main.js",
-            "line": 619,
+            "line": 621,
+            "description": "Create a Callout Verification for a particular sinchClient.",
+            "itemtype": "method",
+            "name": "createCalloutVerification",
+            "params": [
+                {
+                    "name": "number",
+                    "description": "Phone number to verify, give in E.164 format (i.e. +1800123456)",
+                    "type": "String",
+                    "optional": true
+                },
+                {
+                    "name": "custom",
+                    "description": "Custom string to pass to your backend through callback. Useful for identifying user session, or similar. Max size is 4 kbyte.",
+                    "type": "String",
+                    "optional": true
+                }
+            ],
+            "return": {
+                "description": "",
+                "type": "Verification"
+            },
+            "example": [
+                "\n\tvar verification = sinchClient.createCalloutVerification(phoneNumber);"
+            ],
+            "class": "SinchClient",
+            "module": "Sinch"
+        },
+        {
+            "file": "src/main.js",
+            "line": 635,
             "description": "Start connection for messages and data call signalling.",
             "itemtype": "method",
             "name": "startActiveConnection",
@@ -3765,7 +3869,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 643,
+            "line": 659,
             "description": "Stop connection for messages and data call signalling.",
             "itemtype": "method",
             "name": "stopActiveConnection",
@@ -3780,7 +3884,7 @@
         },
         {
             "file": "src/main.js",
-            "line": 664,
+            "line": 680,
             "description": "Retrieve the current version of the Sinch JS SDK",
             "itemtype": "method",
             "name": "getVersion",

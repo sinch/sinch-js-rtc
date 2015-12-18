@@ -47,6 +47,8 @@
             
                 <li><a href="../classes/CallEndCause.html">CallEndCause</a></li>
             
+                <li><a href="../classes/CalloutVerification.html">CalloutVerification</a></li>
+            
                 <li><a href="../classes/CallState.html">CallState</a></li>
             
                 <li><a href="../classes/ErrorCode.html">ErrorCode</a></li>
@@ -432,6 +434,13 @@ messageClient.send(message);</code></pre>
                             </li>
                         
                             <li class="index-item method">
+                                <a href="#method_createCalloutVerification">createCalloutVerification</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
                                 <a href="#method_createSmsVerification">createSmsVerification</a>
 
                                 
@@ -607,7 +616,7 @@ messageClient.send(message);</code></pre>
             
         
         
-        <a href="../files/src_main.js.html#l153"><code>src&#x2F;main.js:153</code></a>
+        <a href="../files/src_main.js.html#l154"><code>src&#x2F;main.js:154</code></a>
         
         </p>
 
@@ -739,6 +748,144 @@ messageClient.send(message);</code></pre>
 </div>
 
                 
+                    <div id="method_createCalloutVerification" class="method item">
+    <h3 class="name"><code>createCalloutVerification</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code class="optional">[number]</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[custom]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Verification.html" class="crosslink">Verification</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_main.js.html#l621"><code>src&#x2F;main.js:621</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Create a Callout Verification for a particular sinchClient.</p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[number]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Phone number to verify, give in E.164 format (i.e. +1800123456)</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[custom]</code>
+                        <span class="type">String</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Custom string to pass to your backend through callback. Useful for identifying user session, or similar. Max size is 4 kbyte.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="../classes/Verification.html" class="crosslink">Verification</a></span>:
+                    
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var verification = sinchClient.createCalloutVerification(phoneNumber);</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
                     <div id="method_createSmsVerification" class="method item">
     <h3 class="name"><code>createSmsVerification</code></h3>
 
@@ -791,7 +938,7 @@ messageClient.send(message);</code></pre>
             
         
         
-        <a href="../files/src_main.js.html#l605"><code>src&#x2F;main.js:605</code></a>
+        <a href="../files/src_main.js.html#l607"><code>src&#x2F;main.js:607</code></a>
         
         </p>
 
@@ -802,7 +949,7 @@ messageClient.send(message);</code></pre>
     </div>
 
     <div class="description">
-        <p>Create a Verification for a particular sinchClient.</p>
+        <p>Create a SMS Verification for a particular sinchClient.</p>
 
     </div>
 
@@ -913,7 +1060,7 @@ messageClient.send(message);</code></pre>
             
         
         
-        <a href="../files/src_main.js.html#l585"><code>src&#x2F;main.js:585</code></a>
+        <a href="../files/src_main.js.html#l587"><code>src&#x2F;main.js:587</code></a>
         
         </p>
 
@@ -993,7 +1140,7 @@ messageClient.send(message);</code></pre>
             
         
         
-        <a href="../files/src_main.js.html#l565"><code>src&#x2F;main.js:565</code></a>
+        <a href="../files/src_main.js.html#l567"><code>src&#x2F;main.js:567</code></a>
         
         </p>
 
@@ -1073,7 +1220,7 @@ messageClient.send(message);</code></pre>
             
         
         
-        <a href="../files/src_main.js.html#l386"><code>src&#x2F;main.js:386</code></a>
+        <a href="../files/src_main.js.html#l388"><code>src&#x2F;main.js:388</code></a>
         
         </p>
 
@@ -1156,7 +1303,7 @@ sessionStorage[&#39;sinchSession&#39;] = sessionObj;</code></pre>
             
         
         
-        <a href="../files/src_main.js.html#l664"><code>src&#x2F;main.js:664</code></a>
+        <a href="../files/src_main.js.html#l680"><code>src&#x2F;main.js:680</code></a>
         
         </p>
 
@@ -1254,7 +1401,7 @@ sessionStorage[&#39;sinchSession&#39;] = sessionObj;</code></pre>
             
         
         
-        <a href="../files/src_main.js.html#l181"><code>src&#x2F;main.js:181</code></a>
+        <a href="../files/src_main.js.html#l182"><code>src&#x2F;main.js:182</code></a>
         
         </p>
 
@@ -1377,7 +1524,7 @@ sessionStorage[&#39;sinchSession&#39;] = sessionObj;</code></pre>
             
         
         
-        <a href="../files/src_main.js.html#l198"><code>src&#x2F;main.js:198</code></a>
+        <a href="../files/src_main.js.html#l199"><code>src&#x2F;main.js:199</code></a>
         
         </p>
 
@@ -1498,7 +1645,7 @@ sessionStorage[&#39;sinchSession&#39;] = sessionObj;</code></pre>
             
         
         
-        <a href="../files/src_main.js.html#l400"><code>src&#x2F;main.js:400</code></a>
+        <a href="../files/src_main.js.html#l402"><code>src&#x2F;main.js:402</code></a>
         
         </p>
 
@@ -1718,7 +1865,7 @@ sessionStorage[&#39;sinchSession&#39;] = sessionObj;</code></pre>
             
         
         
-        <a href="../files/src_main.js.html#l210"><code>src&#x2F;main.js:210</code></a>
+        <a href="../files/src_main.js.html#l211"><code>src&#x2F;main.js:211</code></a>
         
         </p>
 
@@ -1919,7 +2066,7 @@ sessionStorage[&#39;sinchSession&#39;] = sessionObj;</code></pre>
             
         
         
-        <a href="../files/src_main.js.html#l357"><code>src&#x2F;main.js:357</code></a>
+        <a href="../files/src_main.js.html#l359"><code>src&#x2F;main.js:359</code></a>
         
         </p>
 
@@ -2058,7 +2205,7 @@ sessionStorage[&#39;sinchSession&#39;] = sessionObj;</code></pre>
             
         
         
-        <a href="../files/src_main.js.html#l267"><code>src&#x2F;main.js:267</code></a>
+        <a href="../files/src_main.js.html#l269"><code>src&#x2F;main.js:269</code></a>
         
         </p>
 
@@ -2242,7 +2389,7 @@ Example: <code>users/email/magnus@sinch.com/authentication)</code></p>
             
         
         
-        <a href="../files/src_main.js.html#l328"><code>src&#x2F;main.js:328</code></a>
+        <a href="../files/src_main.js.html#l330"><code>src&#x2F;main.js:330</code></a>
         
         </p>
 
@@ -2413,7 +2560,7 @@ Can be sent using jQuery. If using AngularJS, intercept and sign requests before
             
         
         
-        <a href="../files/src_main.js.html#l447"><code>src&#x2F;main.js:447</code></a>
+        <a href="../files/src_main.js.html#l449"><code>src&#x2F;main.js:449</code></a>
         
         </p>
 
@@ -2636,7 +2783,7 @@ Can be sent using jQuery. If using AngularJS, intercept and sign requests before
             
         
         
-        <a href="../files/src_main.js.html#l619"><code>src&#x2F;main.js:619</code></a>
+        <a href="../files/src_main.js.html#l635"><code>src&#x2F;main.js:635</code></a>
         
         </p>
 
@@ -2716,7 +2863,7 @@ Can be sent using jQuery. If using AngularJS, intercept and sign requests before
             
         
         
-        <a href="../files/src_main.js.html#l643"><code>src&#x2F;main.js:643</code></a>
+        <a href="../files/src_main.js.html#l659"><code>src&#x2F;main.js:659</code></a>
         
         </p>
 
@@ -2796,7 +2943,7 @@ Can be sent using jQuery. If using AngularJS, intercept and sign requests before
             
         
         
-        <a href="../files/src_main.js.html#l236"><code>src&#x2F;main.js:236</code></a>
+        <a href="../files/src_main.js.html#l238"><code>src&#x2F;main.js:238</code></a>
         
         </p>
 
