@@ -1,6 +1,6 @@
 {
   "name": "sinch-rtc",
-  "version": "1.4.4",
+  "version": "1.4.5",
   "description": "Sinch JS SDK for real time communication, voice and IM",
   "main": "lib/sinch.node.min.js",
   "scripts": {
@@ -40,7 +40,6 @@
     "pubnub": "3.7.0",
     "q": "^1.0.1",
     "xmlhttprequest": "^1.6.0",
-    "wrtc": "0.0.55",
     "sinch-ticketgen": "0.0.6"
   },
   "license": "Proprietary",
