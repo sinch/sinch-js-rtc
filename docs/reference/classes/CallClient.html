@@ -19,7 +19,7 @@
             
         </div>
         <div class="yui3-u-1-4 version">
-            <em>API Docs for: 0.9.9</em>
+            <em>API Docs for: 0.10.0</em>
         </div>
     </div>
     <div id="bd" class="yui3-g">
@@ -322,6 +322,13 @@ callClient.addEventListener(...);</code></pre>
                         
                             <li class="index-item method">
                                 <a href="#method_callPhoneNumber">callPhoneNumber</a>
+
+                                
+                                
+                            </li>
+                        
+                            <li class="index-item method">
+                                <a href="#method_callSip">callSip</a>
 
                                 
                                 
@@ -693,7 +700,7 @@ callClient.addEventListener(myListener);</code></pre>
             
         
         
-        <a href="../files/src_SDK_CallClient.js.html#l406"><code>src&#x2F;SDK&#x2F;CallClient.js:406</code></a>
+        <a href="../files/src_SDK_CallClient.js.html#l432"><code>src&#x2F;SDK&#x2F;CallClient.js:432</code></a>
         
         </p>
 
@@ -856,7 +863,7 @@ call.addEventListener(callListener);</code></pre>
             
         
         
-        <a href="../files/src_SDK_CallClient.js.html#l460"><code>src&#x2F;SDK&#x2F;CallClient.js:460</code></a>
+        <a href="../files/src_SDK_CallClient.js.html#l486"><code>src&#x2F;SDK&#x2F;CallClient.js:486</code></a>
         
         </p>
 
@@ -1002,7 +1009,7 @@ groupCall.addEventListener({
             
         
         
-        <a href="../files/src_SDK_CallClient.js.html#l351"><code>src&#x2F;SDK&#x2F;CallClient.js:351</code></a>
+        <a href="../files/src_SDK_CallClient.js.html#l377"><code>src&#x2F;SDK&#x2F;CallClient.js:377</code></a>
         
         </p>
 
@@ -1101,6 +1108,183 @@ groupCall.addEventListener({
             <div class="example-content">
                 <pre class="code prettyprint"><code>var callClient = sinchClient.getCallClient();
 var call = callClient.callPhoneNumber(&#39;+46000000000&#39;);
+
+var callListener = {
+    onProgressing: function(call): { }, //Call is progressing
+    onEstablished: function(call): { //Call is established
+        $(&#39;audio&#39;).attr(&#39;src&#39;, call.incomingStreamURL); //Add audio stream to audio element.
+        //NOTE: Remember to ensure audio element play back audio or has the &quot;autoplay&quot; attribute (see sample app)
+    },
+    onCallEnded: function(call): { } //Call is ended
+}
+
+call.addEventListener(callListener);</code></pre>
+
+            </div>
+        </div>
+    
+</div>
+
+                
+                    <div id="method_callSip" class="method item">
+    <h3 class="name"><code>callSip</code></h3>
+
+    
+        <div class="args">
+            <span class="paren">(</span><ul class="args-list inline commas">
+            
+                <li class="arg">
+                    
+                        <code>sipAddress</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[headers]</code>
+                    
+                </li>
+            
+                <li class="arg">
+                    
+                        <code class="optional">[customStream]</code>
+                    
+                </li>
+            
+            </ul><span class="paren">)</span>
+        </div>
+    
+
+    
+        <span class="returns-inline">
+            <span class="type"><a href="../classes/Call.html" class="crosslink">Call</a></span>
+        </span>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+        <span class="flag async">async</span>
+    
+
+    <div class="meta">
+        
+            
+                
+                <p>
+                
+                Defined in
+                
+            
+        
+        
+        <a href="../files/src_SDK_CallClient.js.html#l281"><code>src&#x2F;SDK&#x2F;CallClient.js:281</code></a>
+        
+        </p>
+
+
+        
+
+        
+    </div>
+
+    <div class="description">
+        <p>Calls the user with the given SIP identity.</p>
+<p><i><b>Note: </b> Remember to play the audio in an audio element. When adding the incoming audio source, remember to play back the stream, or use the attribute &quot;autoplay&quot; on the audio element. </i></p>
+
+    </div>
+
+    
+        <div class="params">
+            <h4>Parameters:</h4>
+
+            <ul class="params-list">
+            
+                <li class="param">
+                    
+                        <code class="param-name">sipAddress</code>
+                        <span class="type">String</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>The specific SIP identity of the user to call. May not be null or empty.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[headers]</code>
+                        <span class="type">Object</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Header object, contains a map key-value. Only string values are supported in native clients. Prefix header names with &quot;x-&quot;.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+                <li class="param">
+                    
+                        <code class="param-name optional">[customStream]</code>
+                        <span class="type">MediaStream</span>
+                        <span class="flag optional" title="This parameter is optional.">optional</span>
+                    
+
+                    
+
+                    <div class="param-description">
+                        <p>Custom audio stream to transmit. If none is specified, the stream from the mic will be used.</p>
+
+                    </div>
+
+                    
+                </li>
+            
+            </ul>
+        </div>
+    
+
+    
+        <div class="returns">
+            <h4>Returns:</h4>
+
+            <div class="returns-description">
+                
+                    
+                        <span class="type"><a href="../classes/Call.html" class="crosslink">Call</a></span>:
+                    
+                    <p>Call instance for adding event handlers and/or interacting with this call.</p>
+
+                
+            </div>
+        </div>
+    
+
+    
+        <div class="example">
+            <h4>Example:</h4>
+
+            <div class="example-content">
+                <pre class="code prettyprint"><code>var callClient = sinchClient.getCallClient();
+var call = callClient.callSip(&#39;alice@example.com&#39;);
 
 var callListener = {
     onProgressing: function(call): { }, //Call is progressing
@@ -1350,7 +1534,7 @@ call.addEventListener(callListener);</code></pre>
             
         
         
-        <a href="../files/src_SDK_CallClient.js.html#l308"><code>src&#x2F;SDK&#x2F;CallClient.js:308</code></a>
+        <a href="../files/src_SDK_CallClient.js.html#l334"><code>src&#x2F;SDK&#x2F;CallClient.js:334</code></a>
         
         </p>
 

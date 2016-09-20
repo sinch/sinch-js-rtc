@@ -1,4 +1,4 @@
-Sinch Javascript SDK 1.4.2
+Sinch Javascript SDK 1.4.4
 ==========================
 Welcome to Sinch JS SDK, http://www.sinch.com
 
@@ -13,6 +13,8 @@ Features
 - Web/app calling 
  - Make and receive calls using WebRTC
  - Call both web clients and native (iOS and Android)
+- SIP calling
+ - Make calls connected to SIP clients
 - Conference calling
 - Instant messaging
  - Cross platform, using native SDK's for iOS and Android
@@ -23,6 +25,8 @@ Features
 - Group p2p calling
  - Web clients only
 - Phone number verification 
+  - SMS verification
+  - Callout verification
 - Partner user management
  - Authentication ticket for session creation
  - Allows full user management for partner
@@ -34,7 +38,7 @@ Features
  - Generate authentication tickets when running as backend
 
 Should you encounter any bugs, glitches, lack of functionality or other problems
-using  our SDK, please send us an email to dev@sinch.com. 
+using our SDK, please send us an email to dev@sinch.com. 
 Your help in this regard is greatly appreciated.
 
 
@@ -55,7 +59,7 @@ Install using Bower
 
 You can install Sinch RTC SDK in your project using Bower;
 
-	bower install sinch-rtc
+	bower install sinch
 
 Import the Sinch SDK in your website using
 
@@ -103,8 +107,8 @@ Have a look at the Sample App in the samples/ folder, where you'll find:
   (see README.md for more information on getting started)
 - SinchVIDEOsample, sample for person to person video calling
 - SinchGROUPVIDEOsample, sample for group video conferencing
-- SinchGROUPAUDIOsample, sample for group audio conferencing
-- SinchVERsample, sample for number verification
+- SinchVERsample, sample for SMS number verification
+- SinchCALLOUTsample, sample for Callout number verification
 
 These sample apps demonstrate user management, session handling and more. 
 The interesting stuff can be found in the .js files.
@@ -121,7 +125,8 @@ In order to get started follow these steps:
 5. Go to www.sinch.com, create an account and a new application (or use an 
    already existing app)
 6. Replace MY_APPLICATION_KEY in IMsample.js with your application key. 
-7. Try creating a user, now it should work!
+7. Try creating a user, now it should work! 
+   Note: Only if "JS Auth" is enabled in portal for your app
 8. Open the same page in a separate window and create another user
 9. You can now try sending messages between these two users.
 
@@ -129,7 +134,7 @@ Have a look at the source code in IMsample.js, enable the onLogMessage callback
 if you're curious about the activity under the hood. It's a good way to have 
 logging enabled during development for easy error tracking.
 
-You can also activate session loading by enabling the if-statement on line 36, 
+You can also activate session loading by enabling the if-statement on line 45, 
 by removing "false" from the if-statement. The PSTN and AUTH sample application 
 has this activated by default, please see the PSTNsample.js file for reference.
 
@@ -142,7 +147,7 @@ browser. Also, when trying PSTN calls please ensure you replace
 Documentation
 =============
 The user-guide is available in the docs/ folder. 
-Simply open index.html and read about:
+Open index.html and read about:
 
 - Instructions for first-time developers
 - Using Sinch in your app for sending and receiving messages
@@ -167,7 +172,7 @@ Known issues
   (if problem experienced, restart browser and only run one instance and try 
   again with fewer instances)
 - After three failed login attempts on one user accounts, that account is 
-  locked for a while with no ability to unlock.
+  locked for a while with no ability to unlock (when using Sinch auth).
 - Restore messages missed since last login is currently disabled. 
 - When browser close, any ongoing PSTN calls are not terminated properly but 
   relies on B-side doing a time-out. (~ 1 minute)

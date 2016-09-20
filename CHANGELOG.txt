@@ -1,3 +1,9 @@
+Sinch 1.4.4
+	- Bug fix: Resolved issue with newer browsers using ECDSA for key generation
+
+Sinch 1.4.3
+	- Added support for SIP Calling w. Error header support
+
 Sinch 1.4.2
 	- Added support for verification using Callout
 	- Bug fix: Custom header support for native client compatability
