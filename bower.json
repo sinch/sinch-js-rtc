@@ -1,9 +1,9 @@
 {
   "name": "sinch-rtc",
-  "version": "1.4.4",
+  "version": "1.4.6",
   "homepage": "https://github.com/sinch/sinch-js-rtc",
   "authors": [
-    "magnus.lundstedt <magnus@sinch.com>"
+    "Magnus Lundstedt <magnus.lundstedt@sinch.com>"
   ],
   "description": "Sinch JS SDK for real time communication, voice and IM",
   "main": "sinch.min.js",

@@ -1,6 +1,6 @@
 {
   "name": "sinch-rtc",
-  "version": "1.4.5",
+  "version": "1.4.6",
   "description": "Sinch JS SDK for real time communication, voice and IM",
   "main": "lib/sinch.node.min.js",
   "scripts": {
@@ -30,16 +30,16 @@
   "contributors": [
     {
       "name": "Magnus Lundstedt",
-      "email": "magnus@sinch.com"
+      "email": "magnus.lundstedt@sinch.com"
     }
   ],
   "dependencies": {
-    "atob": "^1.1.2",
+    "atob": "^2.0.3",
     "btoa": "^1.1.2",
     "localStorage": "^1.0.3",
-    "pubnub": "3.7.0",
-    "q": "^1.0.1",
-    "xmlhttprequest": "^1.6.0",
+    "pubnub": "3.16.5",
+    "q": "^1.5.0",
+    "xmlhttprequest": "^1.8.0",
     "sinch-ticketgen": "0.0.6"
   },
   "license": "Proprietary",

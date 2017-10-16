@@ -1,3 +1,11 @@
+Sinch 1.4.6
+	- Version bump for Bower/npm version synchronization
+
+Sinch 1.4.5
+	- Updated dependencies
+	- Fix for App to Web compatibility
+	- Bug fixes for recent Chrome and Firefox versions
+
 Sinch 1.4.4
 	- Bug fix: Resolved issue with newer browsers using ECDSA for key generation
 
@@ -6,7 +14,7 @@ Sinch 1.4.3
 
 Sinch 1.4.2
 	- Added support for verification using Callout
-	- Bug fix: Custom header support for native client compatability
+	- Bug fix: Custom header support for native client compatibility
 
 Sinch 1.4.1
 	- Bug fix: userAgent parsing when Safari running embedded in apps, solving
