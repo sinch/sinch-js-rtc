@@ -45,6 +45,7 @@ YUI.add("yuidoc-meta", function(Y) {
             "displayName": "SinchInternal",
             "name": "SinchInternal"
         }
-    ]
+    ],
+    "elements": []
 } };
 });
