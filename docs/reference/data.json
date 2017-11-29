@@ -2,7 +2,7 @@
     "project": {
         "name": "sinch",
         "description": "Sinch JS SDK",
-        "version": "1.4.6",
+        "version": "1.4.7",
         "url": "http://gitlab.rebtelnet.local/magnus.lundstedt/sinch-js"
     },
     "files": {
@@ -2258,7 +2258,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 146,
+            "line": 148,
             "description": "Check whether we're already in a call.",
             "itemtype": "method",
             "name": "alreadyInCall",
@@ -2284,7 +2284,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 169,
+            "line": 171,
             "description": "Handle incoming call.",
             "itemtype": "method",
             "name": "handleIncomingCall",
@@ -2310,7 +2310,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 232,
+            "line": 234,
             "description": "Calls the user with the given userId.\n\n<i><b>Note: </b> Remember to play the audio in an audio element. When adding the incoming audio source, remember to play back the stream, or use the attribute \"autoplay\" on the audio element. </i>",
             "itemtype": "method",
             "name": "callUser",
@@ -2347,7 +2347,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 281,
+            "line": 283,
             "description": "Calls the user with the given SIP identity.\n\n<i><b>Note: </b> Remember to play the audio in an audio element. When adding the incoming audio source, remember to play back the stream, or use the attribute \"autoplay\" on the audio element. </i>",
             "itemtype": "method",
             "name": "callSip",
@@ -2384,7 +2384,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 334,
+            "line": 336,
             "description": "Calls a data user and opens a data channel only. (beta)\n\n<i><b>Note: </b> Only tested in Chrome. Not for production.</i>",
             "itemtype": "method",
             "name": "connect",
@@ -2415,7 +2415,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 377,
+            "line": 379,
             "description": "Calls a phone number and terminate the call to the PSTN-network (Publicly Switched Telephone Network).\n\n<i><b>Note: </b> Remember to play the audio in an audio element. When adding the incoming audio source, remember to play back the stream, or use the attribute \"autoplay\" on the audio element. </i>",
             "itemtype": "method",
             "name": "callPhoneNumber",
@@ -2452,7 +2452,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 432,
+            "line": 434,
             "description": "Calls a conference room, all calls connected to the same room will exchange voice traffic and can also be reached from PSTN. (Voice only)\n\n<i><b>Note: </b> Remember to play the audio in an audio element. When adding the incoming audio source, remember to play back the stream, or use the attribute \"autoplay\" on the audio element. </i>",
             "itemtype": "method",
             "name": "callConference",
@@ -2489,7 +2489,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 486,
+            "line": 488,
             "description": "<b>Beta:</b> Join a call group, works with both video and audio. Currently only p2p conferencing works, where each participant is streaming to all other participants. \n\n<i><b>Note: </b> Remember to play the media in a audio/video element. When adding the incoming media source, remember to play back the stream, or use the attribute \"autoplay\" on the audio element. </i><br>\n<i><b>Note: </b> Also requires the \"multiCall\" capability set to true. For video, also set the \"video\" capability to true.</i><br>",
             "itemtype": "method",
             "name": "callGroup",

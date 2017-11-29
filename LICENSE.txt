@@ -5,7 +5,7 @@ IMPORTANT NOTICE -- READ BEFORE USE
 This SDK and all the associated software, documents and other content in
 this package file (the "Software") is provided by the Swedish company
 Sinch AB (reg. no 556969-5397) under the Sinch Terms of Service
-located at http://www.sinch.com/terms-of-service (the "Terms of Service").
+located at https://www.sinch.com/terms-of-service (the "Terms of Service").
 
 You are not allowed to in any way use or handle or access the Software
 before accepting the Terms of Service. Not limiting anything in the
@@ -18,7 +18,7 @@ Sinch AB. Unauthorized reproduction, transmission, distribution
 or use of the Software is a violation of Sinch AB's rights and
 applicable laws. The Software may make use of some third-party and
 open source code and/or software, in this regard reference is made to the
-document Third Party Licenses http://www.sinch.com/legal/third-party-licenses/.
+document Third Party Licenses https://www.sinch.com/legal/third-party-licenses/.
 
 
 ## THIRD-PARTY LICENSES
@@ -31,7 +31,7 @@ codes etc. relating thereto ("Third Party Licenses").
 NOTE - The list is updated as per May 12, 2014 and is included in the SDK
 package file for convenience purposes only. Note that the current official
 (complete and updated) list of Third Party Licenses are located
-at http://www.sinch.com/legal/third-party-licenses/. Therefore, in case
+at https://www.sinch.com/legal/third-party-licenses/. Therefore, in case
 of any discrepancies between the list in this document and the list presented
 on the website, the list on the website shall prevail.
 
@@ -75,8 +75,8 @@ IN THE SOFTWARE.
 
 PubNub Real-time Cloud-Hosted Push API and Push Notification Client Frameworks
 Copyright (c) 2013 PubNub Inc.
-http://www.pubnub.com/
-http://www.pubnub.com/terms
+https://www.pubnub.com/
+https://www.pubnub.com/terms-and-conditions/
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -98,9 +98,8 @@ THE SOFTWARE.
 
 PubNub Real-time Cloud-Hosted Push API and Push Notification Client Frameworks
 Copyright (c) 2013 PubNub Inc.
-http://www.pubnub.com/
-http://www.pubnub.com/terms
-
+https://www.pubnub.com/
+https://www.pubnub.com/terms-and-conditions/
 
 
 

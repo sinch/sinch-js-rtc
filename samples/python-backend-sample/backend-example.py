@@ -26,7 +26,7 @@ APPLICATION_SECRET = 'INSERT_YOUR_APP_SECRET_HERE'
 userBase = dict()
 
 # Generate Sinch authentication ticket. Implementation of:
-# http://www.sinch.com/docs/rest-apis/api-documentation/#Authorization
+# https://www.sinch.com/docs/rest-apis/api-documentation/#Authorization
 def getAuthTicket(user): 
     userTicket = {
         'identity': {'type': 'username', 'endpoint': user['username']},
