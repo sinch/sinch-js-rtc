@@ -2,7 +2,8 @@
   "name": "sinch-rtc",
   "version": "1.4.7",
   "description": "Sinch JS SDK for real time communication, voice and IM",
-  "main": "lib/sinch.node.min.js",
+  "main": "./node/lib/sinch.node.min.js",
+  "browser": "./web/sinch.min.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
