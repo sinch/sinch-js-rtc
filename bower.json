@@ -6,7 +6,7 @@
     "Magnus Lundstedt <magnus.lundstedt@sinch.com>"
   ],
   "description": "Sinch JS SDK for real time communication, voice and IM",
-  "main": "sinch.min.js",
+  "main": "web/sinch.min.js",
   "keywords": [
     "Sinch",
     "JS",
@@ -31,6 +31,6 @@
     "bower_components",
     "test",
     "tests",
-    "!sinch.min.js"
+    "!web/sinch.min.js"
   ]
 }
