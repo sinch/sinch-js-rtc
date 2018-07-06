@@ -462,7 +462,7 @@
             "module": "SinchInternal",
             "namespace": "",
             "file": "src/SDK/CallClient.js",
-            "line": 4,
+            "line": 6,
             "description": "The CallClient provides the entry point to the calling functionality of the Sinch SDK. A CallClient can be acquired via the SinchClient.\n\n<i><b>Note:</b> Do not instantiate CallClient, rather use the getCallClient() method in SinchClient. See the example below.</i>",
             "is_constructor": 1,
             "params": [
@@ -1454,7 +1454,7 @@
         },
         {
             "file": "src/MXP/MXPCalling.js",
-            "line": 203,
+            "line": 204,
             "description": "Handlers for processing MXP messages related to Calling\nDocumentation TBD",
             "class": "MXP",
             "module": "MXP"
@@ -1633,7 +1633,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 149,
+            "line": 144,
             "description": "Add event listeners to the call, multiple listeners can be added with this method. \nListeners are processed in the order they're added. \nListeners can be removed, using the removeEventListener method.",
             "itemtype": "method",
             "name": "addEventListener",
@@ -1681,7 +1681,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 177,
+            "line": 172,
             "description": "Remove event lister objects from the call. Pass the same object as was used when adding the listener.",
             "itemtype": "method",
             "name": "removeEventListener",
@@ -1703,7 +1703,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 191,
+            "line": 186,
             "description": "Internal: Set media streams, this is used internally by the call object. Internal function!",
             "itemtype": "method",
             "name": "setStream",
@@ -1717,7 +1717,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 209,
+            "line": 204,
             "description": "Internal: Execute a specific listener and pass argument dataObj. Only used internally.",
             "itemtype": "method",
             "name": "execListener",
@@ -1731,7 +1731,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 229,
+            "line": 224,
             "description": "Internal: Set call end cause. Only used internally.",
             "itemtype": "method",
             "name": "setEndCause",
@@ -1745,7 +1745,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 242,
+            "line": 237,
             "description": "Internal: Set participants in the ongoing call. Only used internally.",
             "itemtype": "method",
             "name": "setParticipants",
@@ -1759,7 +1759,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 255,
+            "line": 250,
             "description": "Internal: Change call state to PROGRESSING and do necessary related steps. Only used internally.",
             "itemtype": "method",
             "name": "progress",
@@ -1773,7 +1773,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 290,
+            "line": 285,
             "description": "Internal: Change call state to ESTABLISHED and do necessary related steps. Only used internally.",
             "itemtype": "method",
             "name": "establish",
@@ -1787,7 +1787,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 478,
+            "line": 473,
             "description": "Internal: Trigger actions based on MXP ACK message. Only used internally.",
             "itemtype": "method",
             "name": "mxpAck",
@@ -1801,7 +1801,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 557,
+            "line": 552,
             "description": "Internal: Trigger actions based on MXP Sdp Answer. Only used internally.",
             "itemtype": "method",
             "name": "processRTCAnswer",
@@ -1857,7 +1857,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 761,
+            "line": 785,
             "description": "Internal: Trigger actions based on MXP JOIN message. Only used internally.",
             "itemtype": "method",
             "name": "mxpJoin",
@@ -1871,7 +1871,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 859,
+            "line": 898,
             "description": "Internal: Trigger actions based on MXP JOIN message. Only used internally.",
             "itemtype": "method",
             "name": "mxpJoined",
@@ -1885,7 +1885,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 917,
+            "line": 934,
             "description": "Internal: Trigger actions based on MXP HANGUP message. Only used internally.",
             "itemtype": "method",
             "name": "mxpHangup",
@@ -1899,7 +1899,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 959,
+            "line": 976,
             "description": "Internal: Trigger actions based on MXP DENY message. Only used internally.",
             "itemtype": "method",
             "name": "mxpDeny",
@@ -1913,7 +1913,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1001,
+            "line": 1018,
             "description": "Internal: Trigger actions based on MXP CANCEL message. Only used internally.",
             "itemtype": "method",
             "name": "mxpCancel",
@@ -1927,7 +1927,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1038,
+            "line": 1055,
             "description": "Internal: Trigger actions based on MXP FAIL message. Only used internally.",
             "itemtype": "method",
             "name": "mxpFail",
@@ -1941,7 +1941,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1067,
+            "line": 1084,
             "description": "Internal: Fail a current call, used in various error scenarios. Only used internally.",
             "itemtype": "method",
             "name": "callFailure",
@@ -1955,7 +1955,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1097,
+            "line": 1114,
             "description": "Internal: Prototype used in call when adding callbacks to data channels. Only used internally.",
             "itemtype": "method",
             "name": "addEventListenerPrototype",
@@ -1969,7 +1969,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1113,
+            "line": 1130,
             "description": "Internal: Initialize peer connection and configure all callbacks. Only used internally.",
             "itemtype": "method",
             "name": "initPC",
@@ -1983,7 +1983,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1246,
+            "line": 1268,
             "description": "Internal: Start a call. Only used internally.",
             "itemtype": "method",
             "name": "placeCall",
@@ -1997,7 +1997,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1355,
+            "line": 1402,
             "description": "Internal: Recieve a call, do not use this directly! Only used internally.",
             "itemtype": "method",
             "name": "ackIncomingCall",
@@ -2011,7 +2011,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1480,
+            "line": 1527,
             "description": "Pick up an incoming call which is currently ringing.",
             "itemtype": "method",
             "name": "answer",
@@ -2023,7 +2023,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1523,
+            "line": 1570,
             "description": "Beta: Open data channel on ongoing call session. Can only be used with \"new\" data clients (i.e., not PSTN).",
             "itemtype": "method",
             "name": "openDataChannel",
@@ -2046,7 +2046,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1542,
+            "line": 1589,
             "description": "End the call, regardless of what state it is in. If the call is an incoming call that has not yet been answered, the call will be reported as denied to the caller.",
             "itemtype": "method",
             "name": "hangup",
@@ -2058,7 +2058,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1593,
+            "line": 1640,
             "description": "Returns the call identifier.",
             "itemtype": "method",
             "name": "getCallId",
@@ -2071,7 +2071,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1612,
+            "line": 1659,
             "description": "Returns metadata about the call.",
             "itemtype": "method",
             "name": "getDetails",
@@ -2084,7 +2084,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1624,
+            "line": 1671,
             "description": "Returns the call direction of the call.",
             "itemtype": "method",
             "name": "getDirection",
@@ -2096,7 +2096,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1634,
+            "line": 1681,
             "description": "Returns the identifier of the remote participant in the call.",
             "itemtype": "method",
             "name": "getRemoteUserId",
@@ -2109,7 +2109,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1649,
+            "line": 1696,
             "description": "Returns the Call State the call is currently in.",
             "itemtype": "method",
             "name": "getState",
@@ -2122,7 +2122,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1659,
+            "line": 1706,
             "description": "Returns the Call End Cause for the call",
             "itemtype": "method",
             "name": "getEndCause",
@@ -2135,7 +2135,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1669,
+            "line": 1716,
             "description": "Returns the Call Headers for this call",
             "itemtype": "method",
             "name": "getHeaders",
@@ -2148,7 +2148,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1679,
+            "line": 1726,
             "description": "Sends one or more DTMF tones for tone dialing.",
             "itemtype": "method",
             "name": "sendDTMF",
@@ -2167,7 +2167,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1693,
+            "line": 1740,
             "description": "Mute microphone in ongoing call. Must be active call.",
             "itemtype": "method",
             "name": "mute",
@@ -2179,7 +2179,7 @@
         },
         {
             "file": "src/SDK/Call.js",
-            "line": 1716,
+            "line": 1763,
             "description": "Un-mute microphone in ongoing call. Must be active call.",
             "itemtype": "method",
             "name": "unmute",
@@ -2191,7 +2191,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 65,
+            "line": 67,
             "description": "Add event listeners to the callClient, multiple listeners can be added with this method. Listeners are processed in the order they're added. \nListeners can be removed, using the CallClient.removeEventListener method.",
             "itemtype": "method",
             "name": "addEventListener",
@@ -2221,7 +2221,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 84,
+            "line": 86,
             "description": "Remove event lister objects from the callClient. Pass the same object as was used when adding the listeners.",
             "itemtype": "method",
             "name": "removeEventListener",
@@ -2243,7 +2243,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 108,
+            "line": 110,
             "description": "Initialize media streams, this is used to create the stream from the microphone. \nThe stream will be cached; in order to avoid a question when making / receiving a call, run initStream() once when it's a good time in the application flow.\n\n<i><b>Note: </b> This can be used to initialize the stream before it's needed, for example, during application loading.</i>",
             "itemtype": "method",
             "name": "initStream",
@@ -2258,7 +2258,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 148,
+            "line": 153,
             "description": "Check whether we're already in a call.",
             "itemtype": "method",
             "name": "alreadyInCall",
@@ -2284,7 +2284,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 171,
+            "line": 176,
             "description": "Handle incoming call.",
             "itemtype": "method",
             "name": "handleIncomingCall",
@@ -2310,7 +2310,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 234,
+            "line": 240,
             "description": "Calls the user with the given userId.\n\n<i><b>Note: </b> Remember to play the audio in an audio element. When adding the incoming audio source, remember to play back the stream, or use the attribute \"autoplay\" on the audio element. </i>",
             "itemtype": "method",
             "name": "callUser",
@@ -2347,7 +2347,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 283,
+            "line": 289,
             "description": "Calls the user with the given SIP identity.\n\n<i><b>Note: </b> Remember to play the audio in an audio element. When adding the incoming audio source, remember to play back the stream, or use the attribute \"autoplay\" on the audio element. </i>",
             "itemtype": "method",
             "name": "callSip",
@@ -2384,7 +2384,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 336,
+            "line": 342,
             "description": "Calls a data user and opens a data channel only. (beta)\n\n<i><b>Note: </b> Only tested in Chrome. Not for production.</i>",
             "itemtype": "method",
             "name": "connect",
@@ -2415,7 +2415,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 379,
+            "line": 385,
             "description": "Calls a phone number and terminate the call to the PSTN-network (Publicly Switched Telephone Network).\n\n<i><b>Note: </b> Remember to play the audio in an audio element. When adding the incoming audio source, remember to play back the stream, or use the attribute \"autoplay\" on the audio element. </i>",
             "itemtype": "method",
             "name": "callPhoneNumber",
@@ -2452,7 +2452,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 434,
+            "line": 440,
             "description": "Calls a conference room, all calls connected to the same room will exchange voice traffic and can also be reached from PSTN. (Voice only)\n\n<i><b>Note: </b> Remember to play the audio in an audio element. When adding the incoming audio source, remember to play back the stream, or use the attribute \"autoplay\" on the audio element. </i>",
             "itemtype": "method",
             "name": "callConference",
@@ -2489,7 +2489,7 @@
         },
         {
             "file": "src/SDK/CallClient.js",
-            "line": 488,
+            "line": 494,
             "description": "<b>Beta:</b> Join a call group, works with both video and audio. Currently only p2p conferencing works, where each participant is streaming to all other participants. \n\n<i><b>Note: </b> Remember to play the media in a audio/video element. When adding the incoming media source, remember to play back the stream, or use the attribute \"autoplay\" on the audio element. </i><br>\n<i><b>Note: </b> Also requires the \"multiCall\" capability set to true. For video, also set the \"video\" capability to true.</i><br>",
             "itemtype": "method",
             "name": "callGroup",
@@ -4105,7 +4105,7 @@
         },
         {
             "message": "Missing item type\nHandlers for processing MXP messages related to Calling\nDocumentation TBD",
-            "line": " src/MXP/MXPCalling.js:203"
+            "line": " src/MXP/MXPCalling.js:204"
         },
         {
             "message": "Missing item type\nHandlers for processing MXP messages related to IM\nDocumentation TBD",

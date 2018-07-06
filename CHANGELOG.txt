@@ -1,3 +1,7 @@
+Sinch 1.4.8
+	- Added support for receiving sdp in join to support opus.
+	- Better handling of multiple B-sides
+	
 Sinch 1.4.7
 	- Firefox 57+ compatibility
 	- Updated dependencies

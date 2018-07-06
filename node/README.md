@@ -1,6 +1,8 @@
-Sinch Javascript SDK 1.4.7
+Sinch Javascript SDK 1.4.8
 ==========================
 Welcome to Sinch JS SDK, http://www.sinch.com
+
+For REST API helper libraries see node modules sinch-rest-api or sinch-request (signing only).
 
 Copyright 2014-2017, Sinch AB (reg. no 556969-5397)
 
