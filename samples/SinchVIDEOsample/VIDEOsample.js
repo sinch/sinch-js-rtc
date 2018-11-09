@@ -111,32 +111,36 @@ $('button#loginUser').on('click', function(event) {
 	}).fail(handleError);
 });
 
-/*** Define listener for managing calls ***/
+/*** Create audio elements for progresstone and incoming sound */
+const audioProgress = document.createElement('audio');
+const audioRingTone = document.createElement('audio');
+const videoIncoming = document.getElementById('videoincoming');
+const videoOutgoing = document.getElementById('videooutgoing');
 
+/*** Define listener for managing calls ***/
 var callListeners = {
 	onCallProgressing: function(call) {
-		$('audio#ringback').prop("currentTime",0);
-		$('audio#ringback').trigger("play");
+		audioProgress.src = 'style/ringback.wav';
+		audioProgress.loop = true;
+		audioProgress.play();
+		videoOutgoing.srcObject = call.outgoingStream;
 
 		//Report call stats
 		$('div#callLog').append('<div id="stats">Ringing...</div>');
 	},
 	onCallEstablished: function(call) {
-		$('video#outgoing').attr('src', call.outgoingStreamURL);
-		$('video#incoming').attr('src', call.incomingStreamURL);
-		$('audio#ringback').trigger("pause");
-		$('audio#ringtone').trigger("pause");
-
+		videoIncoming.srcObject = call.incomingStream;
+		audioProgress.pause();
+		audioRingTone.pause();
 		//Report call stats
 		var callDetails = call.getDetails();
 		$('div#callLog').append('<div id="stats">Answered at: '+(callDetails.establishedTime && new Date(callDetails.establishedTime))+'</div>');
 	},
 	onCallEnded: function(call) {
-		$('audio#ringback').trigger("pause");
-		$('audio#ringtone').trigger("pause");
-
-		$('video#outgoing').attr('src', '');
-		$('video#incoming').attr('src', '');
+		audioProgress.pause();
+		audioRingTone.pause();
+		videoIncoming.srcObject = null;
+		videoOutgoing.srcObject = null;
 
 		$('button').removeClass('incall');
 		$('button').removeClass('callwaiting');
@@ -163,8 +167,9 @@ var call;
 callClient.addEventListener({
   onIncomingCall: function(incomingCall) {
 	//Play some groovy tunes 
-	$('audio#ringtone').prop("currentTime",0);
-	$('audio#ringtone').trigger("play");
+	audioRingTone.src = 'style/phone_ring.wav';
+	audioRingTone.loop = true;
+	audioRingTone.play();
 
 	//Print statistics
 	$('div#callLog').append('<div id="title">Incoming call from ' + incomingCall.fromId + '</div>');

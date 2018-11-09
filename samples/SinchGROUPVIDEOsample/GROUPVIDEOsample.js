@@ -45,18 +45,18 @@ sinchClient.start({username: username}).then(function() {
 		onGroupRemoteCallAdded: function(call) {
 			remoteCalls.push(call);
 			var callIdx = remoteCalls.indexOf(call);
-			$('video#other'+callIdx).attr('src', call.incomingStreamURL);
+			$('video#other'+callIdx).attr('srcObject', call.incomingStream);
 		},
 		onGroupLocalMediaAdded: function(stream) {
-			$('video#me').attr('src', window.URL.createObjectURL(stream));
+			$('video#me').attr('srcObject', stream);
 			$("video#me").prop("volume", 0);
 		},
 		onGroupRemoteCallRemoved: function(call) {
 			var callIdx = remoteCalls.indexOf(call);
 			remoteCalls.splice(callIdx, 1);
 
-			$('video[id^=other]').attr('src', function(index) {
-				$('video#other'+index).attr('src', (remoteCalls[index] || {}).incomingStreamURL || '');
+			$('video[id^=other]').attr('srcObject', function(index) {
+				$('video#other'+index).attr('srcObject', (remoteCalls[index] || {}).incomingStream || '');
 			});
 		},
 	});
