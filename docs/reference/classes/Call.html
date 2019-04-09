@@ -107,7 +107,7 @@
 
 
         <div class="foundat">
-            Defined in: <a href="../files/src_SDK_Call.js.html#l11"><code>src&#x2F;SDK&#x2F;Call.js:11</code></a>
+            Defined in: <a href="../files/src_SDK_Call.js.html#l12"><code>src&#x2F;SDK&#x2F;Call.js:12</code></a>
         </div>
 
             Module: <a href="../modules/SinchInternal.html">SinchInternal</a>
@@ -145,7 +145,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l11"><code>src&#x2F;SDK&#x2F;Call.js:11</code></a>
+        <a href="../files/src_SDK_Call.js.html#l12"><code>src&#x2F;SDK&#x2F;Call.js:12</code></a>
         </p>
 
 
@@ -252,14 +252,6 @@
                             </li>
                             <li class="index-item method">
                                 <a href="#method_hangup">hangup</a>
-
-                            </li>
-                            <li class="index-item method protected">
-                                <a href="#method_initPC">initPC</a>
-
-                            </li>
-                            <li class="index-item method protected">
-                                <a href="#method_injectIce">injectIce</a>
 
                             </li>
                             <li class="index-item method">
@@ -371,7 +363,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l1402"><code>src&#x2F;SDK&#x2F;Call.js:1402</code></a>
+        <a href="../files/src_SDK_Call.js.html#l923"><code>src&#x2F;SDK&#x2F;Call.js:923</code></a>
         </p>
 
 
@@ -419,7 +411,7 @@
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l144"><code>src&#x2F;SDK&#x2F;Call.js:144</code></a>
+        <a href="../files/src_SDK_Call.js.html#l134"><code>src&#x2F;SDK&#x2F;Call.js:134</code></a>
         </p>
 
 
@@ -515,7 +507,7 @@ Listeners can be removed, using the removeEventListener method.</p>
     onProgressing: function(call): { console.log('Call is progressing'); },
     onEstablished: function(call): { 
         console.log('Call is established, hook up audio.');
-        $('audio').attr('src', call.incomingStreamURL); //Ensure audio element has &quot;autoplay&quot; attribute set
+        $('audio').attr('srcObject', call.incomingStream); //Ensure audio element has &quot;autoplay&quot; attribute set
     },
     onCallEnded: function(call): { console.log('Call is ended, cause:', call.getEndCause()); }
 }
@@ -544,7 +536,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l1114"><code>src&#x2F;SDK&#x2F;Call.js:1114</code></a>
+        <a href="../files/src_SDK_Call.js.html#l733"><code>src&#x2F;SDK&#x2F;Call.js:733</code></a>
         </p>
 
 
@@ -586,7 +578,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l1527"><code>src&#x2F;SDK&#x2F;Call.js:1527</code></a>
+        <a href="../files/src_SDK_Call.js.html#l966"><code>src&#x2F;SDK&#x2F;Call.js:966</code></a>
         </p>
 
 
@@ -629,7 +621,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l1084"><code>src&#x2F;SDK&#x2F;Call.js:1084</code></a>
+        <a href="../files/src_SDK_Call.js.html#l709"><code>src&#x2F;SDK&#x2F;Call.js:709</code></a>
         </p>
 
 
@@ -672,7 +664,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l285"><code>src&#x2F;SDK&#x2F;Call.js:285</code></a>
+        <a href="../files/src_SDK_Call.js.html#l271"><code>src&#x2F;SDK&#x2F;Call.js:271</code></a>
         </p>
 
 
@@ -715,7 +707,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l204"><code>src&#x2F;SDK&#x2F;Call.js:204</code></a>
+        <a href="../files/src_SDK_Call.js.html#l190"><code>src&#x2F;SDK&#x2F;Call.js:190</code></a>
         </p>
 
 
@@ -757,7 +749,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l1640"><code>src&#x2F;SDK&#x2F;Call.js:1640</code></a>
+        <a href="../files/src_SDK_Call.js.html#l1079"><code>src&#x2F;SDK&#x2F;Call.js:1079</code></a>
         </p>
 
 
@@ -800,7 +792,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l1659"><code>src&#x2F;SDK&#x2F;Call.js:1659</code></a>
+        <a href="../files/src_SDK_Call.js.html#l1098"><code>src&#x2F;SDK&#x2F;Call.js:1098</code></a>
         </p>
 
 
@@ -843,7 +835,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l1671"><code>src&#x2F;SDK&#x2F;Call.js:1671</code></a>
+        <a href="../files/src_SDK_Call.js.html#l1110"><code>src&#x2F;SDK&#x2F;Call.js:1110</code></a>
         </p>
 
 
@@ -885,7 +877,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l1706"><code>src&#x2F;SDK&#x2F;Call.js:1706</code></a>
+        <a href="../files/src_SDK_Call.js.html#l1145"><code>src&#x2F;SDK&#x2F;Call.js:1145</code></a>
         </p>
 
 
@@ -928,7 +920,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l1716"><code>src&#x2F;SDK&#x2F;Call.js:1716</code></a>
+        <a href="../files/src_SDK_Call.js.html#l1155"><code>src&#x2F;SDK&#x2F;Call.js:1155</code></a>
         </p>
 
 
@@ -971,7 +963,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l1681"><code>src&#x2F;SDK&#x2F;Call.js:1681</code></a>
+        <a href="../files/src_SDK_Call.js.html#l1120"><code>src&#x2F;SDK&#x2F;Call.js:1120</code></a>
         </p>
 
 
@@ -1014,7 +1006,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l1696"><code>src&#x2F;SDK&#x2F;Call.js:1696</code></a>
+        <a href="../files/src_SDK_Call.js.html#l1135"><code>src&#x2F;SDK&#x2F;Call.js:1135</code></a>
         </p>
 
 
@@ -1057,7 +1049,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l1589"><code>src&#x2F;SDK&#x2F;Call.js:1589</code></a>
+        <a href="../files/src_SDK_Call.js.html#l1028"><code>src&#x2F;SDK&#x2F;Call.js:1028</code></a>
         </p>
 
 
@@ -1066,92 +1058,6 @@ call.addEventListener(callListener);</code></pre>
 
     <div class="description">
         <p>End the call, regardless of what state it is in. If the call is an incoming call that has not yet been answered, the call will be reported as denied to the caller.</p>
-
-    </div>
-
-
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                    <p>undefined</p>
-
-            </div>
-        </div>
-
-
-</div>
-<div id="method_initPC" class="method item protected">
-    <h3 class="name"><code>initPC</code></h3>
-
-        <span class="paren">()</span>
-
-        <span class="returns-inline">
-            <span class="type"></span>
-        </span>
-
-
-        <span class="flag protected">protected</span>
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_SDK_Call.js.html#l1130"><code>src&#x2F;SDK&#x2F;Call.js:1130</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>Internal: Initialize peer connection and configure all callbacks. Only used internally.</p>
-
-    </div>
-
-
-        <div class="returns">
-            <h4>Returns:</h4>
-
-            <div class="returns-description">
-                    <p>undefined</p>
-
-            </div>
-        </div>
-
-
-</div>
-<div id="method_injectIce" class="method item protected">
-    <h3 class="name"><code>injectIce</code></h3>
-
-        <span class="paren">()</span>
-
-        <span class="returns-inline">
-            <span class="type"></span>
-        </span>
-
-
-        <span class="flag protected">protected</span>
-
-
-
-
-
-    <div class="meta">
-                <p>
-                Defined in
-        <a href="../files/src_SDK_Call.js.html#l710"><code>src&#x2F;SDK&#x2F;Call.js:710</code></a>
-        </p>
-
-
-
-    </div>
-
-    <div class="description">
-        <p>Internal: Internal method to inject ICE in PC. Only used internally.</p>
 
     </div>
 
@@ -1185,7 +1091,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l1740"><code>src&#x2F;SDK&#x2F;Call.js:1740</code></a>
+        <a href="../files/src_SDK_Call.js.html#l1186"><code>src&#x2F;SDK&#x2F;Call.js:1186</code></a>
         </p>
 
 
@@ -1228,7 +1134,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l473"><code>src&#x2F;SDK&#x2F;Call.js:473</code></a>
+        <a href="../files/src_SDK_Call.js.html#l307"><code>src&#x2F;SDK&#x2F;Call.js:307</code></a>
         </p>
 
 
@@ -1271,7 +1177,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l1018"><code>src&#x2F;SDK&#x2F;Call.js:1018</code></a>
+        <a href="../files/src_SDK_Call.js.html#l649"><code>src&#x2F;SDK&#x2F;Call.js:649</code></a>
         </p>
 
 
@@ -1314,7 +1220,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l976"><code>src&#x2F;SDK&#x2F;Call.js:976</code></a>
+        <a href="../files/src_SDK_Call.js.html#l603"><code>src&#x2F;SDK&#x2F;Call.js:603</code></a>
         </p>
 
 
@@ -1357,7 +1263,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l1055"><code>src&#x2F;SDK&#x2F;Call.js:1055</code></a>
+        <a href="../files/src_SDK_Call.js.html#l680"><code>src&#x2F;SDK&#x2F;Call.js:680</code></a>
         </p>
 
 
@@ -1400,7 +1306,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l934"><code>src&#x2F;SDK&#x2F;Call.js:934</code></a>
+        <a href="../files/src_SDK_Call.js.html#l558"><code>src&#x2F;SDK&#x2F;Call.js:558</code></a>
         </p>
 
 
@@ -1443,7 +1349,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l680"><code>src&#x2F;SDK&#x2F;Call.js:680</code></a>
+        <a href="../files/src_SDK_Call.js.html#l443"><code>src&#x2F;SDK&#x2F;Call.js:443</code></a>
         </p>
 
 
@@ -1486,7 +1392,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l785"><code>src&#x2F;SDK&#x2F;Call.js:785</code></a>
+        <a href="../files/src_SDK_Call.js.html#l464"><code>src&#x2F;SDK&#x2F;Call.js:464</code></a>
         </p>
 
 
@@ -1529,7 +1435,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l898"><code>src&#x2F;SDK&#x2F;Call.js:898</code></a>
+        <a href="../files/src_SDK_Call.js.html#l532"><code>src&#x2F;SDK&#x2F;Call.js:532</code></a>
         </p>
 
 
@@ -1572,7 +1478,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l606"><code>src&#x2F;SDK&#x2F;Call.js:606</code></a>
+        <a href="../files/src_SDK_Call.js.html#l397"><code>src&#x2F;SDK&#x2F;Call.js:397</code></a>
         </p>
 
 
@@ -1621,7 +1527,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l1570"><code>src&#x2F;SDK&#x2F;Call.js:1570</code></a>
+        <a href="../files/src_SDK_Call.js.html#l1009"><code>src&#x2F;SDK&#x2F;Call.js:1009</code></a>
         </p>
 
 
@@ -1682,7 +1588,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l1268"><code>src&#x2F;SDK&#x2F;Call.js:1268</code></a>
+        <a href="../files/src_SDK_Call.js.html#l840"><code>src&#x2F;SDK&#x2F;Call.js:840</code></a>
         </p>
 
 
@@ -1725,7 +1631,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l552"><code>src&#x2F;SDK&#x2F;Call.js:552</code></a>
+        <a href="../files/src_SDK_Call.js.html#l350"><code>src&#x2F;SDK&#x2F;Call.js:350</code></a>
         </p>
 
 
@@ -1768,7 +1674,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l250"><code>src&#x2F;SDK&#x2F;Call.js:250</code></a>
+        <a href="../files/src_SDK_Call.js.html#l236"><code>src&#x2F;SDK&#x2F;Call.js:236</code></a>
         </p>
 
 
@@ -1816,7 +1722,7 @@ call.addEventListener(callListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l172"><code>src&#x2F;SDK&#x2F;Call.js:172</code></a>
+        <a href="../files/src_SDK_Call.js.html#l162"><code>src&#x2F;SDK&#x2F;Call.js:162</code></a>
         </p>
 
 
@@ -1890,7 +1796,7 @@ call.removeEventListener(myListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l1726"><code>src&#x2F;SDK&#x2F;Call.js:1726</code></a>
+        <a href="../files/src_SDK_Call.js.html#l1165"><code>src&#x2F;SDK&#x2F;Call.js:1165</code></a>
         </p>
 
 
@@ -1950,7 +1856,7 @@ call.removeEventListener(myListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l224"><code>src&#x2F;SDK&#x2F;Call.js:224</code></a>
+        <a href="../files/src_SDK_Call.js.html#l210"><code>src&#x2F;SDK&#x2F;Call.js:210</code></a>
         </p>
 
 
@@ -1993,7 +1899,7 @@ call.removeEventListener(myListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l237"><code>src&#x2F;SDK&#x2F;Call.js:237</code></a>
+        <a href="../files/src_SDK_Call.js.html#l223"><code>src&#x2F;SDK&#x2F;Call.js:223</code></a>
         </p>
 
 
@@ -2036,7 +1942,7 @@ call.removeEventListener(myListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l186"><code>src&#x2F;SDK&#x2F;Call.js:186</code></a>
+        <a href="../files/src_SDK_Call.js.html#l176"><code>src&#x2F;SDK&#x2F;Call.js:176</code></a>
         </p>
 
 
@@ -2078,7 +1984,7 @@ call.removeEventListener(myListener);</code></pre>
     <div class="meta">
                 <p>
                 Defined in
-        <a href="../files/src_SDK_Call.js.html#l1763"><code>src&#x2F;SDK&#x2F;Call.js:1763</code></a>
+        <a href="../files/src_SDK_Call.js.html#l1209"><code>src&#x2F;SDK&#x2F;Call.js:1209</code></a>
         </p>
 
 

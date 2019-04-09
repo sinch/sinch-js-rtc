@@ -107,37 +107,43 @@ $('button#loginUser').on('click', function(event) {
 		localStorage[sessionName] = JSON.stringify(sinchClient.getSession());
 	}).fail(handleError);
 });
+/*** Create audio elements for progresstone and incoming sound */
+const audioProgress = document.createElement('audio');
+const audioRingTone = document.createElement('audio');
+const audioIncoming = document.createElement('audio');
 
 /*** Define listener for managing calls ***/
 
 var callListeners = {
 	onCallProgressing: function(call) {
-		$('audio#ringback').prop("currentTime", 0);
-		$('audio#ringback').trigger("play");
+		audioProgress.src = 'style/ringback.wav';
+		audioProgress.loop = true;
+		audioProgress.play();
 
 		//Report call stats
 		$('div#callLog').append('<div id="stats">Ringing...</div>');
 	},
 	onCallEstablished: function(call) {
-		$('audio#incoming').attr('src', call.incomingStreamURL);
-		$('audio#ringback').trigger("pause");
-		$('audio#ringtone').trigger("pause");
+		audioIncoming.srcObject = call.incomingStream;
+		audioIncoming.play();
+		audioProgress.pause();
+		audioRingTone.pause();
 
 		//Report call stats
 		var callDetails = call.getDetails();
-		$('div#callLog').append('<div id="stats">Answered at: '+(callDetails.establishedTime)+'</div>');
+		$('div#callLog').append('<div id="stats">Answered at: '+(callDetails.establishedTime && new Date(callDetails.establishedTime))+'</div>');
 	},
 	onCallEnded: function(call) {
-		$('audio#ringback').trigger("pause");
-		$('audio#ringtone').trigger("pause");
-		$('audio#incoming').attr('src', '');
+		audioProgress.pause();
+		audioRingTone.pause();
+		audioIncoming.srcObject = null;
 
 		$('button').removeClass('incall');
 		$('button').removeClass('callwaiting');
 
 		//Report call stats
 		var callDetails = call.getDetails();
-		$('div#callLog').append('<div id="stats">Ended: '+callDetails.endedTime+'</div>');
+		$('div#callLog').append('<div id="stats">Ended: '+new Date(callDetails.endedTime)+'</div>');
 		$('div#callLog').append('<div id="stats">Duration (s): '+callDetails.duration+'</div>');
 		$('div#callLog').append('<div id="stats">End cause: '+call.getEndCause()+'</div>');
 		if(call.error) {
@@ -157,8 +163,9 @@ var call;
 callClient.addEventListener({
   onIncomingCall: function(incomingCall) {
 	//Play some groovy tunes 
-	$('audio#ringtone').prop("currentTime", 0);
-	$('audio#ringtone').trigger("play");
+	audioRingTone.src = 'style/phone_ring.wav';
+	audioRingTone.loop = true;
+	audioRingTone.play();
 
 	//Print statistics
 	$('div#callLog').append('<div id="title">Incoming call from ' + incomingCall.fromId + '</div>');

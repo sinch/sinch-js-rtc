@@ -532,7 +532,7 @@ var call = callClient.callConference('some-conference-uuid');
 var callListener = {
     onProgressing: function(call): { }, //Call is progressing
     onEstablished: function(call): { //Call is established
-        $('audio').attr('src', call.incomingStreamURL); //Add audio stream to audio element.
+        $('audio').attr('srcObject', call.incomingStream); //Add audio stream to audio element.
         //NOTE: Remember to ensure audio element play back audio or has the &quot;autoplay&quot; attribute (see sample app)
     },
     onCallEnded: function(call): { } //Call is ended
@@ -620,10 +620,10 @@ var call = callClient.callGroup('someGroupName'); //When sinchClient has started
 
 groupCall.addEventListener({
     onGroupLocalMediaAdded: function(stream) { // Local media stream is available for consumption
-        $('video#me').attr('src', window.URL.createObjectURL(stream));
+        $('video#me').attr('srcObject', stream);
     },
     onGroupRemoteCallAdded: function(call) { // A new participant is ready
-        $('video#other').attr('src', call.incomingStreamURL);
+        $('video#other').attr('srcObject', call.incomingStream);
     }, 
     onGroupRemoteCallRemoved: function(call) {
         $('video#other').attr('src', '');
@@ -740,7 +740,7 @@ var call = callClient.callPhoneNumber('+46000000000');
 var callListener = {
     onProgressing: function(call): { }, //Call is progressing
     onEstablished: function(call): { //Call is established
-        $('audio').attr('src', call.incomingStreamURL); //Add audio stream to audio element.
+        $('audio').attr('srcObject', call.incomingStream); //Add audio stream to audio element.
         //NOTE: Remember to ensure audio element play back audio or has the &quot;autoplay&quot; attribute (see sample app)
     },
     onCallEnded: function(call): { } //Call is ended
@@ -858,7 +858,7 @@ var call = callClient.callSip('alice@example.com');
 var callListener = {
     onProgressing: function(call): { }, //Call is progressing
     onEstablished: function(call): { //Call is established
-        $('audio').attr('src', call.incomingStreamURL); //Add audio stream to audio element.
+        $('audio').attr('srcObject', call.incomingStream); //Add audio stream to audio element.
         //NOTE: Remember to ensure audio element play back audio or has the &quot;autoplay&quot; attribute (see sample app)
     },
     onCallEnded: function(call): { } //Call is ended
@@ -976,7 +976,7 @@ var call = callClient.callUser('magnus');
 var callListener = {
     onProgressing: function(call): { }, //Call is progressing
     onEstablished: function(call): { //Call is established
-        $('audio').attr('src', call.incomingStreamURL); //Add audio stream to audio element.
+        $('audio').attr('srcObject', call.incomingStream); //Add audio stream to audio element.
         //NOTE: Remember to ensure audio element play back audio or has the &quot;autoplay&quot; attribute (see sample app)
     },
     onCallEnded: function(call): { } //Call is ended

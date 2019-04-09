@@ -109,32 +109,37 @@ $('button#loginUser').on('click', function(event) {
 	}).fail(handleError);
 });
 
-/*** Define listener for managing calls ***/
+/*** Create audio elements for progresstone and incoming sound */
+const audioProgress = document.createElement('audio');
+const audioIncoming = document.createElement('audio');
 
+/*** Define listener for managing calls ***/
 var callListeners = {
 	onCallProgressing: function(call) {
-		$('audio#ringback').prop("currentTime", 0);
-		$('audio#ringback').trigger("play");
+		audioProgress.src = 'style/ringback.wav';
+		audioProgress.loop = true;
+		audioProgress.play();
 		$('div#callLog').append('<div id="stats">Ringing...</div>');
 	},
 	onCallEstablished: function(call) {
-		$('audio#incoming').attr('src', call.incomingStreamURL);
-		$('audio#ringback').trigger("pause");
+		audioIncoming.srcObject = call.incomingStream;
+		audioIncoming.play();
+		audioProgress.pause();
 
 		//Report call stats
 		var callDetails = call.getDetails();
-		$('div#callLog').append('<div id="stats">Answered at: '+(callDetails.establishedTime)+'</div>');
+		$('div#callLog').append('<div id="stats">Answered at: '+(callDetails.establishedTime && new Date(callDetails.establishedTime))+'</div>');
 	},
 	onCallEnded: function(call) {
-		$('audio#ringback').trigger("pause");
-		$('audio#incoming').attr('src', '');
+		audioProgress.pause();
+		audioIncoming.srcObject = null;
 
 		$('button').removeClass('incall');
 		$('input#phoneNumber').removeAttr('disabled');
 
 		//Report call stats
 		var callDetails = call.getDetails();
-		$('div#callLog').append('<div id="stats">Ended: '+callDetails.endedTime+'</div>');
+		$('div#callLog').append('<div id="stats">Ended: '+new Date(callDetails.endedTime)+'</div>');
 		$('div#callLog').append('<div id="stats">Duration (s): '+callDetails.duration+'</div>');
 		$('div#callLog').append('<div id="stats">End cause: '+call.getEndCause()+'</div>');
 		if(call.error) {

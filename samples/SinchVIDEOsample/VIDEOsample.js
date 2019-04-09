@@ -3,7 +3,7 @@ var global_username = '';
 
 /*** After successful authentication, show user interface ***/
 
-var showUI = function() {
+var showUI = function () {
 	$('div#call').show();
 	$('form#userForm').css('display', 'none');
 	$('div#userInfo').css('display', 'inline');
@@ -15,7 +15,7 @@ var showUI = function() {
 
 /*** If no valid session could be started, show the login interface ***/
 
-var showLoginUI = function() {
+var showLoginUI = function () {
 	$('form#userForm').css('display', 'inline');
 }
 
@@ -24,10 +24,10 @@ var showLoginUI = function() {
 
 sinchClient = new SinchClient({
 	applicationKey: 'MY_APPLICATION_KEY',
-	capabilities: {calling: true, video: true},
+	capabilities: { calling: true, video: true },
 	supportActiveConnection: true,
 	//Note: For additional loging, please uncomment the three rows below
-	onLogMessage: function(message) {
+	onLogMessage: function (message) {
 		console.log(message);
 	},
 });
@@ -42,16 +42,16 @@ var sessionName = 'sinchSessionVIDEO-' + sinchClient.applicationKey;
 /*** Check for valid session. NOTE: Deactivated by default to allow multiple browser-tabs with different users. ***/
 
 var sessionObj = JSON.parse(localStorage[sessionName] || '{}');
-if(sessionObj.userId) { 
+if (sessionObj.userId) {
 	sinchClient.start(sessionObj)
-		.then(function() {
+		.then(function () {
 			global_username = sessionObj.userId;
 			//On success, show the UI
 			showUI();
 			//Store session & manage in some way (optional)
 			localStorage[sessionName] = JSON.stringify(sinchClient.getSession());
 		})
-		.fail(function() {
+		.fail(function () {
 			//No valid session, take suitable action, such as prompting for username/password, then start sinchClient again with login object
 			showLoginUI();
 		});
@@ -63,7 +63,7 @@ else {
 
 /*** Create user and start sinch for that user and save session in localStorage ***/
 
-$('button#createUser').on('click', function(event) {
+$('button#createUser').on('click', function (event) {
 	event.preventDefault();
 	$('button#loginUser').attr('disabled', true);
 	$('button#createUser').attr('disabled', true);
@@ -74,9 +74,9 @@ $('button#createUser').on('click', function(event) {
 	signUpObj.password = $('input#password').val();
 
 	//Use Sinch SDK to create a new user
-	sinchClient.newUser(signUpObj, function(ticket) {
+	sinchClient.newUser(signUpObj, function (ticket) {
 		//On success, start the client
-		sinchClient.start(ticket, function() {
+		sinchClient.start(ticket, function () {
 			global_username = signUpObj.username;
 			//On success, show the UI
 			showUI();
@@ -90,7 +90,7 @@ $('button#createUser').on('click', function(event) {
 
 /*** Login user and save session in localStorage ***/
 
-$('button#loginUser').on('click', function(event) {
+$('button#loginUser').on('click', function (event) {
 	event.preventDefault();
 	$('button#loginUser').attr('disabled', true);
 	$('button#createUser').attr('disabled', true);
@@ -101,7 +101,7 @@ $('button#loginUser').on('click', function(event) {
 	signInObj.password = $('input#password').val();
 
 	//Use Sinch SDK to authenticate a user
-	sinchClient.start(signInObj, function() {
+	sinchClient.start(signInObj, function () {
 		global_username = signInObj.username;
 		//On success, show the UI
 		showUI();
@@ -111,43 +111,48 @@ $('button#loginUser').on('click', function(event) {
 	}).fail(handleError);
 });
 
-/*** Define listener for managing calls ***/
+/*** Create audio elements for progresstone and incoming sound */
+const audioProgress = document.createElement('audio');
+const audioRingTone = document.createElement('audio');
+const videoIncoming = document.getElementById('videoincoming');
+const videoOutgoing = document.getElementById('videooutgoing');
 
+/*** Define listener for managing calls ***/
 var callListeners = {
-	onCallProgressing: function(call) {
-		$('audio#ringback').prop("currentTime",0);
-		$('audio#ringback').trigger("play");
+	onCallProgressing: function (call) {
+		audioProgress.src = 'style/ringback.wav';
+		audioProgress.loop = true;
+		audioProgress.play();
+		videoOutgoing.srcObject = call.outgoingStream;
 
 		//Report call stats
 		$('div#callLog').append('<div id="stats">Ringing...</div>');
 	},
-	onCallEstablished: function(call) {
-		$('video#outgoing').attr('src', call.outgoingStreamURL);
-		$('video#incoming').attr('src', call.incomingStreamURL);
-		$('audio#ringback').trigger("pause");
-		$('audio#ringtone').trigger("pause");
-
+	onCallEstablished: function (call) {
+		videoOutgoing.srcObject = call.outgoingStream;
+		videoIncoming.srcObject = call.incomingStream;
+		audioProgress.pause();
+		audioRingTone.pause();
 		//Report call stats
 		var callDetails = call.getDetails();
-		$('div#callLog').append('<div id="stats">Answered at: '+(callDetails.establishedTime && new Date(callDetails.establishedTime))+'</div>');
+		$('div#callLog').append('<div id="stats">Answered at: ' + (callDetails.establishedTime && new Date(callDetails.establishedTime)) + '</div>');
 	},
-	onCallEnded: function(call) {
-		$('audio#ringback').trigger("pause");
-		$('audio#ringtone').trigger("pause");
-
-		$('video#outgoing').attr('src', '');
-		$('video#incoming').attr('src', '');
+	onCallEnded: function (call) {
+		audioProgress.pause();
+		audioRingTone.pause();
+		videoIncoming.srcObject = null;
+		videoOutgoing.srcObject = null;
 
 		$('button').removeClass('incall');
 		$('button').removeClass('callwaiting');
 
 		//Report call stats
 		var callDetails = call.getDetails();
-		$('div#callLog').append('<div id="stats">Ended: '+new Date(callDetails.endedTime)+'</div>');
-		$('div#callLog').append('<div id="stats">Duration (s): '+callDetails.duration+'</div>');
-		$('div#callLog').append('<div id="stats">End cause: '+call.getEndCause()+'</div>');
-		if(call.error) {
-			$('div#callLog').append('<div id="stats">Failure message: '+call.error.message+'</div>');
+		$('div#callLog').append('<div id="stats">Ended: ' + new Date(callDetails.endedTime) + '</div>');
+		$('div#callLog').append('<div id="stats">Duration (s): ' + callDetails.duration + '</div>');
+		$('div#callLog').append('<div id="stats">End cause: ' + call.getEndCause() + '</div>');
+		if (call.error) {
+			$('div#callLog').append('<div id="stats">Failure message: ' + call.error.message + '</div>');
 		}
 	}
 }
@@ -155,43 +160,44 @@ var callListeners = {
 /*** Set up callClient and define how to handle incoming calls ***/
 
 var callClient = sinchClient.getCallClient();
-callClient.initStream().then(function() { // Directly init streams, in order to force user to accept use of media sources at a time we choose
+callClient.initStream().then(function () { // Directly init streams, in order to force user to accept use of media sources at a time we choose
 	$('div.frame').not('#chromeFileWarning').show();
-}); 
+});
 var call;
 
 callClient.addEventListener({
-  onIncomingCall: function(incomingCall) {
-	//Play some groovy tunes 
-	$('audio#ringtone').prop("currentTime",0);
-	$('audio#ringtone').trigger("play");
+	onIncomingCall: function (incomingCall) {
+		//Play some groovy tunes 
+		audioRingTone.src = 'style/phone_ring.wav';
+		audioRingTone.loop = true;
+		audioRingTone.play();
 
-	//Print statistics
-	$('div#callLog').append('<div id="title">Incoming call from ' + incomingCall.fromId + '</div>');
-	$('div#callLog').append('<div id="stats">Ringing...</div>');
-	$('button').addClass('incall');
+		//Print statistics
+		$('div#callLog').append('<div id="title">Incoming call from ' + incomingCall.fromId + '</div>');
+		$('div#callLog').append('<div id="stats">Ringing...</div>');
+		$('button').addClass('incall');
 
-	//Manage the call object
-    call = incomingCall;
-    call.addEventListener(callListeners);
-	$('button').addClass('callwaiting');
+		//Manage the call object
+		call = incomingCall;
+		call.addEventListener(callListeners);
+		$('button').addClass('callwaiting');
 
-	//call.answer(); //Use to test auto answer
-	//call.hangup();
-  }
+		//call.answer(); //Use to test auto answer
+		//call.hangup();
+	}
 });
 
-$('button#answer').click(function(event) {
+$('button#answer').click(function (event) {
 	event.preventDefault();
 
-	if($(this).hasClass("callwaiting")) {
+	if ($(this).hasClass("callwaiting")) {
 		clearError();
 
 		try {
 			call.answer();
 			$('button').removeClass('callwaiting');
 		}
-		catch(error) {
+		catch (error) {
 			handleError(error);
 		}
 	}
@@ -199,15 +205,15 @@ $('button#answer').click(function(event) {
 
 /*** Make a new data call ***/
 
-$('button#call').click(function(event) {
+$('button#call').click(function (event) {
 	event.preventDefault();
 
-	if(!$(this).hasClass("incall") && !$(this).hasClass("callwaiting")) {
+	if (!$(this).hasClass("incall") && !$(this).hasClass("callwaiting")) {
 		clearError();
 
 		$('button').addClass('incall');
 
-		$('div#callLog').append('<div id="title">Calling ' + $('input#callUserName').val()+'</div>');
+		$('div#callLog').append('<div id="title">Calling ' + $('input#callUserName').val() + '</div>');
 
 		console.log('Placing call to: ' + $('input#callUserName').val());
 		call = callClient.callUser($('input#callUserName').val());
@@ -218,12 +224,12 @@ $('button#call').click(function(event) {
 
 /*** Hang up a call ***/
 
-$('button#hangup').click(function(event) {
+$('button#hangup').click(function (event) {
 	event.preventDefault();
 
-	if($(this).hasClass("incall")) {
+	if ($(this).hasClass("incall")) {
 		clearError();
-		
+
 		console.info('Will request hangup..');
 
 		call && call.hangup();
@@ -232,7 +238,7 @@ $('button#hangup').click(function(event) {
 
 /*** Log out user ***/
 
-$('button#logOut').on('click', function(event) {
+$('button#logOut').on('click', function (event) {
 	event.preventDefault();
 	clearError();
 
@@ -246,7 +252,7 @@ $('button#logOut').on('click', function(event) {
 	//Allow re-login
 	$('button#loginUser').attr('disabled', false);
 	$('button#createUser').attr('disabled', false);
-	
+
 	//Reload page.
 	window.location.reload();
 });
@@ -254,7 +260,7 @@ $('button#logOut').on('click', function(event) {
 
 /*** Handle errors, report them and re-enable UI ***/
 
-var handleError = function(error) {
+var handleError = function (error) {
 	//Enable buttons
 	$('button#createUser').prop('disabled', false);
 	$('button#loginUser').prop('disabled', false);
@@ -265,12 +271,12 @@ var handleError = function(error) {
 }
 
 /** Always clear errors **/
-var clearError = function() {
+var clearError = function () {
 	$('div.error').hide();
 }
 
 /** Chrome check for file - This will warn developers of using file: protocol when testing WebRTC **/
-if(location.protocol == 'file:' && navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
+if (location.protocol == 'file:' && navigator.userAgent.toLowerCase().indexOf('chrome') > -1) {
 	$('div#chromeFileWarning').show();
 }
 
