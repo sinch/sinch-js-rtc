@@ -9,6 +9,7 @@ var showUI = function() {
 	$('div#userInfo').css('display', 'inline');
 	$('h3#login').css('display', 'none');
 	$('span#username').text(global_username);
+	$('div.frame').not('#chromeFileWarning').show();
 }
 
 
@@ -210,6 +211,7 @@ var handleError = function(error) {
 
 	//Show error
 	$('div.error').text(error.message);
+	$('div.frame').not('#chromeFileWarning').show();
 	$('div.error').show();
 }
 
