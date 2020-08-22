@@ -48,6 +48,7 @@ div.frame.small {
 	border-width: 0px 1px 0px 0px;
 	border-color: #B0B0B0;
 	padding: 0px;
+	display: inline;
 }
 
 div.frame.big {
