@@ -6,6 +6,8 @@ For REST API helper libraries see node modules sinch-rest-api or sinch-request (
 
 Copyright 2014-2017, Sinch AB (reg. no 556969-5397)
 
+**NOTE:** This repository is archived. 
+
 
 Features
 ========
